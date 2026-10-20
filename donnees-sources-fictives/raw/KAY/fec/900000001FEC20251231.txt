@@ -1,0 +1,648 @@
+JournalCode|JournalLib|EcritureNum|EcritureDate|CompteNum|CompteLib|CompAuxNum|CompAuxLib|PieceRef|PieceDate|EcritureLib|Debit|Credit|EcritureLet|DateLet|ValidDate|Montantdevise|Idevise
+AC|Achats|AC000001|20250101|6155000|Entretien et réparations véhicules|||FAKAY000144|20250101|Facture entretien et réparations véhicules|64500,76|0,00|||20250101||
+AC|Achats|AC000001|20250101|4456600|TVA déductible|||FAKAY000144|20250101|Facture entretien et réparations véhicules|5482,56|0,00|||20250101||
+AC|Achats|AC000001|20250101|4010000|Fournisseurs|F0054|Fournisseur 0054|FAKAY000144|20250101|Facture entretien et réparations véhicules|0,00|69983,32|||20250101||
+AC|Achats|AC000002|20250102|6064000|Fournitures administratives|||FAKAY000036|20250102|Facture fournitures administratives|3053,60|0,00|||20250102||
+AC|Achats|AC000002|20250102|4456600|TVA déductible|||FAKAY000036|20250102|Facture fournitures administratives|259,56|0,00|||20250102||
+AC|Achats|AC000002|20250102|4010000|Fournisseurs|F0033|Fournisseur 0033|FAKAY000036|20250102|Facture fournitures administratives|0,00|3313,16|||20250102||
+AC|Achats|AC000003|20250102|6260000|Frais postaux et télécommunications|||FAKAY000240|20250102|Facture frais postaux et télécommunications|3900,20|0,00|||20250102||
+AC|Achats|AC000003|20250102|4456600|TVA déductible|||FAKAY000240|20250102|Facture frais postaux et télécommunications|331,52|0,00|||20250102||
+AC|Achats|AC000003|20250102|4010000|Fournisseurs|F0041|Fournisseur 0041|FAKAY000240|20250102|Facture frais postaux et télécommunications|0,00|4231,72|||20250102||
+AC|Achats|AC000004|20250106|6270000|Services bancaires|||FAKAY000276|20250106|Facture services bancaires|1960,94|0,00|||20250106||
+AC|Achats|AC000004|20250106|4010000|Fournisseurs|F0013|Fournisseur 0013|FAKAY000276|20250106|Facture services bancaires|0,00|1960,94|||20250106||
+AC|Achats|AC000005|20250106|62512000|Hôtels, taxis et repas|||FAKAY000336|20250106|Facture hôtels, taxis et repas|2439,14|0,00|||20250106||
+AC|Achats|AC000005|20250106|4456600|TVA déductible|||FAKAY000336|20250106|Facture hôtels, taxis et repas|207,33|0,00|||20250106||
+AC|Achats|AC000005|20250106|4010000|Fournisseurs|F0057|Fournisseur 0057|FAKAY000336|20250106|Facture hôtels, taxis et repas|0,00|2646,47|||20250106||
+AC|Achats|AC000006|20250109|6288000|Prestations diverses portuaires|||FAKAY000300|20250109|Facture prestations diverses portuaires|42750,37|0,00|||20250109||
+AC|Achats|AC000006|20250109|4456600|TVA déductible|||FAKAY000300|20250109|Facture prestations diverses portuaires|3633,78|0,00|||20250109||
+AC|Achats|AC000006|20250109|4010000|Fournisseurs|F0042|Fournisseur 0042|FAKAY000300|20250109|Facture prestations diverses portuaires|0,00|46384,15|||20250109||
+AC|Achats|AC000007|20250112|6110000|Sous-traitance transport|||FAKAY000072|20250112|Facture sous-traitance transport|84935,05|0,00|||20250112||
+AC|Achats|AC000007|20250112|4456600|TVA déductible|||FAKAY000072|20250112|Facture sous-traitance transport|7219,48|0,00|||20250112||
+AC|Achats|AC000007|20250112|4010000|Fournisseurs|F0016|Fournisseur 0016|FAKAY000072|20250112|Facture sous-traitance transport|0,00|92154,53|||20250112||
+AC|Achats|AC000008|20250116|6132000|Locations immobilières|||FAKAY000108|20250116|Facture locations immobilières|29660,96|0,00|||20250116||
+AC|Achats|AC000008|20250116|4456600|TVA déductible|||FAKAY000108|20250116|Facture locations immobilières|2521,18|0,00|||20250116||
+AC|Achats|AC000008|20250116|4010000|Fournisseurs|F0021|Fournisseur 0021|FAKAY000108|20250116|Facture locations immobilières|0,00|32182,14|||20250116||
+AC|Achats|AC000009|20250119|6160000|Primes d'assurance|||FAKAY000180|20250119|Facture primes d'assurance|17247,06|0,00|||20250119||
+AC|Achats|AC000009|20250119|4010000|Fournisseurs|F0006|Fournisseur 0006|FAKAY000180|20250119|Facture primes d'assurance|0,00|17247,06|||20250119||
+AC|Achats|AC000010|20250120|6063000|Fournitures d'entretien et petit équipement|||FAKAY000000|20250120|Facture fournitures d'entretien et petit équipement|22597,51|0,00|||20250120||
+AC|Achats|AC000010|20250120|4456600|TVA déductible|||FAKAY000000|20250120|Facture fournitures d'entretien et petit équipement|1920,79|0,00|||20250120||
+AC|Achats|AC000010|20250120|4010000|Fournisseurs|F0025|Fournisseur 0025|FAKAY000000|20250120|Facture fournitures d'entretien et petit équipement|0,00|24518,30|||20250120||
+AC|Achats|AC000011|20250121|6251100|Billets d'avion|||FAKAY000483|20250121|Facture billets d'avion|8033,30|0,00|||20250121||
+AC|Achats|AC000011|20250121|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000483|20250121|Facture billets d'avion|0,00|8033,30|||20250121||
+AC|Achats|AC000012|20250128|6226000|Honoraires|||FAKAY000204|20250128|Facture honoraires|8897,40|0,00|||20250128||
+AC|Achats|AC000012|20250128|4456600|TVA déductible|||FAKAY000204|20250128|Facture honoraires|756,28|0,00|||20250128||
+AC|Achats|AC000012|20250128|4010000|Fournisseurs|F0004|Fournisseur 0004|FAKAY000204|20250128|Facture honoraires|0,00|9653,68|||20250128||
+AC|Achats|AC000013|20250131|6061100|Électricité|||FAKAY000372|20250131|Facture électricité|7685,34|0,00|||20250131||
+AC|Achats|AC000013|20250131|4456600|TVA déductible|||FAKAY000372|20250131|Facture électricité|653,25|0,00|||20250131||
+AC|Achats|AC000013|20250131|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000372|20250131|Facture électricité|0,00|8338,59|||20250131||
+AC|Achats|AC000014|20250131|6061100|Électricité|||FAKAY000408|20250131|Facture électricité|1628,26|0,00|||20250131||
+AC|Achats|AC000014|20250131|4456600|TVA déductible|||FAKAY000408|20250131|Facture électricité|138,40|0,00|||20250131||
+AC|Achats|AC000014|20250131|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000408|20250131|Facture électricité|0,00|1766,66|||20250131||
+AC|Achats|AC000015|20250131|6061100|Électricité|||FAKAY000444|20250131|Facture électricité|4625,68|0,00|||20250131||
+AC|Achats|AC000015|20250131|4456600|TVA déductible|||FAKAY000444|20250131|Facture électricité|393,18|0,00|||20250131||
+AC|Achats|AC000015|20250131|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000444|20250131|Facture électricité|0,00|5018,86|||20250131||
+AC|Achats|AC000016|20250131|6062200|Carburants|||FAKAY000480|20250131|Facture carburants|97821,78|0,00|||20250131||
+AC|Achats|AC000016|20250131|4456600|TVA déductible|||FAKAY000480|20250131|Facture carburants|8314,85|0,00|||20250131||
+AC|Achats|AC000016|20250131|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000480|20250131|Facture carburants|0,00|106136,63|||20250131||
+BQ|Banque|BQ000001|20250131|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR01|20250131|Règlements fournisseurs|1851158,51|0,00|||20250131||
+BQ|Banque|BQ000001|20250131|5120000|Banque|||VIR01|20250131|Règlements fournisseurs|0,00|1851158,51|||20250131||
+PA|Paie|PA000001|20250131|6411000|Salaires|||PAIE01|20250131|Salaires du mois|806000,00|0,00|||20250131||
+PA|Paie|PA000001|20250131|6451000|Cotisations URSSAF|||PAIE01|20250131|Salaires du mois|338520,00|0,00|||20250131||
+PA|Paie|PA000001|20250131|4210000|Personnel - rémunérations dues|||PAIE01|20250131|Salaires du mois|0,00|806000,00|||20250131||
+PA|Paie|PA000001|20250131|4310000|URSSAF|||PAIE01|20250131|Salaires du mois|0,00|338520,00|||20250131||
+VE|Ventes|VE000001|20250131|4110000|Clients|C0001|Clients divers|VT01|20250131|Ventes du mois|3347511,64|0,00|||20250131||
+VE|Ventes|VE000001|20250131|7060000|Prestations de services|||VT01|20250131|Ventes du mois|0,00|3085264,18|||20250131||
+VE|Ventes|VE000001|20250131|4457100|TVA collectée|||VT01|20250131|Ventes du mois|0,00|262247,46|||20250131||
+AC|Achats|AC000017|20250202|6110000|Sous-traitance transport|||FAKAY000075|20250202|Facture sous-traitance transport|78636,04|0,00|||20250202||
+AC|Achats|AC000017|20250202|4456600|TVA déductible|||FAKAY000075|20250202|Facture sous-traitance transport|6684,06|0,00|||20250202||
+AC|Achats|AC000017|20250202|4010000|Fournisseurs|F0004|Fournisseur 0004|FAKAY000075|20250202|Facture sous-traitance transport|0,00|85320,10|||20250202||
+AC|Achats|AC000018|20250206|6155000|Entretien et réparations véhicules|||FAKAY000147|20250206|Facture entretien et réparations véhicules|64060,06|0,00|||20250206||
+AC|Achats|AC000018|20250206|4456600|TVA déductible|||FAKAY000147|20250206|Facture entretien et réparations véhicules|5445,10|0,00|||20250206||
+AC|Achats|AC000018|20250206|4010000|Fournisseurs|F0039|Fournisseur 0039|FAKAY000147|20250206|Facture entretien et réparations véhicules|0,00|69505,16|||20250206||
+AC|Achats|AC000019|20250210|6270000|Services bancaires|||FAKAY000278|20250210|Facture services bancaires|1541,20|0,00|||20250210||
+AC|Achats|AC000019|20250210|4010000|Fournisseurs|F0033|Fournisseur 0033|FAKAY000278|20250210|Facture services bancaires|0,00|1541,20|||20250210||
+AC|Achats|AC000020|20250212|6063000|Fournitures d'entretien et petit équipement|||FAKAY000003|20250212|Facture fournitures d'entretien et petit équipement|27175,13|0,00|||20250212||
+AC|Achats|AC000020|20250212|4456600|TVA déductible|||FAKAY000003|20250212|Facture fournitures d'entretien et petit équipement|2309,89|0,00|||20250212||
+AC|Achats|AC000020|20250212|4010000|Fournisseurs|F0018|Fournisseur 0018|FAKAY000003|20250212|Facture fournitures d'entretien et petit équipement|0,00|29485,02|||20250212||
+AC|Achats|AC000021|20250212|6260000|Frais postaux et télécommunications|||FAKAY000243|20250212|Facture frais postaux et télécommunications|5487,39|0,00|||20250212||
+AC|Achats|AC000021|20250212|4456600|TVA déductible|||FAKAY000243|20250212|Facture frais postaux et télécommunications|466,43|0,00|||20250212||
+AC|Achats|AC000021|20250212|4010000|Fournisseurs|F0035|Fournisseur 0035|FAKAY000243|20250212|Facture frais postaux et télécommunications|0,00|5953,82|||20250212||
+AC|Achats|AC000022|20250215|6226000|Honoraires|||FAKAY000207|20250215|Facture honoraires|7305,63|0,00|||20250215||
+AC|Achats|AC000022|20250215|4456600|TVA déductible|||FAKAY000207|20250215|Facture honoraires|620,98|0,00|||20250215||
+AC|Achats|AC000022|20250215|4010000|Fournisseurs|F0032|Fournisseur 0032|FAKAY000207|20250215|Facture honoraires|0,00|7926,61|||20250215||
+AC|Achats|AC000023|20250216|6251100|Billets d'avion|||FAKAY000488|20250216|Facture billets d'avion|2202,61|0,00|||20250216||
+AC|Achats|AC000023|20250216|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000488|20250216|Facture billets d'avion|0,00|2202,61|||20250216||
+AC|Achats|AC000024|20250220|6132000|Locations immobilières|||FAKAY000111|20250220|Facture locations immobilières|31679,96|0,00|||20250220||
+AC|Achats|AC000024|20250220|4456600|TVA déductible|||FAKAY000111|20250220|Facture locations immobilières|2692,80|0,00|||20250220||
+AC|Achats|AC000024|20250220|4010000|Fournisseurs|F0041|Fournisseur 0041|FAKAY000111|20250220|Facture locations immobilières|0,00|34372,76|||20250220||
+AC|Achats|AC000025|20250221|62512000|Hôtels, taxis et repas|||FAKAY000339|20250221|Facture hôtels, taxis et repas|2478,93|0,00|||20250221||
+AC|Achats|AC000025|20250221|4456600|TVA déductible|||FAKAY000339|20250221|Facture hôtels, taxis et repas|210,71|0,00|||20250221||
+AC|Achats|AC000025|20250221|4010000|Fournisseurs|F0003|Fournisseur 0003|FAKAY000339|20250221|Facture hôtels, taxis et repas|0,00|2689,64|||20250221||
+AC|Achats|AC000026|20250222|6064000|Fournitures administratives|||FAKAY000039|20250222|Facture fournitures administratives|3071,13|0,00|||20250222||
+AC|Achats|AC000026|20250222|4456600|TVA déductible|||FAKAY000039|20250222|Facture fournitures administratives|261,05|0,00|||20250222||
+AC|Achats|AC000026|20250222|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000039|20250222|Facture fournitures administratives|0,00|3332,18|||20250222||
+AC|Achats|AC000027|20250227|6160000|Primes d'assurance|||FAKAY000182|20250227|Facture primes d'assurance|18644,62|0,00|||20250227||
+AC|Achats|AC000027|20250227|4010000|Fournisseurs|F0015|Fournisseur 0015|FAKAY000182|20250227|Facture primes d'assurance|0,00|18644,62|||20250227||
+AC|Achats|AC000028|20250228|6288000|Prestations diverses portuaires|||FAKAY000303|20250228|Facture prestations diverses portuaires|41360,66|0,00|||20250228||
+AC|Achats|AC000028|20250228|4456600|TVA déductible|||FAKAY000303|20250228|Facture prestations diverses portuaires|3515,66|0,00|||20250228||
+AC|Achats|AC000028|20250228|4010000|Fournisseurs|F0041|Fournisseur 0041|FAKAY000303|20250228|Facture prestations diverses portuaires|0,00|44876,32|||20250228||
+AC|Achats|AC000029|20250228|6061100|Électricité|||FAKAY000375|20250228|Facture électricité|7104,44|0,00|||20250228||
+AC|Achats|AC000029|20250228|4456600|TVA déductible|||FAKAY000375|20250228|Facture électricité|603,88|0,00|||20250228||
+AC|Achats|AC000029|20250228|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000375|20250228|Facture électricité|0,00|7708,32|||20250228||
+AC|Achats|AC000030|20250228|6061100|Électricité|||FAKAY000411|20250228|Facture électricité|1667,03|0,00|||20250228||
+AC|Achats|AC000030|20250228|4456600|TVA déductible|||FAKAY000411|20250228|Facture électricité|141,70|0,00|||20250228||
+AC|Achats|AC000030|20250228|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000411|20250228|Facture électricité|0,00|1808,73|||20250228||
+AC|Achats|AC000031|20250228|6061100|Électricité|||FAKAY000447|20250228|Facture électricité|4544,51|0,00|||20250228||
+AC|Achats|AC000031|20250228|4456600|TVA déductible|||FAKAY000447|20250228|Facture électricité|386,28|0,00|||20250228||
+AC|Achats|AC000031|20250228|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000447|20250228|Facture électricité|0,00|4930,79|||20250228||
+AC|Achats|AC000032|20250228|6062200|Carburants|||FAKAY000485|20250228|Facture carburants|97821,78|0,00|||20250228||
+AC|Achats|AC000032|20250228|4456600|TVA déductible|||FAKAY000485|20250228|Facture carburants|8314,85|0,00|||20250228||
+AC|Achats|AC000032|20250228|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000485|20250228|Facture carburants|0,00|106136,63|||20250228||
+BQ|Banque|BQ000002|20250228|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR02|20250228|Règlements fournisseurs|1564177,44|0,00|||20250228||
+BQ|Banque|BQ000002|20250228|5120000|Banque|||VIR02|20250228|Règlements fournisseurs|0,00|1564177,44|||20250228||
+PA|Paie|PA000002|20250228|6411000|Salaires|||PAIE02|20250228|Salaires du mois|806000,00|0,00|||20250228||
+PA|Paie|PA000002|20250228|6451000|Cotisations URSSAF|||PAIE02|20250228|Salaires du mois|338520,00|0,00|||20250228||
+PA|Paie|PA000002|20250228|4210000|Personnel - rémunérations dues|||PAIE02|20250228|Salaires du mois|0,00|806000,00|||20250228||
+PA|Paie|PA000002|20250228|4310000|URSSAF|||PAIE02|20250228|Salaires du mois|0,00|338520,00|||20250228||
+VE|Ventes|VE000002|20250228|4110000|Clients|C0001|Clients divers|VT02|20250228|Ventes du mois|2828554,20|0,00|||20250228||
+VE|Ventes|VE000002|20250228|7060000|Prestations de services|||VT02|20250228|Ventes du mois|0,00|2606962,40|||20250228||
+VE|Ventes|VE000002|20250228|4457100|TVA collectée|||VT02|20250228|Ventes du mois|0,00|221591,80|||20250228||
+AC|Achats|AC000033|20250302|6064000|Fournitures administratives|||FAKAY000042|20250302|Facture fournitures administratives|4004,54|0,00|||20250302||
+AC|Achats|AC000033|20250302|4456600|TVA déductible|||FAKAY000042|20250302|Facture fournitures administratives|340,39|0,00|||20250302||
+AC|Achats|AC000033|20250302|4010000|Fournisseurs|F0037|Fournisseur 0037|FAKAY000042|20250302|Facture fournitures administratives|0,00|4344,93|||20250302||
+AC|Achats|AC000034|20250303|6270000|Services bancaires|||FAKAY000280|20250303|Facture services bancaires|1608,28|0,00|||20250303||
+AC|Achats|AC000034|20250303|4010000|Fournisseurs|F0059|Fournisseur 0059|FAKAY000280|20250303|Facture services bancaires|0,00|1608,28|||20250303||
+AC|Achats|AC000035|20250303|6288000|Prestations diverses portuaires|||FAKAY000306|20250303|Facture prestations diverses portuaires|44405,04|0,00|||20250303||
+AC|Achats|AC000035|20250303|4456600|TVA déductible|||FAKAY000306|20250303|Facture prestations diverses portuaires|3774,43|0,00|||20250303||
+AC|Achats|AC000035|20250303|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000306|20250303|Facture prestations diverses portuaires|0,00|48179,47|||20250303||
+AC|Achats|AC000036|20250305|6251100|Billets d'avion|||FAKAY000493|20250305|Facture billets d'avion|4203,42|0,00|||20250305||
+AC|Achats|AC000036|20250305|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000493|20250305|Facture billets d'avion|0,00|4203,42|||20250305||
+AC|Achats|AC000037|20250306|6226000|Honoraires|||FAKAY000210|20250306|Facture honoraires|6638,05|0,00|||20250306||
+AC|Achats|AC000037|20250306|4456600|TVA déductible|||FAKAY000210|20250306|Facture honoraires|564,23|0,00|||20250306||
+AC|Achats|AC000037|20250306|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000210|20250306|Facture honoraires|0,00|7202,28|||20250306||
+AC|Achats|AC000038|20250306|62512000|Hôtels, taxis et repas|||FAKAY000342|20250306|Facture hôtels, taxis et repas|3558,00|0,00|||20250306||
+AC|Achats|AC000038|20250306|4456600|TVA déductible|||FAKAY000342|20250306|Facture hôtels, taxis et repas|302,43|0,00|||20250306||
+AC|Achats|AC000038|20250306|4010000|Fournisseurs|F0033|Fournisseur 0033|FAKAY000342|20250306|Facture hôtels, taxis et repas|0,00|3860,43|||20250306||
+AC|Achats|AC000039|20250315|6260000|Frais postaux et télécommunications|||FAKAY000246|20250315|Facture frais postaux et télécommunications|5568,92|0,00|||20250315||
+AC|Achats|AC000039|20250315|4456600|TVA déductible|||FAKAY000246|20250315|Facture frais postaux et télécommunications|473,36|0,00|||20250315||
+AC|Achats|AC000039|20250315|4010000|Fournisseurs|F0049|Fournisseur 0049|FAKAY000246|20250315|Facture frais postaux et télécommunications|0,00|6042,28|||20250315||
+AC|Achats|AC000040|20250316|6110000|Sous-traitance transport|||FAKAY000078|20250316|Facture sous-traitance transport|90256,03|0,00|||20250316||
+AC|Achats|AC000040|20250316|4456600|TVA déductible|||FAKAY000078|20250316|Facture sous-traitance transport|7671,76|0,00|||20250316||
+AC|Achats|AC000040|20250316|4010000|Fournisseurs|F0033|Fournisseur 0033|FAKAY000078|20250316|Facture sous-traitance transport|0,00|97927,79|||20250316||
+AC|Achats|AC000041|20250323|6063000|Fournitures d'entretien et petit équipement|||FAKAY000006|20250323|Facture fournitures d'entretien et petit équipement|20766,35|0,00|||20250323||
+AC|Achats|AC000041|20250323|4456600|TVA déductible|||FAKAY000006|20250323|Facture fournitures d'entretien et petit équipement|1765,14|0,00|||20250323||
+AC|Achats|AC000041|20250323|4010000|Fournisseurs|F0040|Fournisseur 0040|FAKAY000006|20250323|Facture fournitures d'entretien et petit équipement|0,00|22531,49|||20250323||
+AC|Achats|AC000042|20250328|6132000|Locations immobilières|||FAKAY000114|20250328|Facture locations immobilières|36086,36|0,00|||20250328||
+AC|Achats|AC000042|20250328|4456600|TVA déductible|||FAKAY000114|20250328|Facture locations immobilières|3067,34|0,00|||20250328||
+AC|Achats|AC000042|20250328|4010000|Fournisseurs|F0051|Fournisseur 0051|FAKAY000114|20250328|Facture locations immobilières|0,00|39153,70|||20250328||
+AC|Achats|AC000043|20250328|6155000|Entretien et réparations véhicules|||FAKAY000150|20250328|Facture entretien et réparations véhicules|61244,89|0,00|||20250328||
+AC|Achats|AC000043|20250328|4456600|TVA déductible|||FAKAY000150|20250328|Facture entretien et réparations véhicules|5205,82|0,00|||20250328||
+AC|Achats|AC000043|20250328|4010000|Fournisseurs|F0023|Fournisseur 0023|FAKAY000150|20250328|Facture entretien et réparations véhicules|0,00|66450,71|||20250328||
+AC|Achats|AC000044|20250328|6160000|Primes d'assurance|||FAKAY000184|20250328|Facture primes d'assurance|16516,47|0,00|||20250328||
+AC|Achats|AC000044|20250328|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000184|20250328|Facture primes d'assurance|0,00|16516,47|||20250328||
+AC|Achats|AC000045|20250331|6061100|Électricité|||FAKAY000378|20250331|Facture électricité|7016,99|0,00|||20250331||
+AC|Achats|AC000045|20250331|4456600|TVA déductible|||FAKAY000378|20250331|Facture électricité|596,44|0,00|||20250331||
+AC|Achats|AC000045|20250331|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000378|20250331|Facture électricité|0,00|7613,43|||20250331||
+AC|Achats|AC000046|20250331|6061100|Électricité|||FAKAY000414|20250331|Facture électricité|1653,03|0,00|||20250331||
+AC|Achats|AC000046|20250331|4456600|TVA déductible|||FAKAY000414|20250331|Facture électricité|140,51|0,00|||20250331||
+AC|Achats|AC000046|20250331|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000414|20250331|Facture électricité|0,00|1793,54|||20250331||
+AC|Achats|AC000047|20250331|6061100|Électricité|||FAKAY000450|20250331|Facture électricité|4346,89|0,00|||20250331||
+AC|Achats|AC000047|20250331|4456600|TVA déductible|||FAKAY000450|20250331|Facture électricité|369,49|0,00|||20250331||
+AC|Achats|AC000047|20250331|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000450|20250331|Facture électricité|0,00|4716,38|||20250331||
+AC|Achats|AC000048|20250331|6062200|Carburants|||FAKAY000490|20250331|Facture carburants|97821,78|0,00|||20250331||
+AC|Achats|AC000048|20250331|4456600|TVA déductible|||FAKAY000490|20250331|Facture carburants|8314,85|0,00|||20250331||
+AC|Achats|AC000048|20250331|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000490|20250331|Facture carburants|0,00|106136,63|||20250331||
+BQ|Banque|BQ000003|20250331|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR03|20250331|Règlements fournisseurs|1833377,30|0,00|||20250331||
+BQ|Banque|BQ000003|20250331|5120000|Banque|||VIR03|20250331|Règlements fournisseurs|0,00|1833377,30|||20250331||
+PA|Paie|PA000003|20250331|6411000|Salaires|||PAIE03|20250331|Salaires du mois|806000,00|0,00|||20250331||
+PA|Paie|PA000003|20250331|6451000|Cotisations URSSAF|||PAIE03|20250331|Salaires du mois|338520,00|0,00|||20250331||
+PA|Paie|PA000003|20250331|4210000|Personnel - rémunérations dues|||PAIE03|20250331|Salaires du mois|0,00|806000,00|||20250331||
+PA|Paie|PA000003|20250331|4310000|URSSAF|||PAIE03|20250331|Salaires du mois|0,00|338520,00|||20250331||
+VE|Ventes|VE000003|20250331|4110000|Clients|C0001|Clients divers|VT03|20250331|Ventes du mois|3315357,28|0,00|||20250331||
+VE|Ventes|VE000003|20250331|7060000|Prestations de services|||VT03|20250331|Ventes du mois|0,00|3055628,83|||20250331||
+VE|Ventes|VE000003|20250331|4457100|TVA collectée|||VT03|20250331|Ventes du mois|0,00|259728,45|||20250331||
+AC|Achats|AC000049|20250401|6251100|Billets d'avion|||FAKAY000498|20250401|Facture billets d'avion|3490,59|0,00|||20250401||
+AC|Achats|AC000049|20250401|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000498|20250401|Facture billets d'avion|0,00|3490,59|||20250401||
+AC|Achats|AC000050|20250406|6110000|Sous-traitance transport|||FAKAY000081|20250406|Facture sous-traitance transport|102225,42|0,00|||20250406||
+AC|Achats|AC000050|20250406|4456600|TVA déductible|||FAKAY000081|20250406|Facture sous-traitance transport|8689,16|0,00|||20250406||
+AC|Achats|AC000050|20250406|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000081|20250406|Facture sous-traitance transport|0,00|110914,58|||20250406||
+AC|Achats|AC000051|20250409|6260000|Frais postaux et télécommunications|||FAKAY000249|20250409|Facture frais postaux et télécommunications|5068,36|0,00|||20250409||
+AC|Achats|AC000051|20250409|4456600|TVA déductible|||FAKAY000249|20250409|Facture frais postaux et télécommunications|430,81|0,00|||20250409||
+AC|Achats|AC000051|20250409|4010000|Fournisseurs|F0023|Fournisseur 0023|FAKAY000249|20250409|Facture frais postaux et télécommunications|0,00|5499,17|||20250409||
+AC|Achats|AC000052|20250410|6064000|Fournitures administratives|||FAKAY000045|20250410|Facture fournitures administratives|3422,67|0,00|||20250410||
+AC|Achats|AC000052|20250410|4456600|TVA déductible|||FAKAY000045|20250410|Facture fournitures administratives|290,93|0,00|||20250410||
+AC|Achats|AC000052|20250410|4010000|Fournisseurs|F0055|Fournisseur 0055|FAKAY000045|20250410|Facture fournitures administratives|0,00|3713,60|||20250410||
+AC|Achats|AC000053|20250411|6270000|Services bancaires|||FAKAY000282|20250411|Facture services bancaires|1893,54|0,00|||20250411||
+AC|Achats|AC000053|20250411|4010000|Fournisseurs|F0058|Fournisseur 0058|FAKAY000282|20250411|Facture services bancaires|0,00|1893,54|||20250411||
+AC|Achats|AC000054|20250413|6160000|Primes d'assurance|||FAKAY000186|20250413|Facture primes d'assurance|17704,66|0,00|||20250413||
+AC|Achats|AC000054|20250413|4010000|Fournisseurs|F0056|Fournisseur 0056|FAKAY000186|20250413|Facture primes d'assurance|0,00|17704,66|||20250413||
+AC|Achats|AC000055|20250414|6288000|Prestations diverses portuaires|||FAKAY000309|20250414|Facture prestations diverses portuaires|44065,01|0,00|||20250414||
+AC|Achats|AC000055|20250414|4456600|TVA déductible|||FAKAY000309|20250414|Facture prestations diverses portuaires|3745,53|0,00|||20250414||
+AC|Achats|AC000055|20250414|4010000|Fournisseurs|F0035|Fournisseur 0035|FAKAY000309|20250414|Facture prestations diverses portuaires|0,00|47810,54|||20250414||
+AC|Achats|AC000056|20250417|6226000|Honoraires|||FAKAY000213|20250417|Facture honoraires|8046,58|0,00|||20250417||
+AC|Achats|AC000056|20250417|4456600|TVA déductible|||FAKAY000213|20250417|Facture honoraires|683,96|0,00|||20250417||
+AC|Achats|AC000056|20250417|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000213|20250417|Facture honoraires|0,00|8730,54|||20250417||
+AC|Achats|AC000057|20250422|6132000|Locations immobilières|||FAKAY000117|20250422|Facture locations immobilières|31125,06|0,00|||20250422||
+AC|Achats|AC000057|20250422|4456600|TVA déductible|||FAKAY000117|20250422|Facture locations immobilières|2645,63|0,00|||20250422||
+AC|Achats|AC000057|20250422|4010000|Fournisseurs|F0051|Fournisseur 0051|FAKAY000117|20250422|Facture locations immobilières|0,00|33770,69|||20250422||
+AC|Achats|AC000058|20250426|6155000|Entretien et réparations véhicules|||FAKAY000153|20250426|Facture entretien et réparations véhicules|50296,04|0,00|||20250426||
+AC|Achats|AC000058|20250426|4456600|TVA déductible|||FAKAY000153|20250426|Facture entretien et réparations véhicules|4275,16|0,00|||20250426||
+AC|Achats|AC000058|20250426|4010000|Fournisseurs|F0054|Fournisseur 0054|FAKAY000153|20250426|Facture entretien et réparations véhicules|0,00|54571,20|||20250426||
+AC|Achats|AC000059|20250427|62512000|Hôtels, taxis et repas|||FAKAY000345|20250427|Facture hôtels, taxis et repas|2583,37|0,00|||20250427||
+AC|Achats|AC000059|20250427|4456600|TVA déductible|||FAKAY000345|20250427|Facture hôtels, taxis et repas|219,59|0,00|||20250427||
+AC|Achats|AC000059|20250427|4010000|Fournisseurs|F0026|Fournisseur 0026|FAKAY000345|20250427|Facture hôtels, taxis et repas|0,00|2802,96|||20250427||
+AC|Achats|AC000060|20250428|6063000|Fournitures d'entretien et petit équipement|||FAKAY000009|20250428|Facture fournitures d'entretien et petit équipement|28755,56|0,00|||20250428||
+AC|Achats|AC000060|20250428|4456600|TVA déductible|||FAKAY000009|20250428|Facture fournitures d'entretien et petit équipement|2444,22|0,00|||20250428||
+AC|Achats|AC000060|20250428|4010000|Fournisseurs|F0017|Fournisseur 0017|FAKAY000009|20250428|Facture fournitures d'entretien et petit équipement|0,00|31199,78|||20250428||
+AC|Achats|AC000061|20250430|6061100|Électricité|||FAKAY000381|20250430|Facture électricité|6538,83|0,00|||20250430||
+AC|Achats|AC000061|20250430|4456600|TVA déductible|||FAKAY000381|20250430|Facture électricité|555,80|0,00|||20250430||
+AC|Achats|AC000061|20250430|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000381|20250430|Facture électricité|0,00|7094,63|||20250430||
+AC|Achats|AC000062|20250430|6061100|Électricité|||FAKAY000417|20250430|Facture électricité|1521,52|0,00|||20250430||
+AC|Achats|AC000062|20250430|4456600|TVA déductible|||FAKAY000417|20250430|Facture électricité|129,33|0,00|||20250430||
+AC|Achats|AC000062|20250430|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000417|20250430|Facture électricité|0,00|1650,85|||20250430||
+AC|Achats|AC000063|20250430|6061100|Électricité|||FAKAY000453|20250430|Facture électricité|3634,07|0,00|||20250430||
+AC|Achats|AC000063|20250430|4456600|TVA déductible|||FAKAY000453|20250430|Facture électricité|308,90|0,00|||20250430||
+AC|Achats|AC000063|20250430|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000453|20250430|Facture électricité|0,00|3942,97|||20250430||
+AC|Achats|AC000064|20250430|6062200|Carburants|||FAKAY000495|20250430|Facture carburants|97821,78|0,00|||20250430||
+AC|Achats|AC000064|20250430|4456600|TVA déductible|||FAKAY000495|20250430|Facture carburants|8314,85|0,00|||20250430||
+AC|Achats|AC000064|20250430|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000495|20250430|Facture carburants|0,00|106136,63|||20250430||
+BQ|Banque|BQ000004|20250430|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR04|20250430|Règlements fournisseurs|1895997,77|0,00|||20250430||
+BQ|Banque|BQ000004|20250430|5120000|Banque|||VIR04|20250430|Règlements fournisseurs|0,00|1895997,77|||20250430||
+PA|Paie|PA000004|20250430|6411000|Salaires|||PAIE04|20250430|Salaires du mois|806000,00|0,00|||20250430||
+PA|Paie|PA000004|20250430|6451000|Cotisations URSSAF|||PAIE04|20250430|Salaires du mois|338520,00|0,00|||20250430||
+PA|Paie|PA000004|20250430|4210000|Personnel - rémunérations dues|||PAIE04|20250430|Salaires du mois|0,00|806000,00|||20250430||
+PA|Paie|PA000004|20250430|4310000|URSSAF|||PAIE04|20250430|Salaires du mois|0,00|338520,00|||20250430||
+VE|Ventes|VE000004|20250430|4110000|Clients|C0001|Clients divers|VT04|20250430|Ventes du mois|3428595,97|0,00|||20250430||
+VE|Ventes|VE000004|20250430|7060000|Prestations de services|||VT04|20250430|Ventes du mois|0,00|3159996,29|||20250430||
+VE|Ventes|VE000004|20250430|4457100|TVA collectée|||VT04|20250430|Ventes du mois|0,00|268599,68|||20250430||
+AC|Achats|AC000065|20250501|6132000|Locations immobilières|||FAKAY000120|20250501|Facture locations immobilières|36386,39|0,00|||20250501||
+AC|Achats|AC000065|20250501|4456600|TVA déductible|||FAKAY000120|20250501|Facture locations immobilières|3092,84|0,00|||20250501||
+AC|Achats|AC000065|20250501|4010000|Fournisseurs|F0027|Fournisseur 0027|FAKAY000120|20250501|Facture locations immobilières|0,00|39479,23|||20250501||
+AC|Achats|AC000066|20250507|6063000|Fournitures d'entretien et petit équipement|||FAKAY000012|20250507|Facture fournitures d'entretien et petit équipement|22531,78|0,00|||20250507||
+AC|Achats|AC000066|20250507|4456600|TVA déductible|||FAKAY000012|20250507|Facture fournitures d'entretien et petit équipement|1915,20|0,00|||20250507||
+AC|Achats|AC000066|20250507|4010000|Fournisseurs|F0008|Fournisseur 0008|FAKAY000012|20250507|Facture fournitures d'entretien et petit équipement|0,00|24446,98|||20250507||
+AC|Achats|AC000067|20250510|6155000|Entretien et réparations véhicules|||FAKAY000156|20250510|Facture entretien et réparations véhicules|48530,90|0,00|||20250510||
+AC|Achats|AC000067|20250510|4456600|TVA déductible|||FAKAY000156|20250510|Facture entretien et réparations véhicules|4125,13|0,00|||20250510||
+AC|Achats|AC000067|20250510|4010000|Fournisseurs|F0045|Fournisseur 0045|FAKAY000156|20250510|Facture entretien et réparations véhicules|0,00|52656,03|||20250510||
+AC|Achats|AC000068|20250511|6110000|Sous-traitance transport|||FAKAY000084|20250511|Facture sous-traitance transport|94413,12|0,00|||20250511||
+AC|Achats|AC000068|20250511|4456600|TVA déductible|||FAKAY000084|20250511|Facture sous-traitance transport|8025,11|0,00|||20250511||
+AC|Achats|AC000068|20250511|4010000|Fournisseurs|F0017|Fournisseur 0017|FAKAY000084|20250511|Facture sous-traitance transport|0,00|102438,23|||20250511||
+AC|Achats|AC000069|20250512|6288000|Prestations diverses portuaires|||FAKAY000312|20250512|Facture prestations diverses portuaires|45383,01|0,00|||20250512||
+AC|Achats|AC000069|20250512|4456600|TVA déductible|||FAKAY000312|20250512|Facture prestations diverses portuaires|3857,56|0,00|||20250512||
+AC|Achats|AC000069|20250512|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000312|20250512|Facture prestations diverses portuaires|0,00|49240,57|||20250512||
+AC|Achats|AC000070|20250518|6160000|Primes d'assurance|||FAKAY000188|20250518|Facture primes d'assurance|20743,35|0,00|||20250518||
+AC|Achats|AC000070|20250518|4010000|Fournisseurs|F0046|Fournisseur 0046|FAKAY000188|20250518|Facture primes d'assurance|0,00|20743,35|||20250518||
+AC|Achats|AC000071|20250518|6226000|Honoraires|||FAKAY000216|20250518|Facture honoraires|8052,79|0,00|||20250518||
+AC|Achats|AC000071|20250518|4456600|TVA déductible|||FAKAY000216|20250518|Facture honoraires|684,49|0,00|||20250518||
+AC|Achats|AC000071|20250518|4010000|Fournisseurs|F0027|Fournisseur 0027|FAKAY000216|20250518|Facture honoraires|0,00|8737,28|||20250518||
+AC|Achats|AC000072|20250519|6064000|Fournitures administratives|||FAKAY000048|20250519|Facture fournitures administratives|3935,70|0,00|||20250519||
+AC|Achats|AC000072|20250519|4456600|TVA déductible|||FAKAY000048|20250519|Facture fournitures administratives|334,53|0,00|||20250519||
+AC|Achats|AC000072|20250519|4010000|Fournisseurs|F0004|Fournisseur 0004|FAKAY000048|20250519|Facture fournitures administratives|0,00|4270,23|||20250519||
+AC|Achats|AC000073|20250519|62512000|Hôtels, taxis et repas|||FAKAY000348|20250519|Facture hôtels, taxis et repas|3376,81|0,00|||20250519||
+AC|Achats|AC000073|20250519|4456600|TVA déductible|||FAKAY000348|20250519|Facture hôtels, taxis et repas|287,03|0,00|||20250519||
+AC|Achats|AC000073|20250519|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000348|20250519|Facture hôtels, taxis et repas|0,00|3663,84|||20250519||
+AC|Achats|AC000074|20250520|6270000|Services bancaires|||FAKAY000284|20250520|Facture services bancaires|2060,79|0,00|||20250520||
+AC|Achats|AC000074|20250520|4010000|Fournisseurs|F0041|Fournisseur 0041|FAKAY000284|20250520|Facture services bancaires|0,00|2060,79|||20250520||
+AC|Achats|AC000075|20250522|6251100|Billets d'avion|||FAKAY000503|20250522|Facture billets d'avion|2283,08|0,00|||20250522||
+AC|Achats|AC000075|20250522|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000503|20250522|Facture billets d'avion|0,00|2283,08|||20250522||
+AC|Achats|AC000076|20250523|6260000|Frais postaux et télécommunications|||FAKAY000252|20250523|Facture frais postaux et télécommunications|4407,00|0,00|||20250523||
+AC|Achats|AC000076|20250523|4456600|TVA déductible|||FAKAY000252|20250523|Facture frais postaux et télécommunications|374,59|0,00|||20250523||
+AC|Achats|AC000076|20250523|4010000|Fournisseurs|F0005|Fournisseur 0005|FAKAY000252|20250523|Facture frais postaux et télécommunications|0,00|4781,59|||20250523||
+AC|Achats|AC000077|20250531|6061100|Électricité|||FAKAY000384|20250531|Facture électricité|6102,25|0,00|||20250531||
+AC|Achats|AC000077|20250531|4456600|TVA déductible|||FAKAY000384|20250531|Facture électricité|518,69|0,00|||20250531||
+AC|Achats|AC000077|20250531|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000384|20250531|Facture électricité|0,00|6620,94|||20250531||
+AC|Achats|AC000078|20250531|6061100|Électricité|||FAKAY000420|20250531|Facture électricité|1511,43|0,00|||20250531||
+AC|Achats|AC000078|20250531|4456600|TVA déductible|||FAKAY000420|20250531|Facture électricité|128,47|0,00|||20250531||
+AC|Achats|AC000078|20250531|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000420|20250531|Facture électricité|0,00|1639,90|||20250531||
+AC|Achats|AC000079|20250531|6061100|Électricité|||FAKAY000456|20250531|Facture électricité|3787,43|0,00|||20250531||
+AC|Achats|AC000079|20250531|4456600|TVA déductible|||FAKAY000456|20250531|Facture électricité|321,93|0,00|||20250531||
+AC|Achats|AC000079|20250531|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000456|20250531|Facture électricité|0,00|4109,36|||20250531||
+AC|Achats|AC000080|20250531|6062200|Carburants|||FAKAY000500|20250531|Facture carburants|97821,78|0,00|||20250531||
+AC|Achats|AC000080|20250531|4456600|TVA déductible|||FAKAY000500|20250531|Facture carburants|8314,85|0,00|||20250531||
+AC|Achats|AC000080|20250531|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000500|20250531|Facture carburants|0,00|106136,63|||20250531||
+BQ|Banque|BQ000005|20250531|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR05|20250531|Règlements fournisseurs|1986181,76|0,00|||20250531||
+BQ|Banque|BQ000005|20250531|5120000|Banque|||VIR05|20250531|Règlements fournisseurs|0,00|1986181,76|||20250531||
+PA|Paie|PA000005|20250531|6411000|Salaires|||PAIE05|20250531|Salaires du mois|806000,00|0,00|||20250531||
+PA|Paie|PA000005|20250531|6451000|Cotisations URSSAF|||PAIE05|20250531|Salaires du mois|338520,00|0,00|||20250531||
+PA|Paie|PA000005|20250531|4210000|Personnel - rémunérations dues|||PAIE05|20250531|Salaires du mois|0,00|806000,00|||20250531||
+PA|Paie|PA000005|20250531|4310000|URSSAF|||PAIE05|20250531|Salaires du mois|0,00|338520,00|||20250531||
+VE|Ventes|VE000005|20250531|4110000|Clients|C0001|Clients divers|VT05|20250531|Ventes du mois|3591678,69|0,00|||20250531||
+VE|Ventes|VE000005|20250531|7060000|Prestations de services|||VT05|20250531|Ventes du mois|0,00|3310302,94|||20250531||
+VE|Ventes|VE000005|20250531|4457100|TVA collectée|||VT05|20250531|Ventes du mois|0,00|281375,75|||20250531||
+AC|Achats|AC000081|20250604|6270000|Services bancaires|||FAKAY000286|20250604|Facture services bancaires|1927,28|0,00|||20250604||
+AC|Achats|AC000081|20250604|4010000|Fournisseurs|F0041|Fournisseur 0041|FAKAY000286|20250604|Facture services bancaires|0,00|1927,28|||20250604||
+AC|Achats|AC000082|20250610|6251100|Billets d'avion|||FAKAY000508|20250610|Facture billets d'avion|3188,18|0,00|||20250610||
+AC|Achats|AC000082|20250610|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000508|20250610|Facture billets d'avion|0,00|3188,18|||20250610||
+AC|Achats|AC000083|20250615|2182000|Matériel de transport|||FAKAY000534|20250615|Facture matériel de transport|290000,00|0,00|||20250615||
+AC|Achats|AC000083|20250615|4456600|TVA déductible|||FAKAY000534|20250615|Facture matériel de transport|24650,00|0,00|||20250615||
+AC|Achats|AC000083|20250615|4010000|Fournisseurs|F0950|Fournisseur 0950|FAKAY000534|20250615|Facture matériel de transport|0,00|314650,00|||20250615||
+AC|Achats|AC000084|20250616|6110000|Sous-traitance transport|||FAKAY000087|20250616|Facture sous-traitance transport|81283,95|0,00|||20250616||
+AC|Achats|AC000084|20250616|4456600|TVA déductible|||FAKAY000087|20250616|Facture sous-traitance transport|6909,14|0,00|||20250616||
+AC|Achats|AC000084|20250616|4010000|Fournisseurs|F0056|Fournisseur 0056|FAKAY000087|20250616|Facture sous-traitance transport|0,00|88193,09|||20250616||
+AC|Achats|AC000085|20250619|6260000|Frais postaux et télécommunications|||FAKAY000255|20250619|Facture frais postaux et télécommunications|4811,29|0,00|||20250619||
+AC|Achats|AC000085|20250619|4456600|TVA déductible|||FAKAY000255|20250619|Facture frais postaux et télécommunications|408,96|0,00|||20250619||
+AC|Achats|AC000085|20250619|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000255|20250619|Facture frais postaux et télécommunications|0,00|5220,25|||20250619||
+AC|Achats|AC000086|20250620|6155000|Entretien et réparations véhicules|||FAKAY000159|20250620|Facture entretien et réparations véhicules|60763,60|0,00|||20250620||
+AC|Achats|AC000086|20250620|4456600|TVA déductible|||FAKAY000159|20250620|Facture entretien et réparations véhicules|5164,91|0,00|||20250620||
+AC|Achats|AC000086|20250620|4010000|Fournisseurs|F0026|Fournisseur 0026|FAKAY000159|20250620|Facture entretien et réparations véhicules|0,00|65928,51|||20250620||
+AC|Achats|AC000087|20250621|62512000|Hôtels, taxis et repas|||FAKAY000351|20250621|Facture hôtels, taxis et repas|3424,74|0,00|||20250621||
+AC|Achats|AC000087|20250621|4456600|TVA déductible|||FAKAY000351|20250621|Facture hôtels, taxis et repas|291,10|0,00|||20250621||
+AC|Achats|AC000087|20250621|4010000|Fournisseurs|F0002|Fournisseur 0002|FAKAY000351|20250621|Facture hôtels, taxis et repas|0,00|3715,84|||20250621||
+AC|Achats|AC000088|20250622|6132000|Locations immobilières|||FAKAY000123|20250622|Facture locations immobilières|28988,42|0,00|||20250622||
+AC|Achats|AC000088|20250622|4456600|TVA déductible|||FAKAY000123|20250622|Facture locations immobilières|2464,02|0,00|||20250622||
+AC|Achats|AC000088|20250622|4010000|Fournisseurs|F0005|Fournisseur 0005|FAKAY000123|20250622|Facture locations immobilières|0,00|31452,44|||20250622||
+AC|Achats|AC000089|20250622|6288000|Prestations diverses portuaires|||FAKAY000315|20250622|Facture prestations diverses portuaires|41847,86|0,00|||20250622||
+AC|Achats|AC000089|20250622|4456600|TVA déductible|||FAKAY000315|20250622|Facture prestations diverses portuaires|3557,07|0,00|||20250622||
+AC|Achats|AC000089|20250622|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000315|20250622|Facture prestations diverses portuaires|0,00|45404,93|||20250622||
+AC|Achats|AC000090|20250625|6063000|Fournitures d'entretien et petit équipement|||FAKAY000015|20250625|Facture fournitures d'entretien et petit équipement|22916,89|0,00|||20250625||
+AC|Achats|AC000090|20250625|4456600|TVA déductible|||FAKAY000015|20250625|Facture fournitures d'entretien et petit équipement|1947,94|0,00|||20250625||
+AC|Achats|AC000090|20250625|4010000|Fournisseurs|F0013|Fournisseur 0013|FAKAY000015|20250625|Facture fournitures d'entretien et petit équipement|0,00|24864,83|||20250625||
+AC|Achats|AC000091|20250627|6064000|Fournitures administratives|||FAKAY000051|20250627|Facture fournitures administratives|3798,91|0,00|||20250627||
+AC|Achats|AC000091|20250627|4456600|TVA déductible|||FAKAY000051|20250627|Facture fournitures administratives|322,91|0,00|||20250627||
+AC|Achats|AC000091|20250627|4010000|Fournisseurs|F0039|Fournisseur 0039|FAKAY000051|20250627|Facture fournitures administratives|0,00|4121,82|||20250627||
+AC|Achats|AC000092|20250628|6160000|Primes d'assurance|||FAKAY000190|20250628|Facture primes d'assurance|17128,24|0,00|||20250628||
+AC|Achats|AC000092|20250628|4010000|Fournisseurs|F0042|Fournisseur 0042|FAKAY000190|20250628|Facture primes d'assurance|0,00|17128,24|||20250628||
+AC|Achats|AC000093|20250628|6226000|Honoraires|||FAKAY000219|20250628|Facture honoraires|6610,38|0,00|||20250628||
+AC|Achats|AC000093|20250628|4456600|TVA déductible|||FAKAY000219|20250628|Facture honoraires|561,88|0,00|||20250628||
+AC|Achats|AC000093|20250628|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000219|20250628|Facture honoraires|0,00|7172,26|||20250628||
+AC|Achats|AC000094|20250630|6061100|Électricité|||FAKAY000387|20250630|Facture électricité|5270,25|0,00|||20250630||
+AC|Achats|AC000094|20250630|4456600|TVA déductible|||FAKAY000387|20250630|Facture électricité|447,97|0,00|||20250630||
+AC|Achats|AC000094|20250630|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000387|20250630|Facture électricité|0,00|5718,22|||20250630||
+AC|Achats|AC000095|20250630|6061100|Électricité|||FAKAY000423|20250630|Facture électricité|1369,92|0,00|||20250630||
+AC|Achats|AC000095|20250630|4456600|TVA déductible|||FAKAY000423|20250630|Facture électricité|116,44|0,00|||20250630||
+AC|Achats|AC000095|20250630|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000423|20250630|Facture électricité|0,00|1486,36|||20250630||
+AC|Achats|AC000096|20250630|6061100|Électricité|||FAKAY000459|20250630|Facture électricité|3513,63|0,00|||20250630||
+AC|Achats|AC000096|20250630|4456600|TVA déductible|||FAKAY000459|20250630|Facture électricité|298,66|0,00|||20250630||
+AC|Achats|AC000096|20250630|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000459|20250630|Facture électricité|0,00|3812,29|||20250630||
+AC|Achats|AC000097|20250630|6062200|Carburants|||FAKAY000505|20250630|Facture carburants|97821,78|0,00|||20250630||
+AC|Achats|AC000097|20250630|4456600|TVA déductible|||FAKAY000505|20250630|Facture carburants|8314,85|0,00|||20250630||
+AC|Achats|AC000097|20250630|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000505|20250630|Facture carburants|0,00|106136,63|||20250630||
+BQ|Banque|BQ000006|20250630|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR06|20250630|Règlements fournisseurs|1526592,55|0,00|||20250630||
+BQ|Banque|BQ000006|20250630|5120000|Banque|||VIR06|20250630|Règlements fournisseurs|0,00|1526592,55|||20250630||
+PA|Paie|PA000006|20250630|6411000|Salaires|||PAIE06|20250630|Salaires du mois|806000,00|0,00|||20250630||
+PA|Paie|PA000006|20250630|6451000|Cotisations URSSAF|||PAIE06|20250630|Salaires du mois|338520,00|0,00|||20250630||
+PA|Paie|PA000006|20250630|4210000|Personnel - rémunérations dues|||PAIE06|20250630|Salaires du mois|0,00|806000,00|||20250630||
+PA|Paie|PA000006|20250630|4310000|URSSAF|||PAIE06|20250630|Salaires du mois|0,00|338520,00|||20250630||
+VE|Ventes|VE000006|20250630|4110000|Clients|C0001|Clients divers|VT06|20250630|Ventes du mois|2760588,19|0,00|||20250630||
+VE|Ventes|VE000006|20250630|7060000|Prestations de services|||VT06|20250630|Ventes du mois|0,00|2544320,91|||20250630||
+VE|Ventes|VE000006|20250630|4457100|TVA collectée|||VT06|20250630|Ventes du mois|0,00|216267,28|||20250630||
+AC|Achats|AC000098|20250704|6132000|Locations immobilières|||FAKAY000126|20250704|Facture locations immobilières|34625,23|0,00|||20250704||
+AC|Achats|AC000098|20250704|4456600|TVA déductible|||FAKAY000126|20250704|Facture locations immobilières|2943,14|0,00|||20250704||
+AC|Achats|AC000098|20250704|4010000|Fournisseurs|F0039|Fournisseur 0039|FAKAY000126|20250704|Facture locations immobilières|0,00|37568,37|||20250704||
+AC|Achats|AC000099|20250708|6155000|Entretien et réparations véhicules|||FAKAY000162|20250708|Facture entretien et réparations véhicules|61308,08|0,00|||20250708||
+AC|Achats|AC000099|20250708|4456600|TVA déductible|||FAKAY000162|20250708|Facture entretien et réparations véhicules|5211,19|0,00|||20250708||
+AC|Achats|AC000099|20250708|4010000|Fournisseurs|F0010|Fournisseur 0010|FAKAY000162|20250708|Facture entretien et réparations véhicules|0,00|66519,27|||20250708||
+AC|Achats|AC000100|20250709|6063000|Fournitures d'entretien et petit équipement|||FAKAY000018|20250709|Facture fournitures d'entretien et petit équipement|23450,73|0,00|||20250709||
+AC|Achats|AC000100|20250709|4456600|TVA déductible|||FAKAY000018|20250709|Facture fournitures d'entretien et petit équipement|1993,31|0,00|||20250709||
+AC|Achats|AC000100|20250709|4010000|Fournisseurs|F0031|Fournisseur 0031|FAKAY000018|20250709|Facture fournitures d'entretien et petit équipement|0,00|25444,04|||20250709||
+AC|Achats|AC000101|20250712|6226000|Honoraires|||FAKAY000222|20250712|Facture honoraires|8070,72|0,00|||20250712||
+AC|Achats|AC000101|20250712|4456600|TVA déductible|||FAKAY000222|20250712|Facture honoraires|686,01|0,00|||20250712||
+AC|Achats|AC000101|20250712|4010000|Fournisseurs|F0008|Fournisseur 0008|FAKAY000222|20250712|Facture honoraires|0,00|8756,73|||20250712||
+AC|Achats|AC000102|20250713|6270000|Services bancaires|||FAKAY000288|20250713|Facture services bancaires|1596,93|0,00|||20250713||
+AC|Achats|AC000102|20250713|4010000|Fournisseurs|F0017|Fournisseur 0017|FAKAY000288|20250713|Facture services bancaires|0,00|1596,93|||20250713||
+AC|Achats|AC000103|20250714|6064000|Fournitures administratives|||FAKAY000054|20250714|Facture fournitures administratives|3298,63|0,00|||20250714||
+AC|Achats|AC000103|20250714|4456600|TVA déductible|||FAKAY000054|20250714|Facture fournitures administratives|280,38|0,00|||20250714||
+AC|Achats|AC000103|20250714|4010000|Fournisseurs|F0030|Fournisseur 0030|FAKAY000054|20250714|Facture fournitures administratives|0,00|3579,01|||20250714||
+AC|Achats|AC000104|20250717|6160000|Primes d'assurance|||FAKAY000192|20250717|Facture primes d'assurance|19043,58|0,00|||20250717||
+AC|Achats|AC000104|20250717|4010000|Fournisseurs|F0053|Fournisseur 0053|FAKAY000192|20250717|Facture primes d'assurance|0,00|19043,58|||20250717||
+AC|Achats|AC000105|20250719|6260000|Frais postaux et télécommunications|||FAKAY000258|20250719|Facture frais postaux et télécommunications|5144,91|0,00|||20250719||
+AC|Achats|AC000105|20250719|4456600|TVA déductible|||FAKAY000258|20250719|Facture frais postaux et télécommunications|437,32|0,00|||20250719||
+AC|Achats|AC000105|20250719|4010000|Fournisseurs|F0006|Fournisseur 0006|FAKAY000258|20250719|Facture frais postaux et télécommunications|0,00|5582,23|||20250719||
+AC|Achats|AC000106|20250724|6110000|Sous-traitance transport|||FAKAY000090|20250724|Facture sous-traitance transport|106853,31|0,00|||20250724||
+AC|Achats|AC000106|20250724|4456600|TVA déductible|||FAKAY000090|20250724|Facture sous-traitance transport|9082,53|0,00|||20250724||
+AC|Achats|AC000106|20250724|4010000|Fournisseurs|F0034|Fournisseur 0034|FAKAY000090|20250724|Facture sous-traitance transport|0,00|115935,84|||20250724||
+AC|Achats|AC000107|20250726|62512000|Hôtels, taxis et repas|||FAKAY000354|20250726|Facture hôtels, taxis et repas|2644,65|0,00|||20250726||
+AC|Achats|AC000107|20250726|4456600|TVA déductible|||FAKAY000354|20250726|Facture hôtels, taxis et repas|224,79|0,00|||20250726||
+AC|Achats|AC000107|20250726|4010000|Fournisseurs|F0019|Fournisseur 0019|FAKAY000354|20250726|Facture hôtels, taxis et repas|0,00|2869,44|||20250726||
+AC|Achats|AC000108|20250727|6288000|Prestations diverses portuaires|||FAKAY000318|20250727|Facture prestations diverses portuaires|45688,51|0,00|||20250727||
+AC|Achats|AC000108|20250727|4456600|TVA déductible|||FAKAY000318|20250727|Facture prestations diverses portuaires|3883,52|0,00|||20250727||
+AC|Achats|AC000108|20250727|4010000|Fournisseurs|F0040|Fournisseur 0040|FAKAY000318|20250727|Facture prestations diverses portuaires|0,00|49572,03|||20250727||
+AC|Achats|AC000109|20250731|6061100|Électricité|||FAKAY000390|20250731|Facture électricité|5297,88|0,00|||20250731||
+AC|Achats|AC000109|20250731|4456600|TVA déductible|||FAKAY000390|20250731|Facture électricité|450,32|0,00|||20250731||
+AC|Achats|AC000109|20250731|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000390|20250731|Facture électricité|0,00|5748,20|||20250731||
+AC|Achats|AC000110|20250731|6061100|Électricité|||FAKAY000426|20250731|Facture électricité|1471,90|0,00|||20250731||
+AC|Achats|AC000110|20250731|4456600|TVA déductible|||FAKAY000426|20250731|Facture électricité|125,11|0,00|||20250731||
+AC|Achats|AC000110|20250731|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000426|20250731|Facture électricité|0,00|1597,01|||20250731||
+AC|Achats|AC000111|20250731|6061100|Électricité|||FAKAY000462|20250731|Facture électricité|3398,85|0,00|||20250731||
+AC|Achats|AC000111|20250731|4456600|TVA déductible|||FAKAY000462|20250731|Facture électricité|288,90|0,00|||20250731||
+AC|Achats|AC000111|20250731|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000462|20250731|Facture électricité|0,00|3687,75|||20250731||
+AC|Achats|AC000112|20250731|6062200|Carburants|||FAKAY000510|20250731|Facture carburants|97821,78|0,00|||20250731||
+AC|Achats|AC000112|20250731|4456600|TVA déductible|||FAKAY000510|20250731|Facture carburants|8314,85|0,00|||20250731||
+AC|Achats|AC000112|20250731|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000510|20250731|Facture carburants|0,00|106136,63|||20250731||
+BQ|Banque|BQ000007|20250731|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR07|20250731|Règlements fournisseurs|1999500,15|0,00|||20250731||
+BQ|Banque|BQ000007|20250731|5120000|Banque|||VIR07|20250731|Règlements fournisseurs|0,00|1999500,15|||20250731||
+PA|Paie|PA000007|20250731|6411000|Salaires|||PAIE07|20250731|Salaires du mois|806000,00|0,00|||20250731||
+PA|Paie|PA000007|20250731|6451000|Cotisations URSSAF|||PAIE07|20250731|Salaires du mois|338520,00|0,00|||20250731||
+PA|Paie|PA000007|20250731|4210000|Personnel - rémunérations dues|||PAIE07|20250731|Salaires du mois|0,00|806000,00|||20250731||
+PA|Paie|PA000007|20250731|4310000|URSSAF|||PAIE07|20250731|Salaires du mois|0,00|338520,00|||20250731||
+VE|Ventes|VE000007|20250731|4110000|Clients|C0001|Clients divers|VT07|20250731|Ventes du mois|3615762,77|0,00|||20250731||
+VE|Ventes|VE000007|20250731|7060000|Prestations de services|||VT07|20250731|Ventes du mois|0,00|3332500,25|||20250731||
+VE|Ventes|VE000007|20250731|4457100|TVA collectée|||VT07|20250731|Ventes du mois|0,00|283262,52|||20250731||
+AC|Achats|AC000113|20250801|6063000|Fournitures d'entretien et petit équipement|||FAKAY000021|20250801|Facture fournitures d'entretien et petit équipement|28395,30|0,00|||20250801||
+AC|Achats|AC000113|20250801|4456600|TVA déductible|||FAKAY000021|20250801|Facture fournitures d'entretien et petit équipement|2413,60|0,00|||20250801||
+AC|Achats|AC000113|20250801|4010000|Fournisseurs|F0004|Fournisseur 0004|FAKAY000021|20250801|Facture fournitures d'entretien et petit équipement|0,00|30808,90|||20250801||
+AC|Achats|AC000114|20250803|6226000|Honoraires|||FAKAY000225|20250803|Facture honoraires|8296,41|0,00|||20250803||
+AC|Achats|AC000114|20250803|4456600|TVA déductible|||FAKAY000225|20250803|Facture honoraires|705,19|0,00|||20250803||
+AC|Achats|AC000114|20250803|4010000|Fournisseurs|F0016|Fournisseur 0016|FAKAY000225|20250803|Facture honoraires|0,00|9001,60|||20250803||
+AC|Achats|AC000115|20250803|6270000|Services bancaires|||FAKAY000290|20250803|Facture services bancaires|1414,67|0,00|||20250803||
+AC|Achats|AC000115|20250803|4010000|Fournisseurs|F0046|Fournisseur 0046|FAKAY000290|20250803|Facture services bancaires|0,00|1414,67|||20250803||
+AC|Achats|AC000116|20250805|6132000|Locations immobilières|||FAKAY000129|20250805|Facture locations immobilières|35556,13|0,00|||20250805||
+AC|Achats|AC000116|20250805|4456600|TVA déductible|||FAKAY000129|20250805|Facture locations immobilières|3022,27|0,00|||20250805||
+AC|Achats|AC000116|20250805|4010000|Fournisseurs|F0032|Fournisseur 0032|FAKAY000129|20250805|Facture locations immobilières|0,00|38578,40|||20250805||
+AC|Achats|AC000117|20250805|6160000|Primes d'assurance|||FAKAY000194|20250805|Facture primes d'assurance|19029,31|0,00|||20250805||
+AC|Achats|AC000117|20250805|4010000|Fournisseurs|F0059|Fournisseur 0059|FAKAY000194|20250805|Facture primes d'assurance|0,00|19029,31|||20250805||
+AC|Achats|AC000118|20250807|6260000|Frais postaux et télécommunications|||FAKAY000261|20250807|Facture frais postaux et télécommunications|4138,82|0,00|||20250807||
+AC|Achats|AC000118|20250807|4456600|TVA déductible|||FAKAY000261|20250807|Facture frais postaux et télécommunications|351,80|0,00|||20250807||
+AC|Achats|AC000118|20250807|4010000|Fournisseurs|F0052|Fournisseur 0052|FAKAY000261|20250807|Facture frais postaux et télécommunications|0,00|4490,62|||20250807||
+AC|Achats|AC000119|20250807|6251100|Billets d'avion|||FAKAY000516|20250807|Facture billets d'avion|1168,60|0,00|||20250807||
+AC|Achats|AC000119|20250807|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000516|20250807|Facture billets d'avion|0,00|1168,60|||20250807||
+AC|Achats|AC000120|20250808|62512000|Hôtels, taxis et repas|||FAKAY000357|20250808|Facture hôtels, taxis et repas|3415,28|0,00|||20250808||
+AC|Achats|AC000120|20250808|4456600|TVA déductible|||FAKAY000357|20250808|Facture hôtels, taxis et repas|290,30|0,00|||20250808||
+AC|Achats|AC000120|20250808|4010000|Fournisseurs|F0053|Fournisseur 0053|FAKAY000357|20250808|Facture hôtels, taxis et repas|0,00|3705,58|||20250808||
+AC|Achats|AC000121|20250809|6155000|Entretien et réparations véhicules|||FAKAY000165|20250809|Facture entretien et réparations véhicules|59921,81|0,00|||20250809||
+AC|Achats|AC000121|20250809|4456600|TVA déductible|||FAKAY000165|20250809|Facture entretien et réparations véhicules|5093,35|0,00|||20250809||
+AC|Achats|AC000121|20250809|4010000|Fournisseurs|F0048|Fournisseur 0048|FAKAY000165|20250809|Facture entretien et réparations véhicules|0,00|65015,16|||20250809||
+AC|Achats|AC000122|20250820|6288000|Prestations diverses portuaires|||FAKAY000321|20250820|Facture prestations diverses portuaires|41418,00|0,00|||20250820||
+AC|Achats|AC000122|20250820|4456600|TVA déductible|||FAKAY000321|20250820|Facture prestations diverses portuaires|3520,53|0,00|||20250820||
+AC|Achats|AC000122|20250820|4010000|Fournisseurs|F0059|Fournisseur 0059|FAKAY000321|20250820|Facture prestations diverses portuaires|0,00|44938,53|||20250820||
+AC|Achats|AC000123|20250825|6064000|Fournitures administratives|||FAKAY000057|20250825|Facture fournitures administratives|3575,78|0,00|||20250825||
+AC|Achats|AC000123|20250825|4456600|TVA déductible|||FAKAY000057|20250825|Facture fournitures administratives|303,94|0,00|||20250825||
+AC|Achats|AC000123|20250825|4010000|Fournisseurs|F0042|Fournisseur 0042|FAKAY000057|20250825|Facture fournitures administratives|0,00|3879,72|||20250825||
+AC|Achats|AC000124|20250827|6110000|Sous-traitance transport|||FAKAY000093|20250827|Facture sous-traitance transport|84275,02|0,00|||20250827||
+AC|Achats|AC000124|20250827|4456600|TVA déductible|||FAKAY000093|20250827|Facture sous-traitance transport|7163,38|0,00|||20250827||
+AC|Achats|AC000124|20250827|4010000|Fournisseurs|F0056|Fournisseur 0056|FAKAY000093|20250827|Facture sous-traitance transport|0,00|91438,40|||20250827||
+AC|Achats|AC000125|20250831|6061100|Électricité|||FAKAY000393|20250831|Facture électricité|5549,08|0,00|||20250831||
+AC|Achats|AC000125|20250831|4456600|TVA déductible|||FAKAY000393|20250831|Facture électricité|471,67|0,00|||20250831||
+AC|Achats|AC000125|20250831|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000393|20250831|Facture électricité|0,00|6020,75|||20250831||
+AC|Achats|AC000126|20250831|6061100|Électricité|||FAKAY000429|20250831|Facture électricité|1235,96|0,00|||20250831||
+AC|Achats|AC000126|20250831|4456600|TVA déductible|||FAKAY000429|20250831|Facture électricité|105,06|0,00|||20250831||
+AC|Achats|AC000126|20250831|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000429|20250831|Facture électricité|0,00|1341,02|||20250831||
+AC|Achats|AC000127|20250831|6061100|Électricité|||FAKAY000465|20250831|Facture électricité|3086,47|0,00|||20250831||
+AC|Achats|AC000127|20250831|4456600|TVA déductible|||FAKAY000465|20250831|Facture électricité|262,35|0,00|||20250831||
+AC|Achats|AC000127|20250831|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000465|20250831|Facture électricité|0,00|3348,82|||20250831||
+AC|Achats|AC000128|20250831|6062200|Carburants|||FAKAY000513|20250831|Facture carburants|97821,78|0,00|||20250831||
+AC|Achats|AC000128|20250831|4456600|TVA déductible|||FAKAY000513|20250831|Facture carburants|8314,85|0,00|||20250831||
+AC|Achats|AC000128|20250831|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000513|20250831|Facture carburants|0,00|106136,63|||20250831||
+BQ|Banque|BQ000008|20250831|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR08|20250831|Règlements fournisseurs|1664865,51|0,00|||20250831||
+BQ|Banque|BQ000008|20250831|5120000|Banque|||VIR08|20250831|Règlements fournisseurs|0,00|1664865,51|||20250831||
+PA|Paie|PA000008|20250831|6411000|Salaires|||PAIE08|20250831|Salaires du mois|806000,00|0,00|||20250831||
+PA|Paie|PA000008|20250831|6451000|Cotisations URSSAF|||PAIE08|20250831|Salaires du mois|338520,00|0,00|||20250831||
+PA|Paie|PA000008|20250831|4210000|Personnel - rémunérations dues|||PAIE08|20250831|Salaires du mois|0,00|806000,00|||20250831||
+PA|Paie|PA000008|20250831|4310000|URSSAF|||PAIE08|20250831|Salaires du mois|0,00|338520,00|||20250831||
+VE|Ventes|VE000008|20250831|4110000|Clients|C0001|Clients divers|VT08|20250831|Ventes du mois|3010631,80|0,00|||20250831||
+VE|Ventes|VE000008|20250831|7060000|Prestations de services|||VT08|20250831|Ventes du mois|0,00|2774775,85|||20250831||
+VE|Ventes|VE000008|20250831|4457100|TVA collectée|||VT08|20250831|Ventes du mois|0,00|235855,95|||20250831||
+AC|Achats|AC000129|20250903|6110000|Sous-traitance transport|||FAKAY000096|20250903|Facture sous-traitance transport|90861,76|0,00|||20250903||
+AC|Achats|AC000129|20250903|4456600|TVA déductible|||FAKAY000096|20250903|Facture sous-traitance transport|7723,25|0,00|||20250903||
+AC|Achats|AC000129|20250903|4010000|Fournisseurs|F0010|Fournisseur 0010|FAKAY000096|20250903|Facture sous-traitance transport|0,00|98585,01|||20250903||
+AC|Achats|AC000130|20250903|6155000|Entretien et réparations véhicules|||FAKAY000168|20250903|Facture entretien et réparations véhicules|66453,07|0,00|||20250903||
+AC|Achats|AC000130|20250903|4456600|TVA déductible|||FAKAY000168|20250903|Facture entretien et réparations véhicules|5648,51|0,00|||20250903||
+AC|Achats|AC000130|20250903|4010000|Fournisseurs|F0013|Fournisseur 0013|FAKAY000168|20250903|Facture entretien et réparations véhicules|0,00|72101,58|||20250903||
+AC|Achats|AC000131|20250905|6260000|Frais postaux et télécommunications|||FAKAY000264|20250905|Facture frais postaux et télécommunications|5620,45|0,00|||20250905||
+AC|Achats|AC000131|20250905|4456600|TVA déductible|||FAKAY000264|20250905|Facture frais postaux et télécommunications|477,74|0,00|||20250905||
+AC|Achats|AC000131|20250905|4010000|Fournisseurs|F0031|Fournisseur 0031|FAKAY000264|20250905|Facture frais postaux et télécommunications|0,00|6098,19|||20250905||
+AC|Achats|AC000132|20250910|6160000|Primes d'assurance|||FAKAY000196|20250910|Facture primes d'assurance|18610,37|0,00|||20250910||
+AC|Achats|AC000132|20250910|4010000|Fournisseurs|F0004|Fournisseur 0004|FAKAY000196|20250910|Facture primes d'assurance|0,00|18610,37|||20250910||
+AC|Achats|AC000133|20250911|6270000|Services bancaires|||FAKAY000292|20250911|Facture services bancaires|1781,73|0,00|||20250911||
+AC|Achats|AC000133|20250911|4010000|Fournisseurs|F0046|Fournisseur 0046|FAKAY000292|20250911|Facture services bancaires|0,00|1781,73|||20250911||
+AC|Achats|AC000134|20250913|6064000|Fournitures administratives|||FAKAY000060|20250913|Facture fournitures administratives|2942,54|0,00|||20250913||
+AC|Achats|AC000134|20250913|4456600|TVA déductible|||FAKAY000060|20250913|Facture fournitures administratives|250,12|0,00|||20250913||
+AC|Achats|AC000134|20250913|4010000|Fournisseurs|F0058|Fournisseur 0058|FAKAY000060|20250913|Facture fournitures administratives|0,00|3192,66|||20250913||
+AC|Achats|AC000135|20250916|6288000|Prestations diverses portuaires|||FAKAY000324|20250916|Facture prestations diverses portuaires|51582,74|0,00|||20250916||
+AC|Achats|AC000135|20250916|4456600|TVA déductible|||FAKAY000324|20250916|Facture prestations diverses portuaires|4384,53|0,00|||20250916||
+AC|Achats|AC000135|20250916|4010000|Fournisseurs|F0056|Fournisseur 0056|FAKAY000324|20250916|Facture prestations diverses portuaires|0,00|55967,27|||20250916||
+AC|Achats|AC000136|20250916|6251100|Billets d'avion|||FAKAY000521|20250916|Facture billets d'avion|2630,47|0,00|||20250916||
+AC|Achats|AC000136|20250916|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000521|20250916|Facture billets d'avion|0,00|2630,47|||20250916||
+AC|Achats|AC000137|20250918|6226000|Honoraires|||FAKAY000228|20250918|Facture honoraires|6844,63|0,00|||20250918||
+AC|Achats|AC000137|20250918|4456600|TVA déductible|||FAKAY000228|20250918|Facture honoraires|581,79|0,00|||20250918||
+AC|Achats|AC000137|20250918|4010000|Fournisseurs|F0007|Fournisseur 0007|FAKAY000228|20250918|Facture honoraires|0,00|7426,42|||20250918||
+AC|Achats|AC000138|20250922|6063000|Fournitures d'entretien et petit équipement|||FAKAY000024|20250922|Facture fournitures d'entretien et petit équipement|26915,47|0,00|||20250922||
+AC|Achats|AC000138|20250922|4456600|TVA déductible|||FAKAY000024|20250922|Facture fournitures d'entretien et petit équipement|2287,82|0,00|||20250922||
+AC|Achats|AC000138|20250922|4010000|Fournisseurs|F0047|Fournisseur 0047|FAKAY000024|20250922|Facture fournitures d'entretien et petit équipement|0,00|29203,29|||20250922||
+AC|Achats|AC000139|20250924|6132000|Locations immobilières|||FAKAY000132|20250924|Facture locations immobilières|33897,46|0,00|||20250924||
+AC|Achats|AC000139|20250924|4456600|TVA déductible|||FAKAY000132|20250924|Facture locations immobilières|2881,28|0,00|||20250924||
+AC|Achats|AC000139|20250924|4010000|Fournisseurs|F0035|Fournisseur 0035|FAKAY000132|20250924|Facture locations immobilières|0,00|36778,74|||20250924||
+AC|Achats|AC000140|20250925|62512000|Hôtels, taxis et repas|||FAKAY000360|20250925|Facture hôtels, taxis et repas|2943,66|0,00|||20250925||
+AC|Achats|AC000140|20250925|4456600|TVA déductible|||FAKAY000360|20250925|Facture hôtels, taxis et repas|250,21|0,00|||20250925||
+AC|Achats|AC000140|20250925|4010000|Fournisseurs|F0047|Fournisseur 0047|FAKAY000360|20250925|Facture hôtels, taxis et repas|0,00|3193,87|||20250925||
+AC|Achats|AC000141|20250930|6061100|Électricité|||FAKAY000396|20250930|Facture électricité|5518,17|0,00|||20250930||
+AC|Achats|AC000141|20250930|4456600|TVA déductible|||FAKAY000396|20250930|Facture électricité|469,04|0,00|||20250930||
+AC|Achats|AC000141|20250930|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000396|20250930|Facture électricité|0,00|5987,21|||20250930||
+AC|Achats|AC000142|20250930|6061100|Électricité|||FAKAY000432|20250930|Facture électricité|1285,40|0,00|||20250930||
+AC|Achats|AC000142|20250930|4456600|TVA déductible|||FAKAY000432|20250930|Facture électricité|109,26|0,00|||20250930||
+AC|Achats|AC000142|20250930|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000432|20250930|Facture électricité|0,00|1394,66|||20250930||
+AC|Achats|AC000143|20250930|6061100|Électricité|||FAKAY000468|20250930|Facture électricité|3428,74|0,00|||20250930||
+AC|Achats|AC000143|20250930|4456600|TVA déductible|||FAKAY000468|20250930|Facture électricité|291,44|0,00|||20250930||
+AC|Achats|AC000143|20250930|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000468|20250930|Facture électricité|0,00|3720,18|||20250930||
+AC|Achats|AC000144|20250930|6062200|Carburants|||FAKAY000518|20250930|Facture carburants|97821,78|0,00|||20250930||
+AC|Achats|AC000144|20250930|4456600|TVA déductible|||FAKAY000518|20250930|Facture carburants|8314,85|0,00|||20250930||
+AC|Achats|AC000144|20250930|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000518|20250930|Facture carburants|0,00|106136,63|||20250930||
+BQ|Banque|BQ000009|20250930|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR09|20250930|Règlements fournisseurs|1895615,08|0,00|||20250930||
+BQ|Banque|BQ000009|20250930|5120000|Banque|||VIR09|20250930|Règlements fournisseurs|0,00|1895615,08|||20250930||
+PA|Paie|PA000009|20250930|6411000|Salaires|||PAIE09|20250930|Salaires du mois|806000,00|0,00|||20250930||
+PA|Paie|PA000009|20250930|6451000|Cotisations URSSAF|||PAIE09|20250930|Salaires du mois|338520,00|0,00|||20250930||
+PA|Paie|PA000009|20250930|4210000|Personnel - rémunérations dues|||PAIE09|20250930|Salaires du mois|0,00|806000,00|||20250930||
+PA|Paie|PA000009|20250930|4310000|URSSAF|||PAIE09|20250930|Salaires du mois|0,00|338520,00|||20250930||
+VE|Ventes|VE000009|20250930|4110000|Clients|C0001|Clients divers|VT09|20250930|Ventes du mois|3427903,93|0,00|||20250930||
+VE|Ventes|VE000009|20250930|7060000|Prestations de services|||VT09|20250930|Ventes du mois|0,00|3159358,46|||20250930||
+VE|Ventes|VE000009|20250930|4457100|TVA collectée|||VT09|20250930|Ventes du mois|0,00|268545,47|||20250930||
+AC|Achats|AC000145|20251009|6251100|Billets d'avion|||FAKAY000526|20251009|Facture billets d'avion|1093,06|0,00|||20251009||
+AC|Achats|AC000145|20251009|4010000|Fournisseurs|F0902|Fournisseur 0902|FAKAY000526|20251009|Facture billets d'avion|0,00|1093,06|||20251009||
+AC|Achats|AC000146|20251011|6063000|Fournitures d'entretien et petit équipement|||FAKAY000027|20251011|Facture fournitures d'entretien et petit équipement|23395,70|0,00|||20251011||
+AC|Achats|AC000146|20251011|4456600|TVA déductible|||FAKAY000027|20251011|Facture fournitures d'entretien et petit équipement|1988,63|0,00|||20251011||
+AC|Achats|AC000146|20251011|4010000|Fournisseurs|F0043|Fournisseur 0043|FAKAY000027|20251011|Facture fournitures d'entretien et petit équipement|0,00|25384,33|||20251011||
+AC|Achats|AC000147|20251011|6270000|Services bancaires|||FAKAY000294|20251011|Facture services bancaires|1551,03|0,00|||20251011||
+AC|Achats|AC000147|20251011|4010000|Fournisseurs|F0022|Fournisseur 0022|FAKAY000294|20251011|Facture services bancaires|0,00|1551,03|||20251011||
+AC|Achats|AC000148|20251014|6110000|Sous-traitance transport|||FAKAY000099|20251014|Facture sous-traitance transport|78509,36|0,00|||20251014||
+AC|Achats|AC000148|20251014|4456600|TVA déductible|||FAKAY000099|20251014|Facture sous-traitance transport|6673,30|0,00|||20251014||
+AC|Achats|AC000148|20251014|4010000|Fournisseurs|F0026|Fournisseur 0026|FAKAY000099|20251014|Facture sous-traitance transport|0,00|85182,66|||20251014||
+AC|Achats|AC000149|20251014|6160000|Primes d'assurance|||FAKAY000198|20251014|Facture primes d'assurance|16865,80|0,00|||20251014||
+AC|Achats|AC000149|20251014|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000198|20251014|Facture primes d'assurance|0,00|16865,80|||20251014||
+AC|Achats|AC000150|20251014|6226000|Honoraires|||FAKAY000231|20251014|Facture honoraires|7000,36|0,00|||20251014||
+AC|Achats|AC000150|20251014|4456600|TVA déductible|||FAKAY000231|20251014|Facture honoraires|595,03|0,00|||20251014||
+AC|Achats|AC000150|20251014|4010000|Fournisseurs|F0005|Fournisseur 0005|FAKAY000231|20251014|Facture honoraires|0,00|7595,39|||20251014||
+AC|Achats|AC000151|20251014|6288000|Prestations diverses portuaires|||FAKAY000327|20251014|Facture prestations diverses portuaires|39306,20|0,00|||20251014||
+AC|Achats|AC000151|20251014|4456600|TVA déductible|||FAKAY000327|20251014|Facture prestations diverses portuaires|3341,03|0,00|||20251014||
+AC|Achats|AC000151|20251014|4010000|Fournisseurs|F0042|Fournisseur 0042|FAKAY000327|20251014|Facture prestations diverses portuaires|0,00|42647,23|||20251014||
+AC|Achats|AC000152|20251021|62512000|Hôtels, taxis et repas|||FAKAY000363|20251021|Facture hôtels, taxis et repas|3337,79|0,00|||20251021||
+AC|Achats|AC000152|20251021|4456600|TVA déductible|||FAKAY000363|20251021|Facture hôtels, taxis et repas|283,71|0,00|||20251021||
+AC|Achats|AC000152|20251021|4010000|Fournisseurs|F0019|Fournisseur 0019|FAKAY000363|20251021|Facture hôtels, taxis et repas|0,00|3621,50|||20251021||
+AC|Achats|AC000153|20251022|6132000|Locations immobilières|||FAKAY000135|20251022|Facture locations immobilières|36748,21|0,00|||20251022||
+AC|Achats|AC000153|20251022|4456600|TVA déductible|||FAKAY000135|20251022|Facture locations immobilières|3123,60|0,00|||20251022||
+AC|Achats|AC000153|20251022|4010000|Fournisseurs|F0045|Fournisseur 0045|FAKAY000135|20251022|Facture locations immobilières|0,00|39871,81|||20251022||
+AC|Achats|AC000154|20251024|6260000|Frais postaux et télécommunications|||FAKAY000267|20251024|Facture frais postaux et télécommunications|4222,20|0,00|||20251024||
+AC|Achats|AC000154|20251024|4456600|TVA déductible|||FAKAY000267|20251024|Facture frais postaux et télécommunications|358,89|0,00|||20251024||
+AC|Achats|AC000154|20251024|4010000|Fournisseurs|F0024|Fournisseur 0024|FAKAY000267|20251024|Facture frais postaux et télécommunications|0,00|4581,09|||20251024||
+AC|Achats|AC000155|20251025|6155000|Entretien et réparations véhicules|||FAKAY000171|20251025|Facture entretien et réparations véhicules|51865,79|0,00|||20251025||
+AC|Achats|AC000155|20251025|4456600|TVA déductible|||FAKAY000171|20251025|Facture entretien et réparations véhicules|4408,59|0,00|||20251025||
+AC|Achats|AC000155|20251025|4010000|Fournisseurs|F0008|Fournisseur 0008|FAKAY000171|20251025|Facture entretien et réparations véhicules|0,00|56274,38|||20251025||
+AC|Achats|AC000156|20251028|6064000|Fournitures administratives|||FAKAY000063|20251028|Facture fournitures administratives|3325,32|0,00|||20251028||
+AC|Achats|AC000156|20251028|4456600|TVA déductible|||FAKAY000063|20251028|Facture fournitures administratives|282,65|0,00|||20251028||
+AC|Achats|AC000156|20251028|4010000|Fournisseurs|F0019|Fournisseur 0019|FAKAY000063|20251028|Facture fournitures administratives|0,00|3607,97|||20251028||
+AC|Achats|AC000157|20251031|6061100|Électricité|||FAKAY000399|20251031|Facture électricité|6259,41|0,00|||20251031||
+AC|Achats|AC000157|20251031|4456600|TVA déductible|||FAKAY000399|20251031|Facture électricité|532,05|0,00|||20251031||
+AC|Achats|AC000157|20251031|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000399|20251031|Facture électricité|0,00|6791,46|||20251031||
+AC|Achats|AC000158|20251031|6061100|Électricité|||FAKAY000435|20251031|Facture électricité|1452,86|0,00|||20251031||
+AC|Achats|AC000158|20251031|4456600|TVA déductible|||FAKAY000435|20251031|Facture électricité|123,49|0,00|||20251031||
+AC|Achats|AC000158|20251031|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000435|20251031|Facture électricité|0,00|1576,35|||20251031||
+AC|Achats|AC000159|20251031|6061100|Électricité|||FAKAY000471|20251031|Facture électricité|3382,51|0,00|||20251031||
+AC|Achats|AC000159|20251031|4456600|TVA déductible|||FAKAY000471|20251031|Facture électricité|287,51|0,00|||20251031||
+AC|Achats|AC000159|20251031|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000471|20251031|Facture électricité|0,00|3670,02|||20251031||
+AC|Achats|AC000160|20251031|6062200|Carburants|||FAKAY000523|20251031|Facture carburants|97821,78|0,00|||20251031||
+AC|Achats|AC000160|20251031|4456600|TVA déductible|||FAKAY000523|20251031|Facture carburants|8314,85|0,00|||20251031||
+AC|Achats|AC000160|20251031|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000523|20251031|Facture carburants|0,00|106136,63|||20251031||
+BQ|Banque|BQ000010|20251031|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR10|20251031|Règlements fournisseurs|1714062,38|0,00|||20251031||
+BQ|Banque|BQ000010|20251031|5120000|Banque|||VIR10|20251031|Règlements fournisseurs|0,00|1714062,38|||20251031||
+PA|Paie|PA000010|20251031|6411000|Salaires|||PAIE10|20251031|Salaires du mois|806000,00|0,00|||20251031||
+PA|Paie|PA000010|20251031|6451000|Cotisations URSSAF|||PAIE10|20251031|Salaires du mois|338520,00|0,00|||20251031||
+PA|Paie|PA000010|20251031|4210000|Personnel - rémunérations dues|||PAIE10|20251031|Salaires du mois|0,00|806000,00|||20251031||
+PA|Paie|PA000010|20251031|4310000|URSSAF|||PAIE10|20251031|Salaires du mois|0,00|338520,00|||20251031||
+VE|Ventes|VE000010|20251031|4110000|Clients|C0001|Clients divers|VT10|20251031|Ventes du mois|3099596,13|0,00|||20251031||
+VE|Ventes|VE000010|20251031|7060000|Prestations de services|||VT10|20251031|Ventes du mois|0,00|2856770,63|||20251031||
+VE|Ventes|VE000010|20251031|4457100|TVA collectée|||VT10|20251031|Ventes du mois|0,00|242825,50|||20251031||
+AC|Achats|AC000161|20251106|62512000|Hôtels, taxis et repas|||FAKAY000366|20251106|Facture hôtels, taxis et repas|3124,34|0,00|||20251106||
+AC|Achats|AC000161|20251106|4456600|TVA déductible|||FAKAY000366|20251106|Facture hôtels, taxis et repas|265,57|0,00|||20251106||
+AC|Achats|AC000161|20251106|4010000|Fournisseurs|F0013|Fournisseur 0013|FAKAY000366|20251106|Facture hôtels, taxis et repas|0,00|3389,91|||20251106||
+AC|Achats|AC000162|20251112|6260000|Frais postaux et télécommunications|||FAKAY000270|20251112|Facture frais postaux et télécommunications|4548,57|0,00|||20251112||
+AC|Achats|AC000162|20251112|4456600|TVA déductible|||FAKAY000270|20251112|Facture frais postaux et télécommunications|386,63|0,00|||20251112||
+AC|Achats|AC000162|20251112|4010000|Fournisseurs|F0036|Fournisseur 0036|FAKAY000270|20251112|Facture frais postaux et télécommunications|0,00|4935,20|||20251112||
+AC|Achats|AC000163|20251115|6270000|Services bancaires|||FAKAY000296|20251115|Facture services bancaires|1408,71|0,00|||20251115||
+AC|Achats|AC000163|20251115|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000296|20251115|Facture services bancaires|0,00|1408,71|||20251115||
+AC|Achats|AC000164|20251116|6155000|Entretien et réparations véhicules|||FAKAY000174|20251116|Facture entretien et réparations véhicules|68959,30|0,00|||20251116||
+AC|Achats|AC000164|20251116|4456600|TVA déductible|||FAKAY000174|20251116|Facture entretien et réparations véhicules|5861,54|0,00|||20251116||
+AC|Achats|AC000164|20251116|4010000|Fournisseurs|F0029|Fournisseur 0029|FAKAY000174|20251116|Facture entretien et réparations véhicules|0,00|74820,84|||20251116||
+AC|Achats|AC000165|20251117|6288000|Prestations diverses portuaires|||FAKAY000330|20251117|Facture prestations diverses portuaires|47630,95|0,00|||20251117||
+AC|Achats|AC000165|20251117|4456600|TVA déductible|||FAKAY000330|20251117|Facture prestations diverses portuaires|4048,63|0,00|||20251117||
+AC|Achats|AC000165|20251117|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000330|20251117|Facture prestations diverses portuaires|0,00|51679,58|||20251117||
+AC|Achats|AC000166|20251118|6064000|Fournitures administratives|||FAKAY000066|20251118|Facture fournitures administratives|3045,86|0,00|||20251118||
+AC|Achats|AC000166|20251118|4456600|TVA déductible|||FAKAY000066|20251118|Facture fournitures administratives|258,90|0,00|||20251118||
+AC|Achats|AC000166|20251118|4010000|Fournisseurs|F0051|Fournisseur 0051|FAKAY000066|20251118|Facture fournitures administratives|0,00|3304,76|||20251118||
+AC|Achats|AC000167|20251119|6110000|Sous-traitance transport|||FAKAY000102|20251119|Facture sous-traitance transport|101880,10|0,00|||20251119||
+AC|Achats|AC000167|20251119|4456600|TVA déductible|||FAKAY000102|20251119|Facture sous-traitance transport|8659,81|0,00|||20251119||
+AC|Achats|AC000167|20251119|4010000|Fournisseurs|F0020|Fournisseur 0020|FAKAY000102|20251119|Facture sous-traitance transport|0,00|110539,91|||20251119||
+AC|Achats|AC000168|20251120|6226000|Honoraires|||FAKAY000234|20251120|Facture honoraires|8732,87|0,00|||20251120||
+AC|Achats|AC000168|20251120|4456600|TVA déductible|||FAKAY000234|20251120|Facture honoraires|742,29|0,00|||20251120||
+AC|Achats|AC000168|20251120|4010000|Fournisseurs|F0054|Fournisseur 0054|FAKAY000234|20251120|Facture honoraires|0,00|9475,16|||20251120||
+AC|Achats|AC000169|20251122|6160000|Primes d'assurance|||FAKAY000200|20251122|Facture primes d'assurance|19457,47|0,00|||20251122||
+AC|Achats|AC000169|20251122|4010000|Fournisseurs|F0042|Fournisseur 0042|FAKAY000200|20251122|Facture primes d'assurance|0,00|19457,47|||20251122||
+AC|Achats|AC000170|20251124|6063000|Fournitures d'entretien et petit équipement|||FAKAY000030|20251124|Facture fournitures d'entretien et petit équipement|26594,52|0,00|||20251124||
+AC|Achats|AC000170|20251124|4456600|TVA déductible|||FAKAY000030|20251124|Facture fournitures d'entretien et petit équipement|2260,53|0,00|||20251124||
+AC|Achats|AC000170|20251124|4010000|Fournisseurs|F0022|Fournisseur 0022|FAKAY000030|20251124|Facture fournitures d'entretien et petit équipement|0,00|28855,05|||20251124||
+AC|Achats|AC000171|20251124|6132000|Locations immobilières|||FAKAY000138|20251124|Facture locations immobilières|27782,82|0,00|||20251124||
+AC|Achats|AC000171|20251124|4456600|TVA déductible|||FAKAY000138|20251124|Facture locations immobilières|2361,54|0,00|||20251124||
+AC|Achats|AC000171|20251124|4010000|Fournisseurs|F0021|Fournisseur 0021|FAKAY000138|20251124|Facture locations immobilières|0,00|30144,36|||20251124||
+AC|Achats|AC000172|20251130|6061100|Électricité|||FAKAY000402|20251130|Facture électricité|6974,12|0,00|||20251130||
+AC|Achats|AC000172|20251130|4456600|TVA déductible|||FAKAY000402|20251130|Facture électricité|592,80|0,00|||20251130||
+AC|Achats|AC000172|20251130|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000402|20251130|Facture électricité|0,00|7566,92|||20251130||
+AC|Achats|AC000173|20251130|6061100|Électricité|||FAKAY000438|20251130|Facture électricité|1604,26|0,00|||20251130||
+AC|Achats|AC000173|20251130|4456600|TVA déductible|||FAKAY000438|20251130|Facture électricité|136,36|0,00|||20251130||
+AC|Achats|AC000173|20251130|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000438|20251130|Facture électricité|0,00|1740,62|||20251130||
+AC|Achats|AC000174|20251130|6061100|Électricité|||FAKAY000474|20251130|Facture électricité|3879,20|0,00|||20251130||
+AC|Achats|AC000174|20251130|4456600|TVA déductible|||FAKAY000474|20251130|Facture électricité|329,73|0,00|||20251130||
+AC|Achats|AC000174|20251130|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000474|20251130|Facture électricité|0,00|4208,93|||20251130||
+AC|Achats|AC000175|20251130|6062200|Carburants|||FAKAY000528|20251130|Facture carburants|97821,78|0,00|||20251130||
+AC|Achats|AC000175|20251130|4456600|TVA déductible|||FAKAY000528|20251130|Facture carburants|8314,85|0,00|||20251130||
+AC|Achats|AC000175|20251130|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000528|20251130|Facture carburants|0,00|106136,63|||20251130||
+BQ|Banque|BQ000011|20251130|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR11|20251130|Règlements fournisseurs|1640947,42|0,00|||20251130||
+BQ|Banque|BQ000011|20251130|5120000|Banque|||VIR11|20251130|Règlements fournisseurs|0,00|1640947,42|||20251130||
+PA|Paie|PA000011|20251130|6411000|Salaires|||PAIE11|20251130|Salaires du mois|806000,00|0,00|||20251130||
+PA|Paie|PA000011|20251130|6451000|Cotisations URSSAF|||PAIE11|20251130|Salaires du mois|338520,00|0,00|||20251130||
+PA|Paie|PA000011|20251130|4210000|Personnel - rémunérations dues|||PAIE11|20251130|Salaires du mois|0,00|806000,00|||20251130||
+PA|Paie|PA000011|20251130|4310000|URSSAF|||PAIE11|20251130|Salaires du mois|0,00|338520,00|||20251130||
+VE|Ventes|VE000011|20251130|4110000|Clients|C0001|Clients divers|VT11|20251130|Ventes du mois|2967379,91|0,00|||20251130||
+VE|Ventes|VE000011|20251130|7060000|Prestations de services|||VT11|20251130|Ventes du mois|0,00|2734912,36|||20251130||
+VE|Ventes|VE000011|20251130|4457100|TVA collectée|||VT11|20251130|Ventes du mois|0,00|232467,55|||20251130||
+AC|Achats|AC000176|20251201|6132000|Locations immobilières|||FAKAY000141|20251201|Facture locations immobilières|37901,98|0,00|||20251201||
+AC|Achats|AC000176|20251201|4456600|TVA déductible|||FAKAY000141|20251201|Facture locations immobilières|3221,67|0,00|||20251201||
+AC|Achats|AC000176|20251201|4010000|Fournisseurs|F0022|Fournisseur 0022|FAKAY000141|20251201|Facture locations immobilières|0,00|41123,65|||20251201||
+AC|Achats|AC000177|20251203|6160000|Primes d'assurance|||FAKAY000202|20251203|Facture primes d'assurance|16341,90|0,00|||20251203||
+AC|Achats|AC000177|20251203|4010000|Fournisseurs|F0030|Fournisseur 0030|FAKAY000202|20251203|Facture primes d'assurance|0,00|16341,90|||20251203||
+AC|Achats|AC000178|20251204|6260000|Frais postaux et télécommunications|||FAKAY000273|20251204|Facture frais postaux et télécommunications|4553,02|0,00|||20251204||
+AC|Achats|AC000178|20251204|4456600|TVA déductible|||FAKAY000273|20251204|Facture frais postaux et télécommunications|387,01|0,00|||20251204||
+AC|Achats|AC000178|20251204|4010000|Fournisseurs|F0049|Fournisseur 0049|FAKAY000273|20251204|Facture frais postaux et télécommunications|0,00|4940,03|||20251204||
+AC|Achats|AC000179|20251205|6288000|Prestations diverses portuaires|||FAKAY000333|20251205|Facture prestations diverses portuaires|37860,31|0,00|||20251205||
+AC|Achats|AC000179|20251205|4456600|TVA déductible|||FAKAY000333|20251205|Facture prestations diverses portuaires|3218,13|0,00|||20251205||
+AC|Achats|AC000179|20251205|4010000|Fournisseurs|F0010|Fournisseur 0010|FAKAY000333|20251205|Facture prestations diverses portuaires|0,00|41078,44|||20251205||
+AC|Achats|AC000180|20251207|6064000|Fournitures administratives|||FAKAY000069|20251207|Facture fournitures administratives|3870,36|0,00|||20251207||
+AC|Achats|AC000180|20251207|4456600|TVA déductible|||FAKAY000069|20251207|Facture fournitures administratives|328,98|0,00|||20251207||
+AC|Achats|AC000180|20251207|4010000|Fournisseurs|F0014|Fournisseur 0014|FAKAY000069|20251207|Facture fournitures administratives|0,00|4199,34|||20251207||
+AC|Achats|AC000181|20251211|6226000|Honoraires|||FAKAY000237|20251211|Facture honoraires|9481,86|0,00|||20251211||
+AC|Achats|AC000181|20251211|4456600|TVA déductible|||FAKAY000237|20251211|Facture honoraires|805,96|0,00|||20251211||
+AC|Achats|AC000181|20251211|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000237|20251211|Facture honoraires|0,00|10287,82|||20251211||
+OD|Opérations diverses|OD000001|20251215|6351100|Contribution économique territoriale|||CFE2025|20251215|Cotisation foncière des entreprises|14000,00|0,00|||20251215||
+OD|Opérations diverses|OD000001|20251215|4470000|Autres impôts|||CFE2025|20251215|Cotisation foncière des entreprises|0,00|14000,00|||20251215||
+AC|Achats|AC000182|20251217|6110000|Sous-traitance transport|||FAKAY000105|20251217|Facture sous-traitance transport|107733,23|0,00|||20251217||
+AC|Achats|AC000182|20251217|4456600|TVA déductible|||FAKAY000105|20251217|Facture sous-traitance transport|9157,32|0,00|||20251217||
+AC|Achats|AC000182|20251217|4010000|Fournisseurs|F0049|Fournisseur 0049|FAKAY000105|20251217|Facture sous-traitance transport|0,00|116890,55|||20251217||
+AC|Achats|AC000183|20251217|6270000|Services bancaires|||FAKAY000298|20251217|Facture services bancaires|1664,76|0,00|||20251217||
+AC|Achats|AC000183|20251217|4010000|Fournisseurs|F0009|Fournisseur 0009|FAKAY000298|20251217|Facture services bancaires|0,00|1664,76|||20251217||
+AC|Achats|AC000184|20251219|6155000|Entretien et réparations véhicules|||FAKAY000177|20251219|Facture entretien et réparations véhicules|55793,87|0,00|||20251219||
+AC|Achats|AC000184|20251219|4456600|TVA déductible|||FAKAY000177|20251219|Facture entretien et réparations véhicules|4742,48|0,00|||20251219||
+AC|Achats|AC000184|20251219|4010000|Fournisseurs|F0037|Fournisseur 0037|FAKAY000177|20251219|Facture entretien et réparations véhicules|0,00|60536,35|||20251219||
+AC|Achats|AC000185|20251225|6063000|Fournitures d'entretien et petit équipement|||FAKAY000033|20251225|Facture fournitures d'entretien et petit équipement|21321,66|0,00|||20251225||
+AC|Achats|AC000185|20251225|4456600|TVA déductible|||FAKAY000033|20251225|Facture fournitures d'entretien et petit équipement|1812,34|0,00|||20251225||
+AC|Achats|AC000185|20251225|4010000|Fournisseurs|F0050|Fournisseur 0050|FAKAY000033|20251225|Facture fournitures d'entretien et petit équipement|0,00|23134,00|||20251225||
+AC|Achats|AC000186|20251225|62512000|Hôtels, taxis et repas|||FAKAY000369|20251225|Facture hôtels, taxis et repas|2941,44|0,00|||20251225||
+AC|Achats|AC000186|20251225|4456600|TVA déductible|||FAKAY000369|20251225|Facture hôtels, taxis et repas|250,02|0,00|||20251225||
+AC|Achats|AC000186|20251225|4010000|Fournisseurs|F0049|Fournisseur 0049|FAKAY000369|20251225|Facture hôtels, taxis et repas|0,00|3191,46|||20251225||
+AC|Achats|AC000187|20251231|6061100|Électricité|||FAKAY000405|20251231|Facture électricité|7270,77|0,00|||20251231||
+AC|Achats|AC000187|20251231|4456600|TVA déductible|||FAKAY000405|20251231|Facture électricité|618,02|0,00|||20251231||
+AC|Achats|AC000187|20251231|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000405|20251231|Facture électricité|0,00|7888,79|||20251231||
+AC|Achats|AC000188|20251231|6061100|Électricité|||FAKAY000441|20251231|Facture électricité|1615,34|0,00|||20251231||
+AC|Achats|AC000188|20251231|4456600|TVA déductible|||FAKAY000441|20251231|Facture électricité|137,30|0,00|||20251231||
+AC|Achats|AC000188|20251231|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000441|20251231|Facture électricité|0,00|1752,64|||20251231||
+AC|Achats|AC000189|20251231|6061100|Électricité|||FAKAY000477|20251231|Facture électricité|4427,50|0,00|||20251231||
+AC|Achats|AC000189|20251231|4456600|TVA déductible|||FAKAY000477|20251231|Facture électricité|376,34|0,00|||20251231||
+AC|Achats|AC000189|20251231|4010000|Fournisseurs|F0900|Fournisseur 0900|FAKAY000477|20251231|Facture électricité|0,00|4803,84|||20251231||
+AC|Achats|AC000190|20251231|6062200|Carburants|||FAKAY000531|20251231|Facture carburants|97821,78|0,00|||20251231||
+AC|Achats|AC000190|20251231|4456600|TVA déductible|||FAKAY000531|20251231|Facture carburants|8314,85|0,00|||20251231||
+AC|Achats|AC000190|20251231|4010000|Fournisseurs|F0901|Fournisseur 0901|FAKAY000531|20251231|Facture carburants|0,00|106136,63|||20251231||
+BQ|Banque|BQ000012|20251231|4010000|Fournisseurs|F0001|Fournisseur 0001|VIR12|20251231|Règlements fournisseurs|1985410,69|0,00|||20251231||
+BQ|Banque|BQ000012|20251231|5120000|Banque|||VIR12|20251231|Règlements fournisseurs|0,00|1985410,69|||20251231||
+PA|Paie|PA000012|20251231|6411000|Salaires|||PAIE12|20251231|Salaires du mois|806000,00|0,00|||20251231||
+PA|Paie|PA000012|20251231|6451000|Cotisations URSSAF|||PAIE12|20251231|Salaires du mois|338520,00|0,00|||20251231||
+PA|Paie|PA000012|20251231|4210000|Personnel - rémunérations dues|||PAIE12|20251231|Salaires du mois|0,00|806000,00|||20251231||
+PA|Paie|PA000012|20251231|4310000|URSSAF|||PAIE12|20251231|Salaires du mois|0,00|338520,00|||20251231||
+VE|Ventes|VE000012|20251231|4110000|Clients|C0001|Clients divers|VT12|20251231|Ventes du mois|3590284,33|0,00|||20251231||
+VE|Ventes|VE000012|20251231|7060000|Prestations de services|||VT12|20251231|Ventes du mois|0,00|3309017,82|||20251231||
+VE|Ventes|VE000012|20251231|4457100|TVA collectée|||VT12|20251231|Ventes du mois|0,00|281266,51|||20251231||

@@ -143,7 +143,10 @@ Cette étape est faite une seule fois. Ensuite, chaque push sur `main` publie
 l'artefact produit par le job `pipeline`. Tant que Pages n'est pas activé, le job
 `deploy` échoue, mais le build et l'upload du site restent verts.
 
-URL attendue :
+Pages a été activé le 2026-10-21 et le déploiement vérifié sur le run
+`39536045438` : tous les jobs sont verts, le site répond en HTTP 200.
+
+URL vérifiée :
 
 ```text
 https://ultragenix.github.io/Pipeline-BEGES/
@@ -167,7 +170,7 @@ https://github.com/ultragenix/Pipeline-BEGES/actions/workflows/ci.yml/badge.svg?
 - Les actions GitHub sont épinglées par version majeure, pas par SHA.
 - Azure et Terraform restent l'étape 8 ; aucun secret cloud ici.
 
-## 7. Preuves locales
+## 7. Preuves
 
 ```text
 uv run ruff check .                 All checks passed!
@@ -202,3 +205,22 @@ L'échec venait de l'activation automatique de Pages, pas du pipeline.
 L'étape `actions/configure-pages@v5` a été retirée du workflow. Le job
 `pipeline` construit et uploade désormais l'artefact ; le job `deploy` reste
 conditionné à l'activation manuelle unique de Pages.
+
+### Run CI après correctif
+
+Run `39536045438` sur `9eb9220` :
+
+| Job | Résultat |
+|---|---|
+| `Lint et tests` | succès |
+| `Image et compose` | succès |
+| `Pipeline et site` | succès |
+| `Déploiement GitHub Pages` | succès |
+
+Vérification publique :
+
+```text
+https://ultragenix.github.io/Pipeline-BEGES/          HTTP 200, 14 250 octets
+https://ultragenix.github.io/Pipeline-BEGES/observabilite.html  HTTP 200, 42 constats
+https://ultragenix.github.io/Pipeline-BEGES/assets/style.css    HTTP 200
+```

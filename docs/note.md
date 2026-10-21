@@ -253,8 +253,10 @@ le dashboard sur GitHub Pages.
   site HTTP 200, `docker compose down -v` OK.
 - Premier run CI `39535399267` : lint/tests OK, image/compose OK, pipeline en
   échec à l'activation Pages (`Resource not accessible by integration`).
-  `configure-pages` a été retiré ; Pages doit être activé manuellement une fois.
-- CI et URL Pages : à vérifier après l'activation manuelle et le nouveau push.
+  `configure-pages` a été retiré ; Pages activé manuellement.
+- Run CI `39536045438` : **4 jobs verts**, déploiement Pages réussi.
+- Site publié : <https://ultragenix.github.io/Pipeline-BEGES/> (HTTP 200,
+  42 constats, assets 200).
 
 **Décision :** image runtime non-root, dépendances figées par `uv.lock`,
 volumes Docker nommés pour DuckDB et le site, CI en quatre jobs, Pages par
@@ -361,12 +363,13 @@ impact. Les réponses métier restent à recevoir.
 - « Un site statique suffit pour GitHub Pages. »
 - « Un volume Docker nommé n'hérite pas toujours des permissions de l'image. »
 - « Non-root se vérifie avec `id`, pas seulement avec `USER`. »
+- « Le `GITHUB_TOKEN` ne crée pas GitHub Pages : l'activation est une action admin. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 7 prête localement : image Docker, compose, workflow CI, tests de
-déploiement et documentation. La CI et l'URL GitHub Pages seront vérifiées
-après le `push` sur `origin/main`.
+Étape 7 terminée : image Docker, compose, workflow CI, tests de déploiement,
+documentation, CI verte et site publié sur
+<https://ultragenix.github.io/Pipeline-BEGES/>.
 Prochaine étape : étape 8, Azure et Terraform (ADLS, ACI, SQL, captures, coût,
 `destroy`).

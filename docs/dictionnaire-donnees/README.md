@@ -7,7 +7,7 @@
 | Entreprise | Fiche | Statut |
 |---|---|---|
 | KAY — Kayamb Logistique SAS | [KAY.md](KAY.md) | à venir |
-| FAN — Fanjan Agro SA | [FAN.md](FAN.md) | à venir |
+| FAN — Fanjan Agro SA | [FAN.md](FAN.md) | disponible |
 | VAC — Hôtels Vacoa Bleu SARL | [VAC.md](VAC.md) | à venir |
 
 ## Comment lire
@@ -50,6 +50,6 @@
 ## Statut
 
 - [x] Cadrage
-- [ ] FAN
+- [x] FAN
 - [ ] KAY
 - [ ] VAC

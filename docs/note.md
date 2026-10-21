@@ -85,6 +85,39 @@ de schéma et les annulations.
 
 **À retenir :** la configuration est la source de vérité pour l'ingestion.
 
+### 2026-10-21 — Étape 3 : ingestion config-driven
+
+**Objectif :** lire les 17 fichiers via la configuration et écrire des tables brutes
+dans DuckDB, avec journal et quarantaine.
+
+**Livrables :**
+- `src/beges/ingest.py`
+- `tests/ingestion/` : conftest, entreprises, sources, pipeline
+- `make ingest` et `make ingest-company CODE=...`
+- `raw.fec`, `raw.electricity`, `raw.fuel`, `raw.refrigerants`, `raw.flights`,
+  `raw.vehicles`
+- `raw.ingestion_log`, `raw.quarantine`
+
+**Résultats :**
+- `make ingest` : 3 entreprises, 17 fichiers, 8 263 lignes, 0 quarantaine.
+- `uv run pytest` : 40 tests passés.
+- `make test-company CODE=KAY` : 5 tests passés, 10 désélectionnés.
+- `make lint` : OK.
+- Tables : 1 999 FEC, 95 électricité, 5 879 carburant, 57 fluides, 187 vols,
+  46 véhicules.
+
+**Décision :** les tables brutes gardent les colonnes canoniques typées, les
+métadonnées de traçabilité et la ligne source complète en JSON ; les corrections
+métier restent en aval.
+
+**Difficulté :** deux fichiers `test_companies.py` entraient en collision à
+l'import ; `tests/ingestion/__init__.py` isole les modules. `executemany` était
+lent sur DuckDB ; une insertion multi-lignes par paquets de 500 ramène
+l'ingestion complète sous 2 secondes.
+
+**À retenir :** l'ingestion ne corrige rien : elle charge, trace et isole. Les
+doublons, les écarts FEC et les règles métier seront traités en dbt et en qualité.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -97,6 +130,10 @@ de schéma et les annulations.
 | 21/10 | Terraform pour Azure | rigueur, plan/apply, reproductibilité |
 | 21/10 | uv + Docker | reproductibilité locale et cloud |
 | 21/10 | Dashboard statique + observabilité | demo portable, pas de serveur |
+| 21/10 | Tables raw fidèles + `raw_row` JSON | aucune colonne source perdue |
+| 21/10 | Rechargement par source en transaction | idempotence, pas de chargement partiel |
+| 21/10 | Sites et MWh normalisés à l'ingestion | raw exploitable, valeur brute conservée |
+| 21/10 | Aucun dédoublonnage ni correction à l'ingestion | les constats restent visibles en qualité |
 
 ## 5. Difficultés
 
@@ -105,6 +142,8 @@ de schéma et les annulations.
 | Première tentative trop large | cadrer avant de coder |
 | Docker Desktop non intégré à WSL | vérifier l'environnement avant de bâtir |
 | Données hétérogènes | profiler avant d'écrire l'ingestion |
+| Deux `test_companies.py` en collision | isoler les modules de test par paquet |
+| `executemany` lent sur DuckDB | insérer par paquets multi-lignes |
 
 ## 6. Questions ouvertes
 
@@ -118,7 +157,8 @@ de schéma et les annulations.
 - KAY : compte `6288000` non mappé.
 - FAN : écriture `AC000042` déséquilibrée.
 
-Ces questions seront traitées à l'étape 1, dans le dictionnaire par entreprise.
+Ces questions restent ouvertes ; elles seront formalisées à l'étape 5 (qualité),
+avec une preuve, une question métier et un statut.
 
 ## 7. À retenir pour l'entretien
 
@@ -130,5 +170,5 @@ Ces questions seront traitées à l'étape 1, dans le dictionnaire par entrepris
 
 ## 8. Prochaine étape
 
-Étape 1 terminée : dictionnaire et registre d'anomalies pour les 3 entreprises.
-Prochaine étape : configuration d'ingestion.
+Étape 3 terminée : les 17 fichiers sont ingérés, journalisés et sans quarantaine.
+Prochaine étape : étape 4, modèles dbt (staging, intermediate, marts).

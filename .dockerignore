@@ -1,0 +1,29 @@
+# Contexte de build : ne copier que le nécessaire au pipeline.
+.git
+.github
+.gitignore
+.venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Données et sites générés localement
+data
+site
+dbt/target
+dbt/logs
+dbt/dbt_packages
+tmp
+
+# Documentation et tests : hors image d'exécution
+docs
+tests
+
+# Secrets et bases locales
+.env
+.env.*
+*.duckdb
+*.duckdb.wal

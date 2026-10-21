@@ -1,0 +1,31 @@
+name: pipeline-beges
+
+services:
+  pipeline:
+    build:
+      context: .
+    image: pipeline-beges:local
+    volumes:
+      - beges-data:/app/data
+      - beges-site:/app/site
+    restart: "no"
+
+  web:
+    image: nginx:1.28-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - beges-site:/usr/share/nginx/html:ro
+    depends_on:
+      pipeline:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  beges-data:
+  beges-site:

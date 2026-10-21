@@ -10,7 +10,7 @@ export BEGES_DB_PATH := $(BEGES_DB)
 export BEGES_CONFIG_DIR := $(CURDIR)/config
 export BEGES_SITE_DIR := $(SITE_DIR)
 
-.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs quality quality-report dashboard status all clean
+.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs quality quality-report dashboard status all docker-build docker-up docker-down docker-reset clean
 
 .NOTPARALLEL: all
 
@@ -35,6 +35,10 @@ help:
 	@echo "  make dashboard             Génère le site statique dans site/"
 	@echo "  make status                Affiche le statut du pipeline"
 	@echo "  make all                   Reconstruit tout : ingest + dbt + dashboard + status"
+	@echo "  make docker-build          Construit l'image pipeline-beges:local"
+	@echo "  make docker-up             Lance le pipeline et le site sur :8080"
+	@echo "  make docker-down           Arrête les conteneurs"
+	@echo "  make docker-reset          Arrête et supprime les volumes Docker"
 	@echo "  make clean                 Nettoie les caches et le site généré"
 
 sync:
@@ -97,6 +101,18 @@ status:
 	$(UV) run python -m beges.status
 
 all: ingest dashboard status
+
+docker-build:
+	docker build -t pipeline-beges:local .
+
+docker-up:
+	docker compose up --build
+
+docker-down:
+	docker compose down
+
+docker-reset:
+	docker compose down -v
 
 clean:
 	rm -rf .pytest_cache .ruff_cache .coverage htmlcov site

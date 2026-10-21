@@ -1,0 +1,342 @@
+{% extends "base.html" %}
+{% block title %}Observabilité — BEGES 2025{% endblock %}
+
+{% block content %}
+<section class="hero compact">
+  <div class="hero-copy">
+    <p class="eyebrow">Observabilité</p>
+    <h1>{{ quality.total }} constats,<br>{{ quality.bloquants }} bloquants.</h1>
+    <p class="lead">
+      La qualité des données n'est pas un test de code : c'est une lecture des fichiers
+      clients, avec une preuve, une question métier et un impact quand il est calculable.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="#constats">Explorer les constats</a>
+      <a class="button secondary" href="#ingestion">Voir l'ingestion</a>
+    </div>
+  </div>
+  <div class="hero-metric" aria-label="Synthèse de l'ingestion">
+    <span class="metric-label">Sources ingérées</span>
+    <strong>{{ ingestion.nb_sources }}</strong>
+    <span class="metric-unit">sources</span>
+    <span class="metric-note">
+      {{ ingestion.rows_loaded|number }} lignes ·
+      {{ ingestion.quarantine_total }} quarantaine
+    </span>
+  </div>
+</section>
+
+<section aria-labelledby="synthese-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Synthèse</p>
+      <h2 id="synthese-title">Le registre en un coup d'œil</h2>
+    </div>
+    <p class="muted">Dernier run d'ingestion : {{ ingestion.last_run }}</p>
+  </div>
+  <div class="grid four">
+    <article class="card stat-card">
+      <span class="metric-label">Constats</span>
+      <strong>{{ quality.total }}</strong>
+      <span class="muted">{{ quality.certains }} certains · {{ quality.a_confirmer }} à confirmer</span>
+    </article>
+    <article class="card stat-card danger">
+      <span class="metric-label">Bloquants</span>
+      <strong>{{ quality.bloquants }}</strong>
+      <span class="muted">Le bilan est faux ou incomplet</span>
+    </article>
+    <article class="card stat-card warning">
+      <span class="metric-label">Alertes</span>
+      <strong>{{ quality.alertes }}</strong>
+      <span class="muted">À vérifier avec le métier</span>
+    </article>
+    <article class="card stat-card info">
+      <span class="metric-label">Infos</span>
+      <strong>{{ quality.infos }}</strong>
+      <span class="muted">Traitement appliqué, tracé</span>
+    </article>
+  </div>
+  <p class="muted">
+    Statuts : {{ quality.statut_a_confirmer }} à confirmer · {{ quality.statut_ouverts }} ouverts.
+    Les impacts partagés <code>KAY-ELEC-GAP</code> et <code>VAC-ELEC-GAP</code> ne sont pas additifs.
+  </p>
+</section>
+
+<section id="constats" aria-labelledby="constats-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Registre</p>
+      <h2 id="constats-title">Les {{ quality.total }} constats</h2>
+    </div>
+    <p class="muted">Cliquer sur un constat pour lire la preuve et la question métier.</p>
+  </div>
+
+  <div class="filters" role="search" aria-label="Filtrer les constats">
+    <label>
+      Entreprise
+      <select id="filter-company">
+        <option value="">Toutes</option>
+        {% for code in quality.company_options %}
+        <option value="{{ code }}">{{ code }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      Sévérité
+      <select id="filter-severity">
+        <option value="">Toutes</option>
+        <option value="bloquant">Bloquant</option>
+        <option value="alerte">Alerte</option>
+        <option value="info">Info</option>
+      </select>
+    </label>
+    <label>
+      Famille
+      <select id="filter-family">
+        <option value="">Toutes</option>
+        {% for family in quality.family_options %}
+        <option value="{{ family.code }}">{{ family.label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      Statut
+      <select id="filter-status">
+        <option value="">Tous</option>
+        {% for status in quality.status_options %}
+        <option value="{{ status.code }}">{{ status.label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label class="filter-search">
+      Recherche
+      <input id="filter-search" type="search" placeholder="ID, titre, preuve…" autocomplete="off">
+    </label>
+    <button id="filter-reset" type="button" class="button ghost">Réinitialiser</button>
+  </div>
+
+  <p id="filter-count" class="filter-count" aria-live="polite">
+    {{ quality.total }} constats affichés.
+  </p>
+
+  <div class="constats">
+    {% for constat in quality.constats %}
+    <details
+      class="constat severity-{{ constat.severity }}"
+      data-company="{{ constat.company_code }}"
+      data-severity="{{ constat.severity }}"
+      data-family="{{ constat.family }}"
+      data-status="{{ constat.statut }}"
+      data-search="{{ (constat.constat_id ~ ' ' ~ constat.title ~ ' ' ~ constat.proof ~ ' ' ~ constat.question)|lower }}"
+    >
+      <summary>
+        <span class="badge id">{{ constat.constat_id }}</span>
+        <span class="badge severity {{ constat.severity }}">{{ constat.severity }}</span>
+        <span class="constat-title">{{ constat.title }}</span>
+        <span class="constat-impact">{{ constat.impact_text }}</span>
+      </summary>
+      <div class="constat-body">
+        <p class="proof">{{ constat.proof }}</p>
+        <p class="question"><strong>Question métier :</strong> {{ constat.question }}</p>
+        <dl class="inline-stats">
+          <div><dt>Entreprise</dt><dd>{{ constat.company_code }}</dd></div>
+          <div><dt>Famille</dt><dd>{{ constat.family_label }}</dd></div>
+          <div><dt>Certitude</dt><dd>{{ constat.certitude_label }}</dd></div>
+          <div><dt>Statut</dt><dd>{{ constat.statut_label }}</dd></div>
+          <div><dt>Traitement</dt><dd>{{ constat.traitement_label }}</dd></div>
+          <div><dt>Impact</dt><dd>{{ constat.impact_text }}</dd></div>
+        </dl>
+        {% if constat.impact_group %}
+        <p class="muted">Impact partagé : <code>{{ constat.impact_group }}</code>, non additif.</p>
+        {% endif %}
+      </div>
+    </details>
+    {% endfor %}
+  </div>
+  <p id="filter-empty" class="empty" hidden>Aucun constat ne correspond aux filtres.</p>
+</section>
+
+<section id="ingestion" aria-labelledby="ingestion-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Ingestion</p>
+      <h2 id="ingestion-title">17 sources, un journal</h2>
+    </div>
+    <p class="muted">
+      {{ ingestion.rows_loaded|number }} lignes chargées ·
+      {{ ingestion.quarantine_total }} en quarantaine ·
+      dernier run {{ ingestion.last_run }}
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Entreprise</th>
+          <th scope="col">Source</th>
+          <th scope="col">Type</th>
+          <th scope="col" class="num">Lignes</th>
+          <th scope="col">Statut</th>
+          <th scope="col" class="num">Durée</th>
+          <th scope="col">Terminé</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for source in ingestion.sources %}
+        <tr>
+          <td>{{ source.company_code }}</td>
+          <td>{{ source.source_id }}</td>
+          <td>{{ source.source_type }}</td>
+          <td class="num">{{ source.rows_loaded|number }}</td>
+          <td><span class="status {{ source.status }}">{{ source.status }}</span></td>
+          <td class="num">{{ source.duration }}</td>
+          <td>{{ source.finished_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="fraicheur" aria-labelledby="fraicheur-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Fraîcheur</p>
+      <h2 id="fraicheur-title">Couverture des sources</h2>
+    </div>
+    <p class="muted">La dernière donnée disponible, pas la date du fichier.</p>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Entreprise</th>
+          <th scope="col">Source</th>
+          <th scope="col">Première donnée</th>
+          <th scope="col">Dernière donnée</th>
+          <th scope="col" class="num">Lignes</th>
+          <th scope="col" class="num">Mois</th>
+          <th scope="col">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in ingestion.freshness %}
+        <tr>
+          <td>{{ row.company_code }}</td>
+          <td>{{ row.source_type }}</td>
+          <td>{{ row.min_date }}</td>
+          <td>{{ row.max_date }}</td>
+          <td class="num">{{ row.nb_lignes|number }}</td>
+          <td class="num">{{ row.nb_mois }}</td>
+          <td>{% if row.note %}<span class="warning-text">{{ row.note }}</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="tests" aria-labelledby="tests-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Tests</p>
+      <h2 id="tests-title">Le code est-il fiable ?</h2>
+    </div>
+    <p class="muted">Les tests dbt vérifient le code ; les constats vérifient les données.</p>
+  </div>
+  {% if ingestion.dbt %}
+  <div class="grid four">
+    <article class="card stat-card ok">
+      <span class="metric-label">Tests PASS</span>
+      <strong>{{ ingestion.dbt.pass_count }}</strong>
+      <span class="muted">sur {{ ingestion.dbt.pass_count + ingestion.dbt.error_count + ingestion.dbt.warn_count + ingestion.dbt.skip_count }}</span>
+    </article>
+    <article class="card stat-card danger">
+      <span class="metric-label">Échecs</span>
+      <strong>{{ ingestion.dbt.error_count }}</strong>
+      <span class="muted">erreurs ou échecs</span>
+    </article>
+    <article class="card stat-card">
+      <span class="metric-label">Durée</span>
+      <strong>{{ ingestion.dbt.elapsed_seconds|duration_s }}</strong>
+      <span class="muted">dernier build</span>
+    </article>
+    <article class="card stat-card">
+      <span class="metric-label">Modèles</span>
+      <strong>{{ ingestion.dbt.success_count }}</strong>
+      <span class="muted">construits</span>
+    </article>
+  </div>
+  <p class="muted">Dernier run : {{ ingestion.dbt.generated_at|datetime }}.</p>
+  {% else %}
+  <p class="empty">Résultats dbt indisponibles. Lancer <code>make dbt-build</code>.</p>
+  {% endif %}
+</section>
+
+<section id="quarantaine" aria-labelledby="quarantaine-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Quarantaine</p>
+      <h2 id="quarantaine-title">Aucune perte silencieuse</h2>
+    </div>
+    <p class="muted">{{ ingestion.quarantine_total }} ligne(s) isolée(s) à l'ingestion.</p>
+  </div>
+  {% if ingestion.quarantine %}
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Entreprise</th>
+          <th scope="col">Source</th>
+          <th scope="col">Raison</th>
+          <th scope="col" class="num">Lignes</th>
+          <th scope="col">Dernière occurrence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in ingestion.quarantine %}
+        <tr>
+          <td>{{ row.company_code }}</td>
+          <td>{{ row.source_id }}</td>
+          <td><code>{{ row.reason_code }}</code></td>
+          <td class="num">{{ row.nb_lignes|number }}</td>
+          <td>{{ row.last_seen_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="empty">Aucune ligne en quarantaine sur le jeu fictif.</p>
+  {% endif %}
+</section>
+
+<section class="note" aria-labelledby="lecture-title">
+  <h2 id="lecture-title">Comment lire ces chiffres</h2>
+  <div class="note-grid">
+    <div>
+      <h3>Un constat n'est pas une erreur</h3>
+      <p>
+        Une ligne suspecte n'est pas forcément fausse. Le constat dit ce qui est observé,
+        pourquoi c'est important et quelle question poser. Le statut « à confirmer »
+        signifie que la réponse métier n'est pas encore intégrée.
+      </p>
+    </div>
+    <div>
+      <h3>Les impacts ne s'additionnent pas</h3>
+      <p>
+        Un impact « compté » est déjà dans le bilan, un impact « non compté » en est exclu,
+        un impact « exposé » changerait le bilan si la règle était différente.
+        Les groupes partagés sont dédupliqués dans la synthèse.
+      </p>
+    </div>
+    <div>
+      <h3>Le journal est append-only</h3>
+      <p>
+        La page ingestion montre le dernier run par source. L'historique complet reste
+        dans <code>raw.ingestion_log</code>. La quarantaine est vide sur le jeu fictif.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Bilan BEGES 2025{% endblock %}</title>
+  <meta name="description" content="Démonstration de pipeline BEGES : bilan carbone traçable et constats qualité.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Retour au bilan">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-text">
+          <strong>BEGES</strong>
+          <small>Démonstration data</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" {% if page == "bilan" %}class="active" aria-current="page"{% endif %}>Bilan</a>
+        <a href="observabilite.html" {% if page == "ops" %}class="active" aria-current="page"{% endif %}>Observabilité</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>
+        Données fictives · Projet de démonstration · Facteurs et ratios indicatifs.
+      </p>
+      <p>
+        Généré le {{ generated_at|datetime }} ·
+        {{ nb_constats }} constats ·
+        <a href="observabilite.html">Voir l'observabilité</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

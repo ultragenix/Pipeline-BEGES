@@ -23,3 +23,6 @@ models:
     quality:
       +materialized: view
       +tags: ["quality"]
+    ops:
+      +materialized: view
+      +tags: ["ops"]

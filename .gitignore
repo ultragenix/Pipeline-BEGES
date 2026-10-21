@@ -39,5 +39,8 @@ logs/*
 .idea/
 .vscode/
 
+# Site statique généré
+site/
+
 # Passation locale (non publiée)
 tmp/

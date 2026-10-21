@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block title %}Bilan BEGES 2025 — Démonstration{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Bilan 2025 · 3 entreprises fictives</p>
+    <h1>Un bilan carbone lisible,<br>des données traçables.</h1>
+    <p class="lead">
+      Trois entreprises, 17 fichiers hétérogènes, un pipeline qui calcule,
+      teste et signale les anomalies sans les corriger en silence.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="observabilite.html">Voir les {{ bilan.nb_constats }} constats</a>
+      <a class="button secondary" href="#methode">Comprendre la méthode</a>
+    </div>
+  </div>
+  <div class="hero-metric" aria-label="Total du bilan">
+    <span class="metric-label">Total du bilan</span>
+    <strong>{{ bilan.total_tco2e|tco2e }}</strong>
+    <span class="metric-unit">tCO₂e</span>
+    <span class="metric-note">{{ bilan.part_physique|pct }} en méthode physique</span>
+  </div>
+</section>
+
+<section aria-labelledby="scopes-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Répartition</p>
+      <h2 id="scopes-title">Les trois scopes</h2>
+    </div>
+    <p class="muted">Le scope 3 concentre les achats et les déplacements.</p>
+  </div>
+  <div class="grid three">
+    {% for scope in bilan.scopes %}
+    <article class="card scope-card">
+      <p class="eyebrow">Scope {{ scope.scope }}</p>
+      <p class="big-number">{{ scope.tco2e|tco2e }} <small>tCO₂e</small></p>
+      <div class="bar" aria-hidden="true"><span style="width: {{ scope.part }}%"></span></div>
+      <p class="muted">{{ scope.part|pct }} du bilan</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="companies-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Par entreprise</p>
+      <h2 id="companies-title">Trois profils, trois bilans</h2>
+    </div>
+    <p class="muted">La part physique indique la qualité de la donnée disponible.</p>
+  </div>
+  <div class="grid three">
+    {% for company in bilan.companies %}
+    <article class="card company-card">
+      <header class="card-header">
+        <span class="badge">{{ company.code }}</span>
+        <h3>{{ company.name }}</h3>
+      </header>
+      <p class="big-number">{{ company.tco2e|tco2e }} <small>tCO₂e</small></p>
+      <div class="bar" aria-hidden="true"><span style="width: {{ company.part_physique }}%"></span></div>
+      <p class="muted">{{ company.part_physique|pct }} en méthode physique</p>
+      <dl class="inline-stats">
+        <div><dt>Scope 1</dt><dd>{{ company.scope1|tco2e }}</dd></div>
+        <div><dt>Scope 2</dt><dd>{{ company.scope2|tco2e }}</dd></div>
+        <div><dt>Scope 3</dt><dd>{{ company.scope3|tco2e }}</dd></div>
+      </dl>
+      <p class="card-foot">
+        {{ company.nb_constats }} constats, dont {{ company.nb_bloquants }} bloquants.
+        <a href="observabilite.html#constats">Voir le détail</a>
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="postes-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Postes</p>
+      <h2 id="postes-title">Où sont les émissions ?</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Poste</th>
+          <th scope="col" class="num">tCO₂e</th>
+          <th scope="col" class="num">Part</th>
+          <th scope="col" class="bar-col" aria-label="Répartition"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for poste in bilan.postes %}
+        <tr>
+          <td>{{ poste.poste }}</td>
+          <td class="num">{{ poste.tco2e|tco2e }}</td>
+          <td class="num">{{ poste.part|pct }}</td>
+          <td class="bar-col"><div class="bar small" aria-hidden="true"><span style="width: {{ poste.part }}%"></span></div></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="methodes-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Méthodes</p>
+      <h2 id="methodes-title">Physique ou monétaire</h2>
+    </div>
+    <p class="muted">La donnée physique remplace le monétaire quand elle existe.</p>
+  </div>
+  <div class="grid three">
+    {% set method_labels = {"physique": "Physique", "physique_estimee": "Physique estimée", "monetaire": "Monétaire"} %}
+    {% for method in bilan.methods %}
+    <article class="card method-card">
+      <p class="eyebrow">{{ method_labels.get(method.method, method.method) }}</p>
+      <p class="big-number">{{ method.tco2e|tco2e }} <small>tCO₂e</small></p>
+      <div class="bar" aria-hidden="true"><span style="width: {{ method.part }}%"></span></div>
+      <p class="muted">{{ method.part|pct }} du bilan · {{ method.lignes }} lignes</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="activites-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Top 10</p>
+      <h2 id="activites-title">Les activités les plus émettrices</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Poste</th>
+          <th scope="col">Activité</th>
+          <th scope="col" class="num">tCO₂e</th>
+          <th scope="col" class="num">Part</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for activity in bilan.top_activities %}
+        <tr>
+          <td>{{ activity.poste }}</td>
+          <td>{{ activity.activity }}</td>
+          <td class="num">{{ activity.tco2e|tco2e }}</td>
+          <td class="num">{{ activity.part|pct }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="callout" aria-labelledby="constats-title">
+  <div>
+    <p class="eyebrow">Qualité des données</p>
+    <h2 id="constats-title">Ce que le bilan ne dit pas</h2>
+    <p>
+      {{ bilan.nb_constats }} constats ont été calculés à partir des fichiers sources,
+      dont <strong>{{ bilan.nb_bloquants }} bloquants</strong>. Ils couvrent les doublons,
+      les unités, les écarts avec le FEC, les référentiels et les règles métier à confirmer.
+    </p>
+  </div>
+  <a class="button" href="observabilite.html#constats">Ouvrir l'observabilité</a>
+</section>
+
+<section id="methode" class="note" aria-labelledby="methode-title">
+  <h2 id="methode-title">Méthode et limites</h2>
+  <div class="note-grid">
+    <div>
+      <h3>Deux méthodes</h3>
+      <p>
+        La méthode physique utilise les kWh, litres, kg de fluide et passager.km.
+        La méthode monétaire applique un ratio aux montants HT du FEC.
+        Le physique remplace le monétaire sur l'électricité, le carburant et les vols.
+      </p>
+    </div>
+    <div>
+      <h3>Traçabilité</h3>
+      <p>
+        Chaque ligne du bilan garde son fichier, sa feuille, sa ligne source et son
+        identifiant d'ingestion. Les lignes écartées restent visibles dans
+        <code>fct_exclusions</code>.
+      </p>
+    </div>
+    <div>
+      <h3>Ce n'est pas un audit</h3>
+      <p>
+        Les facteurs et ratios sont indicatifs. Les impacts sont des ordres de grandeur,
+        pas des corrections comptables. Les questions métier restent ouvertes.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

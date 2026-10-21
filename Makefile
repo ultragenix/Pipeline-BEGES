@@ -4,11 +4,15 @@ UV ?= uv
 DBT ?= $(UV) run dbt
 DATA_DIR ?= donnees-sources-fictives/raw
 BEGES_DB ?= $(CURDIR)/data/warehouse/beges.duckdb
+SITE_DIR ?= $(CURDIR)/site
 export DATA_RAW_DIR := $(CURDIR)/$(DATA_DIR)
 export BEGES_DB_PATH := $(BEGES_DB)
 export BEGES_CONFIG_DIR := $(CURDIR)/config
+export BEGES_SITE_DIR := $(SITE_DIR)
 
-.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs quality quality-report clean
+.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs quality quality-report dashboard status all clean
+
+.NOTPARALLEL: all
 
 help:
 	@echo "Pipeline BEGES"
@@ -28,7 +32,10 @@ help:
 	@echo "  make dbt-docs              Génère la documentation et le lineage dbt"
 	@echo "  make quality               Construit et affiche les constats qualité"
 	@echo "  make quality-report        Affiche les constats sans reconstruire"
-	@echo "  make clean                 Nettoie les caches"
+	@echo "  make dashboard             Génère le site statique dans site/"
+	@echo "  make status                Affiche le statut du pipeline"
+	@echo "  make all                   Reconstruit tout : ingest + dbt + dashboard + status"
+	@echo "  make clean                 Nettoie les caches et le site généré"
 
 sync:
 	$(UV) sync
@@ -82,5 +89,14 @@ quality-report:
 	@test -f "$(BEGES_DB)" || (echo "Base absente: lancer make ingest" && exit 1)
 	$(UV) run python -m beges.quality
 
+dashboard: dbt-build
+	$(UV) run python -m beges.dashboard
+
+status:
+	@test -f "$(BEGES_DB)" || (echo "Base absente: lancer make ingest" && exit 1)
+	$(UV) run python -m beges.status
+
+all: ingest dashboard status
+
 clean:
-	rm -rf .pytest_cache .ruff_cache .coverage htmlcov
+	rm -rf .pytest_cache .ruff_cache .coverage htmlcov site

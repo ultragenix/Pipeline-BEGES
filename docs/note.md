@@ -385,9 +385,11 @@ fermée.
 - VAC : avoirs négatifs sur achats alimentaires.
 - Toutes : facteur d'émission de la classe Affaires.
 
-Les 38 questions du registre sont désormais formalisées dans 42 constats
-calculés (`docs/quality.md`), avec une preuve, un statut, un traitement et un
-impact. Les réponses métier restent à recevoir.
+Les 38 questions du registre sont formalisées dans 42 constats calculés
+(`docs/quality.md`). Le retour métier simulé apporte des décisions sur 16
+anomalies : 16/16 sont détectées, mais aucune n'est encore enregistrée comme
+`repondu` ou `integre`. Le rapport `docs/comparaison-correction.md` liste les
+écarts et les décisions à appliquer. Les autres questions restent ouvertes.
 
 ## 7. À retenir pour l'entretien
 

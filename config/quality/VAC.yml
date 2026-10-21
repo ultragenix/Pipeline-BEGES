@@ -1,0 +1,184 @@
+company: VAC
+constats:
+  - id: VAC-01
+    registry_id: VAC-01
+    source: electricity
+    family: fraicheur
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: aucun
+    check_key: electricity.month_missing
+    title: "Décembre manquant sur les 3 sites"
+    proof: "L'export électricité couvre janvier à novembre 2025 pour les 3 sites. Décembre est absent."
+    question: "La facture de décembre est-elle disponible, ou manque-t-elle réellement ?"
+    impact_type: estimation
+    impact_group: VAC-ELEC-GAP
+    impact_basis: "Décembre estimé par la moyenne mensuelle des 3 sites et le facteur 0,78 kgCO2e/kWh."
+
+  - id: VAC-02
+    registry_id: VAC-02
+    source: cross_source
+    family: coherence_entre_sources
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: gap.electricity_fec
+    title: "Écart entre l'électricité et le FEC 6061100"
+    proof: "L'export électricité et le compte 6061100 du FEC ne concordent pas."
+    question: "L'écart correspond-il à la facture de décembre manquante, ou à un autre périmètre ?"
+    impact_type: estimation
+    impact_group: VAC-ELEC-GAP
+    impact_basis: "Écart valorisé au prix moyen de 0,17 €/kWh et au facteur 0,78 kgCO2e/kWh."
+
+  - id: VAC-03
+    registry_id: VAC-03
+    source: fuel
+    family: conformite_format
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: mappe
+    check_key: fuel.schema_drift
+    title: "Dérive de schéma carburant S1 / S2"
+    proof: "Le fichier S1 utilise la colonne « Quantite (L) », le fichier S2 utilise « Volume ». Les deux sont mappés vers quantity_l."
+    question: "Confirmez-vous que Volume et Quantite (L) sont bien des litres ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan après mapping des deux colonnes."
+
+  - id: VAC-04
+    registry_id: VAC-04
+    source: flights
+    family: unicite
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.doublon_exact
+    title: "Billets dupliqués"
+    proof: "Deux billets apparaissent deux fois à l'identique. Les doublons sont exclus."
+    question: "Ces deux billets sont-ils réellement présents deux fois dans l'export ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : les doublons sont exclus du bilan."
+
+  - id: VAC-05
+    registry_id: VAC-05
+    source: flights
+    family: validite
+    severity: info
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.billet_annule
+    title: "Billets annulés"
+    proof: "Trois billets sont marqués « Annulé ». Ils sont exclus."
+    question: "Ces billets ont-ils été remboursés, remplacés ou finalement utilisés ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : les billets annulés sont exclus du bilan."
+
+  - id: VAC-06
+    registry_id: VAC-06
+    source: fuel
+    family: integrite_referentielle
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fuel.card_without_vehicle
+    title: "Cartes carburant sans véhicule"
+    proof: "Des cartes carburant sont utilisées sans identifiant véhicule ; aucun référentiel de parc n'est fourni."
+    question: "Pouvez-vous fournir le parc et l'affectation carte/véhicule ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable ; le contrôle d'intégrité n'est pas possible."
+
+  - id: VAC-07
+    registry_id: VAC-07
+    source: fec
+    family: conformite_format
+    severity: bloquant
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fec.ht_assumption
+    title: "FEC supposé HT"
+    proof: "Le FEC ne porte pas de colonne TVA par ligne ; le pipeline traite le montant débit-crédit comme HT."
+    question: "Les montants du FEC sont-ils bien HT ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable : une confusion HT/TTC changerait tous les ratios monétaires."
+
+  - id: VAC-08
+    registry_id: VAC-08
+    source: flights
+    family: conformite_format
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.aller_simple_a_confirmer
+    title: "Aller simple / aller-retour à confirmer"
+    proof: "Des billets sont marqués AS et comptés comme un seul trajet."
+    question: "AS signifie-t-il bien aller simple ? Faut-il compter un ou deux trajets ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : si AS signifie aller-retour, le bilan doublerait ces émissions."
+
+  - id: VAC-09
+    registry_id: VAC-09
+    source: fec
+    family: integrite_referentielle
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: mapping.account_to_confirm
+    match_key: "6011000,6022000"
+    title: "Mappings 6011000 et 6022000 à confirmer"
+    proof: "Les comptes 6011000 et 6022000 sont valorisés avec les ratios du mapping, sans confirmation métier."
+    question: "Confirmez-vous matières premières (900) et boissons (800) ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : un ratio erroné changerait fortement le bilan."
+
+  - id: VAC-10
+    registry_id: VAC-10
+    source: fec
+    family: conformite_format
+    severity: info
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: fec.cet_out_of_scope
+    title: "CET en classe 6 mais hors périmètre"
+    proof: "Le compte 6351100 est en classe 6 mais exclu comme les autres comptes 63."
+    question: "Confirmez-vous que la CET est hors périmètre du bilan carbone ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : la CET est exclue du calcul monétaire."
+
+  - id: VAC-11
+    registry_id: VAC-11
+    source: fec
+    family: integrite_referentielle
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: mapping.account_to_confirm
+    match_key: "6231000"
+    title: "Publicité et commissions plateformes"
+    proof: "Le compte 6231000 est valorisé avec le ratio publicité du mapping."
+    question: "Les commissions plateformes relèvent-elles de la publicité (150) ou d'un autre poste ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : à 300 kgCO2e/k€, l'impact serait d'environ le double."
+
+  - id: VAC-12
+    source: fec
+    family: validite
+    severity: alerte
+    certitude: a_confirmer
+    statut: ouvert
+    traitement: conserve
+    check_key: quality_flag.montant_negatif
+    title: "Avoirs sur achats alimentaires"
+    proof: "Trois lignes du compte 6011000 sont négatives."
+    question: "Ces trois avoirs sont-ils des notes de crédit légitimes à conserver dans le bilan ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan ; il réduit le scope 3."

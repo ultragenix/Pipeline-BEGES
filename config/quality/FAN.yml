@@ -1,0 +1,200 @@
+company: FAN
+constats:
+  - id: FAN-01
+    registry_id: FAN-01
+    source: electricity
+    family: homogeneite_unites
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: converti
+    check_key: electricity.unit_mwh
+    title: "Feuille PIE-FRO exprimée en MWh"
+    proof: "La feuille PIE-FRO est en MWh, les deux autres feuilles en kWh. L'ingestion convertit PIE-FRO en kWh et conserve l'unité d'origine."
+    question: "Confirmez-vous que PIE-FRO est bien en MWh et qu'il faut multiplier par 1000 ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan après conversion en kWh."
+
+  - id: FAN-02
+    registry_id: FAN-02
+    source: fuel
+    family: completude
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: estime
+    check_key: quality_flag.litres_estimes
+    title: "Carburant sans volumes en litres"
+    proof: "Les transactions carburant ne contiennent que le montant TTC. Les litres sont estimés avec les prix repères et la méthode est marquée physique_estimee."
+    question: "Pouvez-vous fournir les volumes, ou confirmez-vous l'estimation par les prix repères ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan au titre de la méthode physique estimée."
+
+  - id: FAN-03
+    registry_id: FAN-03
+    source: fuel
+    family: integrite_referentielle
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fuel.vehicle_not_in_registry
+    title: "Cartes carburant sans référentiel véhicule"
+    proof: "Des cartes et des véhicules sont utilisés, mais aucun référentiel de parc n'est fourni pour FAN."
+    question: "Pouvez-vous fournir le parc et l'affectation carte/véhicule ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable ; le contrôle d'intégrité n'est pas possible."
+
+  - id: FAN-04
+    registry_id: FAN-04
+    source: refrigerants
+    family: validite
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.gwp_inconnu
+    match_key: empty
+    title: "Intervention frigoriste sans code fluide"
+    proof: "Une intervention n'a pas de code fluide ; le PRG n'est pas calculable."
+    question: "Quel fluide a été rechargé sur cette intervention ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans code fluide et PRG."
+
+  - id: FAN-05
+    registry_id: FAN-05
+    source: refrigerants
+    family: validite
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.gwp_inconnu
+    match_key: "R-?"
+    title: "Code fluide R-? inconnu"
+    proof: "Une intervention utilise le code R-? ; le PRG n'est pas calculable."
+    question: "Que signifie R-? et quel fluide est concerné ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans code fluide et PRG."
+
+  - id: FAN-06
+    registry_id: FAN-06
+    source: fec
+    family: coherence_interne
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fec.unbalanced_entry
+    title: "Écriture AC000042 déséquilibrée"
+    proof: "L'écriture AC000042 présente un débit et un crédit qui ne s'équilibrent pas."
+    question: "L'écriture est-elle déséquilibrée dans l'export, ou manque-t-il une ligne ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : l'écart est valorisé au ratio du compte d'achat concerné."
+
+  - id: FAN-07
+    registry_id: FAN-07
+    source: fec
+    family: integrite_referentielle
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: mapping.account_to_confirm
+    match_key: "6011000,6021000"
+    title: "Mappings 6011000 et 6021000 à confirmer"
+    proof: "Les comptes 6011000 et 6021000 sont valorisés avec les ratios du mapping, sans confirmation métier."
+    question: "Confirmez-vous 6011000 → matières premières (900) et 6021000 → emballages (600) ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : un ratio erroné changerait fortement le bilan."
+
+  - id: FAN-08
+    registry_id: FAN-08
+    source: fec
+    family: conformite_format
+    severity: info
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: fec.cet_out_of_scope
+    title: "CET en classe 6 mais hors périmètre"
+    proof: "Le compte 6351100 est en classe 6 mais exclu comme les autres comptes 63."
+    question: "Confirmez-vous que la CET est hors périmètre du bilan carbone ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : la CET est exclue du calcul monétaire."
+
+  - id: FAN-09
+    registry_id: FAN-09
+    source: cross_source
+    family: coherence_entre_sources
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: gap.electricity_fec
+    title: "Écart entre l'électricité et le FEC 6061100"
+    proof: "L'export électricité et le compte 6061100 du FEC ne concordent pas."
+    question: "Une facture manque-t-elle, ou est-ce un arrondi ?"
+    impact_type: estimation
+    impact_basis: "Écart valorisé au prix moyen de 0,17 €/kWh et au facteur 0,78 kgCO2e/kWh."
+
+  - id: FAN-10
+    registry_id: FAN-10
+    source: refrigerants
+    family: completude
+    severity: info
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: refrigerant.site_missing
+    title: "Aucune intervention frigoriste sur SPI-ADM"
+    proof: "Le site SPI-ADM n'a aucune intervention frigoriste en 2025."
+    question: "Est-ce normal (pas d'équipement frigorifique) ou manque-t-il des interventions ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans inventaire des équipements."
+
+  - id: FAN-11
+    registry_id: FAN-11
+    source: fec
+    family: conformite_format
+    severity: bloquant
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fec.ht_assumption
+    title: "FEC supposé HT"
+    proof: "Le FEC ne porte pas de colonne TVA par ligne ; le pipeline traite le montant débit-crédit comme HT."
+    question: "Les montants du FEC sont-ils bien HT ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable : une confusion HT/TTC changerait tous les ratios monétaires."
+
+  - id: FAN-12
+    registry_id: FAN-12
+    source: flights
+    family: conformite_format
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.aller_simple_a_confirmer
+    title: "Aller simple / aller-retour à confirmer"
+    proof: "Des billets sont marqués AS et comptés comme un seul trajet."
+    question: "AS signifie-t-il bien aller simple ? Faut-il compter un ou deux trajets ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : si AS signifie aller-retour, le bilan doublerait ces émissions."
+
+  - id: FAN-13
+    registry_id: FAN-13
+    source: fec
+    family: integrite_referentielle
+    severity: info
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: mapping.account_to_confirm
+    match_key: "62512000"
+    title: "Hôtels, taxis et repas en méthode monétaire"
+    proof: "Le compte 62512000 est valorisé en méthode monétaire avec le ratio du mapping."
+    question: "Confirmez-vous la méthode monétaire et le ratio pour les hôtels, taxis et repas ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan ; le ratio reste à confirmer."

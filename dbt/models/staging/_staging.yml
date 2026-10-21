@@ -23,6 +23,80 @@ models:
       - name: company_name
         data_tests: [not_null]
 
+  - name: ref_sites
+    description: "Référentiel des sites déclarés, lu depuis config/companies/*.yml."
+    columns:
+      - name: site_key
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: site_code
+        data_tests: [not_null]
+      - name: site_name
+        data_tests: [not_null]
+
+  - name: ref_quality_register
+    description: "Registre des constats qualité, un fichier YAML par entreprise."
+    columns:
+      - name: constat_id
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: check_key
+        data_tests: [not_null]
+      - name: family
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - conformite_format
+                  - unicite
+                  - completude
+                  - validite
+                  - homogeneite_unites
+                  - valeurs_aberrantes
+                  - integrite_referentielle
+                  - coherence_interne
+                  - coherence_entre_sources
+                  - fraicheur
+      - name: severity
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["bloquant", "alerte", "info"]
+      - name: certitude
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["certain", "a_confirmer"]
+      - name: statut
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["ouvert", "a_confirmer", "repondu", "integre", "ecarte"]
+      - name: traitement
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["converti", "mappe", "exclu", "estime", "conserve", "aucun"]
+      - name: impact_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["compte", "non_compte", "exposition", "estimation", "non_calculable"]
+      - name: title
+        data_tests: [not_null]
+      - name: proof_detail
+        data_tests: [not_null]
+      - name: business_question
+        data_tests: [not_null]
+
   - name: ref_account_mapping
     description: "Correspondance comptes FEC → poste, scope et ratio, lue depuis config/account_mapping.csv."
     columns:

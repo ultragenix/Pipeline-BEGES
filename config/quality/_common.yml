@@ -1,0 +1,15 @@
+company: ALL
+constats:
+  - id: GEN-01
+    source: flights
+    family: validite
+    severity: alerte
+    certitude: a_confirmer
+    statut: ouvert
+    traitement: conserve
+    check_key: flights.cabin_class_standard_factor
+    title: "Classe Affaires au facteur standard"
+    proof: "Des trajets en classe Affaires sont valorisés avec le facteur de la classe Économique, faute de facteur dédié."
+    question: "Quel facteur d'émission appliquer à la classe Affaires ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : le facteur standard sous-estime probablement les trajets concernés."

@@ -8,7 +8,7 @@ export DATA_RAW_DIR := $(CURDIR)/$(DATA_DIR)
 export BEGES_DB_PATH := $(BEGES_DB)
 export BEGES_CONFIG_DIR := $(CURDIR)/config
 
-.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs clean
+.PHONY: help sync lock lint format test test-company config-check config-check-company ingest ingest-company dbt-build dbt-test dbt-docs quality quality-report clean
 
 help:
 	@echo "Pipeline BEGES"
@@ -26,6 +26,8 @@ help:
 	@echo "  make dbt-build             Construit et teste les modèles dbt"
 	@echo "  make dbt-test              Lance les tests dbt"
 	@echo "  make dbt-docs              Génère la documentation et le lineage dbt"
+	@echo "  make quality               Construit et affiche les constats qualité"
+	@echo "  make quality-report        Affiche les constats sans reconstruire"
 	@echo "  make clean                 Nettoie les caches"
 
 sync:
@@ -72,6 +74,13 @@ dbt-test:
 dbt-docs:
 	@test -f "$(BEGES_DB)" || (echo "Base absente: lancer make ingest" && exit 1)
 	$(DBT) docs generate --project-dir dbt --profiles-dir dbt
+
+quality: dbt-build
+	$(UV) run python -m beges.quality
+
+quality-report:
+	@test -f "$(BEGES_DB)" || (echo "Base absente: lancer make ingest" && exit 1)
+	$(UV) run python -m beges.quality
 
 clean:
 	rm -rf .pytest_cache .ruff_cache .coverage htmlcov

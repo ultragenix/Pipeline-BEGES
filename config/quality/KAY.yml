@@ -1,0 +1,241 @@
+company: KAY
+constats:
+  - id: KAY-01
+    registry_id: KAY-01
+    source: electricity
+    family: completude
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: aucun
+    check_key: electricity.site_missing
+    title: "Site LPT-ATL sans relevé électrique"
+    proof: "Le site LPT-ATL est déclaré dans le référentiel client, mais aucun relevé 2025 n'est présent dans l'export EDF."
+    question: "Le site LPT-ATL a-t-il consommé de l'électricité en 2025 ? Si oui, pouvez-vous fournir les relevés ou les factures ?"
+    impact_type: estimation
+    impact_group: KAY-ELEC-GAP
+    impact_basis: "Écart FEC 6061100 valorisé au prix moyen de 0,17 €/kWh et au facteur 0,78 kgCO2e/kWh."
+
+  - id: KAY-02
+    registry_id: KAY-02
+    source: electricity
+    family: unicite
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.doublon_exact
+    title: "Facture électricité de juillet dupliquée"
+    proof: "Deux lignes identiques pour LPT-ENT en juillet 2025. La seconde ligne est exclue du bilan."
+    question: "La facture de juillet est-elle réellement présente deux fois dans l'export, ou s'agit-il d'une erreur d'extraction ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : la ligne en trop est exclue du bilan."
+
+  - id: KAY-03
+    registry_id: KAY-03
+    source: electricity
+    family: coherence_interne
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.regularisation
+    title: "Régularisation négative en mai"
+    proof: "Mai contient un relevé réel et une régularisation négative. Les deux lignes sont conservées et signalées."
+    question: "La régularisation de mai corrige-t-elle l'estimation d'avril, ou une consommation de mai ? Faut-il la rattacher à avril ou à mai ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan ; la régularisation réduit le scope 2."
+
+  - id: KAY-04
+    registry_id: KAY-04
+    source: electricity
+    family: completude
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.releve_estime
+    title: "Relevé d'avril estimé"
+    proof: "Le relevé d'avril de LPT-ENT est marqué « Estimé ». Il est conservé et signalé."
+    question: "L'estimation d'avril a-t-elle été corrigée plus tard ? Faut-il attendre un relevé réel ?"
+    impact_type: compte
+    impact_basis: "Impact déjà inclus dans le bilan ; l'estimation reste une incertitude du scope 2."
+
+  - id: KAY-05
+    registry_id: KAY-05
+    source: fuel
+    family: integrite_referentielle
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.produit_a_confirmer
+    title: "Libellés B7, GO et Diesel à confirmer"
+    proof: "Des transactions utilisent les libellés B7, GO ou Diesel. Elles sont traitées comme du gazole et signalées."
+    question: "Ces libellés sont-ils tous des synonymes de gazole ? Confirmez-vous le facteur gazole appliqué ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : le bilan changerait si un libellé relevait d'un autre carburant."
+
+  - id: KAY-06
+    registry_id: KAY-06
+    source: fuel
+    family: conformite_format
+    severity: info
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.non_combustible
+    title: "ADBLUE exclu du calcul carburant"
+    proof: "Des lignes ADBLUE sont présentes. Elles sont exclues car l'ADBLUE n'est pas un combustible."
+    question: "Confirmez-vous que l'ADBLUE doit être exclu du calcul carburant ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : si l'ADBLUE était compté comme du gazole, il ajouterait environ 25,5 tCO2e."
+
+  - id: KAY-07
+    registry_id: KAY-07
+    source: fuel
+    family: validite
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.produit_inconnu
+    title: "Produit 47 inconnu"
+    proof: "Des lignes « PRODUIT 47 » sont présentes. Aucun facteur d'émission ne leur est associé."
+    question: "Qu'est-ce que le PRODUIT 47 ? Quel facteur d'émission faut-il appliquer ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans identification du produit et de son facteur."
+
+  - id: KAY-08
+    registry_id: KAY-08
+    source: cross_source
+    family: coherence_entre_sources
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: gap.fuel_fec
+    title: "Écart entre le carburant et le FEC 6062200"
+    proof: "L'export carburant et le compte 6062200 du FEC ne concordent pas."
+    question: "L'écart vient-il d'un arrondi, d'une facture manquante ou d'un autre périmètre ?"
+    impact_type: estimation
+    impact_basis: "Écart valorisé au prix repère du gazole (1,46 €/L) et au facteur 3,10 kgCO2e/L."
+
+  - id: KAY-09
+    registry_id: KAY-09
+    source: cross_source
+    family: coherence_entre_sources
+    severity: bloquant
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: gap.electricity_fec
+    title: "Écart entre l'électricité et le FEC 6061100"
+    proof: "L'export électricité et le compte 6061100 du FEC ne concordent pas."
+    question: "L'écart correspond-il au site LPT-ATL manquant, à une facture absente ou à un autre périmètre ?"
+    impact_type: estimation
+    impact_group: KAY-ELEC-GAP
+    impact_basis: "Écart valorisé au prix moyen de 0,17 €/kWh et au facteur 0,78 kgCO2e/kWh."
+
+  - id: KAY-10
+    registry_id: KAY-10
+    source: fec
+    family: integrite_referentielle
+    severity: bloquant
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.compte_non_mappe
+    title: "Compte 6288000 non mappé"
+    proof: "Le compte 6288000 « Prestations diverses portuaires » n'a ni poste ni ratio dans le mapping."
+    question: "À quel poste et quel ratio rattacher ces prestations portuaires ?"
+    impact_type: exposition
+    impact_basis: "Montant non valorisé ; fourchette indicative de 62,8 à 261,6 tCO2e selon le ratio retenu."
+
+  - id: KAY-11
+    registry_id: KAY-11
+    source: flights
+    family: validite
+    severity: alerte
+    certitude: certain
+    statut: a_confirmer
+    traitement: exclu
+    check_key: exclusion.destination_manquante
+    title: "Destination de vol vide"
+    proof: "Un billet n'a pas de destination. La distance et le facteur de vol ne sont pas calculables."
+    question: "Quelle est la destination de ce billet ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans destination."
+
+  - id: KAY-12
+    registry_id: KAY-12
+    source: flights
+    family: conformite_format
+    severity: alerte
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: conserve
+    check_key: quality_flag.aller_simple_a_confirmer
+    title: "Aller simple / aller-retour à confirmer"
+    proof: "Des billets sont marqués AS et comptés comme un seul trajet."
+    question: "AS signifie-t-il bien aller simple ? Faut-il compter un ou deux trajets ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : si AS signifie aller-retour, le bilan doublerait ces émissions."
+
+  - id: KAY-13
+    registry_id: KAY-13
+    source: refrigerants
+    family: completude
+    severity: info
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: refrigerant.site_missing
+    title: "Aucune intervention frigoriste sur LPT-SIE et LPT-ATL"
+    proof: "Les sites LPT-SIE et LPT-ATL n'ont aucune intervention frigoriste en 2025."
+    question: "Est-ce normal (pas d'équipement frigorifique) ou manque-t-il des interventions ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable sans inventaire des équipements."
+
+  - id: KAY-14
+    registry_id: KAY-14
+    source: fec
+    family: conformite_format
+    severity: bloquant
+    certitude: a_confirmer
+    statut: a_confirmer
+    traitement: aucun
+    check_key: fec.ht_assumption
+    title: "FEC supposé HT"
+    proof: "Le FEC ne porte pas de colonne TVA par ligne ; le pipeline traite le montant débit-crédit comme HT."
+    question: "Les montants du FEC sont-ils bien HT ?"
+    impact_type: non_calculable
+    impact_basis: "Impact non calculable : une confusion HT/TTC changerait tous les ratios monétaires."
+
+  - id: KAY-15
+    source: fec
+    family: conformite_format
+    severity: info
+    certitude: certain
+    statut: ouvert
+    traitement: exclu
+    check_key: fec.cet_out_of_scope
+    title: "CET en classe 6 mais hors périmètre"
+    proof: "Le compte 6351100 « Contribution économique territoriale » est en classe 6 mais exclu comme les autres comptes 63."
+    question: "Confirmez-vous que la CET est hors périmètre du bilan carbone ?"
+    impact_type: non_compte
+    impact_basis: "Impact non compté : la CET est exclue du calcul monétaire."
+
+  - id: KAY-16
+    source: fuel
+    family: valeurs_aberrantes
+    severity: alerte
+    certitude: certain
+    statut: ouvert
+    traitement: aucun
+    check_key: fuel.quantity_above_tank
+    title: "Transaction carburant supérieure à la capacité du réservoir"
+    proof: "Une transaction carburant dépasse la capacité du réservoir du véhicule."
+    question: "Cette transaction est-elle correcte (réservoir supplémentaire, saisie erronée) ?"
+    impact_type: exposition
+    impact_basis: "Impact exposé : les litres excédentaires sont valorisés au facteur gazole."

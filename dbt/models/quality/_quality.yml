@@ -1,0 +1,95 @@
+version: 2
+
+models:
+  - name: int_quality_findings
+    description: "Détection des constats qualité à partir des marts, du staging et des référentiels."
+    columns:
+      - name: check_key
+        description: "Clé technique du contrôle, jointe au registre config/quality/*.yml."
+        data_tests: [not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: match_key
+        description: "Discriminant optionnel pour les contrôles à plusieurs occurrences."
+
+  - name: quality_constats
+    description: "Registre des constats qualité, enrichi des métriques calculées."
+    columns:
+      - name: constat_id
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: company_name
+        data_tests: [not_null]
+      - name: family
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - conformite_format
+                  - unicite
+                  - completude
+                  - validite
+                  - homogeneite_unites
+                  - valeurs_aberrantes
+                  - integrite_referentielle
+                  - coherence_interne
+                  - coherence_entre_sources
+                  - fraicheur
+      - name: severity
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["bloquant", "alerte", "info"]
+      - name: certitude
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["certain", "a_confirmer"]
+      - name: statut
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["ouvert", "a_confirmer", "repondu", "integre", "ecarte"]
+      - name: traitement
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["converti", "mappe", "exclu", "estime", "conserve", "aucun"]
+      - name: title
+        data_tests: [not_null]
+      - name: proof
+        data_tests: [not_null]
+      - name: business_question
+        data_tests: [not_null]
+      - name: impact_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["compte", "non_compte", "exposition", "estimation", "non_calculable"]
+      - name: check_key
+        data_tests: [not_null]
+      - name: severity_rank
+        data_tests: [not_null]
+      - name: statut_rank
+        data_tests: [not_null]
+
+  - name: quality_summary
+    description: "Synthèse des constats par entreprise, impacts partagés dédupliqués."
+    columns:
+      - name: company_code
+        data_tests: [unique, not_null]
+      - name: company_name
+        data_tests: [not_null]
+      - name: nb_constats
+        data_tests: [not_null]
+      - name: impact_tco2e
+        data_tests: [not_null]
+      - name: impact_eur
+        data_tests: [not_null]

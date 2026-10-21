@@ -56,9 +56,11 @@ def test_ci_workflow_has_required_jobs() -> None:
 
     assert workflow["permissions"]["contents"] == "read"
     assert {"lint-test", "pipeline", "docker", "deploy"} <= set(workflow["jobs"])
+    assert workflow["jobs"]["pipeline"]["permissions"] == {"contents": "read"}
     assert workflow["jobs"]["deploy"]["permissions"]["pages"] == "write"
     assert workflow["jobs"]["deploy"]["permissions"]["id-token"] == "write"
     assert "actions/deploy-pages@v4" in workflow_text
+    assert "configure-pages" not in workflow_text
     assert "pull_request:" in workflow_text
     assert "make all" in workflow_text
 

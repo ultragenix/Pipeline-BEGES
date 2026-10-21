@@ -251,7 +251,10 @@ le dashboard sur GitHub Pages.
 - `docker run --rm ... id` : `uid=1000(app)`.
 - Clone propre du commit `8794db2` : `docker compose up -d --build` OK,
   site HTTP 200, `docker compose down -v` OK.
-- CI et URL Pages : à vérifier après le `push` sur `origin/main`.
+- Premier run CI `39535399267` : lint/tests OK, image/compose OK, pipeline en
+  échec à l'activation Pages (`Resource not accessible by integration`).
+  `configure-pages` a été retiré ; Pages doit être activé manuellement une fois.
+- CI et URL Pages : à vérifier après l'activation manuelle et le nouveau push.
 
 **Décision :** image runtime non-root, dépendances figées par `uv.lock`,
 volumes Docker nommés pour DuckDB et le site, CI en quatre jobs, Pages par
@@ -261,7 +264,11 @@ artefact GitHub Actions. Aucun fichier généré n'est commité.
 `app` ne pouvait pas écrire `site/assets`. Un entrypoint prépare les volumes puis
 abandonne les privilèges avec `setpriv`. `HOME` restait `/root` après le
 changement d'utilisateur ; uv échouait sur son cache. `HOME=/home/app` corrige
-le problème. L'image fait 966 Mo à cause de dbt, DuckDB et pandas.
+le problème. L'image fait 966 Mo à cause de dbt, DuckDB et pandas. GitHub Pages
+n'était pas activé : `configure-pages` avec `enablement: true` échoue avec
+`Resource not accessible by integration`, car le `GITHUB_TOKEN` ne peut pas
+créer le site. L'activation est manuelle et unique ; le workflow uploade
+l'artefact sans tenter de créer Pages.
 
 **À retenir :** un volume nommé n'hérite pas toujours des permissions de l'image ;
 il faut les préparer explicitement. Un conteneur « non-root » se vérifie avec

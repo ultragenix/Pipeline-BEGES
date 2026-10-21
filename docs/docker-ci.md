@@ -118,7 +118,8 @@ Déclencheurs : `push` sur `main`, `pull_request` vers `main`, `workflow_dispatc
 Permissions :
 
 - globales : `contents: read` ;
-- jobs `pipeline` et `deploy` : `pages: write`, `id-token: write` ;
+- job `pipeline` : `contents: read` (build et upload d'artefact) ;
+- job `deploy` : `pages: write`, `id-token: write` ;
 - aucun secret applicatif ; seul le `GITHUB_TOKEN` fourni par Actions est utilisé.
 
 La concurrence `pages` n'annule pas un déploiement en cours. Les dépendances
@@ -127,13 +128,20 @@ sont mises en cache par `astral-sh/setup-uv` à partir de `uv.lock`.
 ## 5. GitHub Pages
 
 Le site est publié comme artefact Pages, pas comme branche `gh-pages`.
-`actions/configure-pages@v5` est appelé avec `enablement: true` pour activer
-Pages au premier déploiement. Si le dépôt interdit cette activation automatique,
-le fallback est :
+GitHub Pages doit être activé **une fois manuellement** par un administrateur du
+dépôt. Le `GITHUB_TOKEN` fourni à Actions ne peut pas créer le site Pages :
+la tentative `actions/configure-pages@v5` avec `enablement: true` a échoué avec
+`Resource not accessible by integration` et `Get Pages site failed. Error: Not Found`.
+
+Activation :
 
 ```text
 Settings → Pages → Build and deployment → Source : GitHub Actions
 ```
+
+Cette étape est faite une seule fois. Ensuite, chaque push sur `main` publie
+l'artefact produit par le job `pipeline`. Tant que Pages n'est pas activé, le job
+`deploy` échoue, mais le build et l'upload du site restent verts.
 
 URL attendue :
 
@@ -178,4 +186,19 @@ docker compose down -v              volumes supprimés
 Le clone propre du commit `8794db2` a été testé dans
 `/tmp/opencode/beges-clean.jOVeWG` : `docker compose up -d --build` OK,
 site HTTP 200, `docker compose down -v` OK.
-La CI et l'URL Pages seront vérifiées après le `push` sur `origin/main`.
+
+### Premier run CI
+
+Run `39535399267` sur `342b038` :
+
+| Job | Résultat |
+|---|---|
+| `Lint et tests` | succès |
+| `Image et compose` | succès |
+| `Pipeline et site` | échec à `Configurer GitHub Pages` |
+| `Déploiement GitHub Pages` | ignoré |
+
+L'échec venait de l'activation automatique de Pages, pas du pipeline.
+L'étape `actions/configure-pages@v5` a été retirée du workflow. Le job
+`pipeline` construit et uploade désormais l'artefact ; le job `deploy` reste
+conditionné à l'activation manuelle unique de Pages.

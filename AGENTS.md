@@ -71,6 +71,21 @@ des changements non annoncés.
 - Tu distingues toujours : fait observé, hypothèse, décision.
 - Chaque étape produit une preuve vérifiable : test, commande, capture ou document.
 
+## Résumé d'étape
+
+- À la fin de chaque étape, tu produis un résumé global : objectif, fichiers créés ou
+  modifiés, tests exécutés, résultats, commit, points à ajuster, prochaine étape.
+- Tu attends ma validation avant de passer à l'étape suivante.
+
+## Tests
+
+- Les tests de configuration sont séparés par responsabilité : loader, schémas communs,
+  entreprises.
+- Les tests d'entreprise sont paramétrés et découvrent automatiquement
+  `config/companies/*.yml`.
+- Ajouter une entreprise ne doit pas obliger à réécrire les tests existants.
+- On doit pouvoir tester une seule entreprise : `make test-company CODE=...`.
+
 ## Rigueur
 
 - Aucune fonctionnalité n'est déclarée « terminée » sans vérification.

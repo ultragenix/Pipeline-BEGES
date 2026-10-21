@@ -1,0 +1,207 @@
+version: 2
+
+models:
+  - name: ref_emission_factors
+    description: "Facteurs d'émission, PRG, bandes de vol, prix et TVA lus depuis config/emission_factors.yml."
+    columns:
+      - name: factor_key
+        description: "Clé category:code."
+        data_tests: [unique, not_null]
+      - name: value
+        description: "Valeur du facteur dans son unité."
+        data_tests: [not_null]
+      - name: category
+        data_tests: [not_null]
+      - name: code
+        data_tests: [not_null]
+
+  - name: ref_companies
+    description: "Référentiel entreprises lu depuis config/companies/*.yml."
+    columns:
+      - name: company_code
+        data_tests: [unique, not_null]
+      - name: company_name
+        data_tests: [not_null]
+
+  - name: ref_account_mapping
+    description: "Correspondance comptes FEC → poste, scope et ratio, lue depuis config/account_mapping.csv."
+    columns:
+      - name: prefix
+        description: "Préfixe comptable le plus long attendu."
+        data_tests: [unique, not_null]
+      - name: poste
+        data_tests: [not_null]
+
+  - name: ref_airports
+    description: "Aéroports et coordonnées lus depuis config/airports.csv."
+    columns:
+      - name: iata
+        data_tests: [unique, not_null]
+      - name: latitude
+        data_tests: [not_null]
+      - name: longitude
+        data_tests: [not_null]
+
+  - name: ref_parameters
+    description: "Paramètres scalaires extraits des facteurs d'émission."
+    columns:
+      - name: electricity_factor_kg_per_kwh
+        data_tests: [not_null]
+      - name: gazole_factor_kg_per_l
+        data_tests: [not_null]
+      - name: sp95_factor_kg_per_l
+        data_tests: [not_null]
+      - name: gazole_price_ttc_eur_per_l
+        data_tests: [not_null]
+      - name: sp95_price_ttc_eur_per_l
+        data_tests: [not_null]
+      - name: vat_rate
+        data_tests: [not_null]
+      - name: distance_correction_km
+        data_tests: [not_null]
+
+  - name: stg_fec
+    description: "FEC typé, avec montant HT, classe de compte et équilibre par écriture."
+    columns:
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: entry_id
+        data_tests: [not_null]
+      - name: entry_date
+        data_tests: [not_null]
+      - name: account
+        data_tests: [not_null]
+      - name: debit
+        data_tests: [not_null]
+      - name: credit
+        data_tests: [not_null]
+
+  - name: stg_electricity
+    description: "Électricité typée, avec détection des doublons exacts."
+    columns:
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: site_code
+        data_tests: [not_null]
+      - name: month
+        data_tests: [not_null]
+      - name: consumption_kwh
+        data_tests: [not_null]
+      - name: amount_ht_eur
+        data_tests: [not_null]
+      - name: is_exact_duplicate
+        data_tests: [not_null]
+
+  - name: stg_fuel
+    description: "Carburant typé et classé par produit."
+    columns:
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: transaction_date
+        data_tests: [not_null]
+      - name: card_id
+        data_tests: [not_null]
+      - name: product_raw
+        data_tests: [not_null]
+      - name: product_code
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["GAZOLE", "SP95", "NON_CARBURANT", "INCONNU"]
+      - name: product_confidence
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["certain", "a_confirmer", "inconnu"]
+      - name: amount_ttc_eur
+        data_tests: [not_null]
+
+  - name: stg_refrigerants
+    description: "Interventions frigoristes typées, avec code fluide normalisé."
+    columns:
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: intervention_date
+        data_tests: [not_null]
+      - name: site_code
+        data_tests: [not_null]
+      - name: nominal_charge_kg
+        data_tests: [not_null]
+      - name: recharge_kg
+        data_tests: [not_null]
+      - name: recharge_above_charge
+        data_tests: [not_null]
+
+  - name: stg_flights
+    description: "Billets typés, avec doublons exacts, annulations et type de trajet."
+    columns:
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: ticket_id
+        data_tests: [not_null]
+      - name: emission_date
+        data_tests: [not_null]
+      - name: departure_date
+        data_tests: [not_null]
+      - name: origin_iata
+        data_tests: [not_null]
+      - name: trip_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["AR", "AS"]
+      - name: cabin_class
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Économique", "Affaires"]
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Émis", "Annulé"]
+      - name: amount_ttc_eur
+        data_tests: [not_null]
+      - name: is_exact_duplicate
+        data_tests: [not_null]
+      - name: is_cancelled
+        data_tests: [not_null]
+      - name: is_round_trip
+        data_tests: [not_null]
+
+  - name: stg_vehicles
+    description: "Parc véhicules avec clé entreprise + immatriculation."
+    columns:
+      - name: vehicle_key
+        data_tests: [unique, not_null]
+      - name: vehicle_id
+        data_tests: [not_null]
+      - name: vehicle_type
+        data_tests: [not_null]
+      - name: tank_capacity_l
+        data_tests: [not_null]

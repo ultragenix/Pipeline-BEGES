@@ -20,10 +20,10 @@ prefixe,libelle,poste,scope,ratio_kgco2e_par_keur,remplace_par,type
 2154,Matériel industriel,Immobilisations,3,600,,immobilisation
 2182,Matériel de transport,Immobilisations,3,500,,immobilisation
 2184,Mobilier,Immobilisations,3,400,,immobilisation
-63,Impôts,Hors périmètre,,,hors_perimetre
-64,Personnel,Hors périmètre,,,hors_perimetre
-65,Charges financières,Hors périmètre,,,hors_perimetre
-66,Charges exceptionnelles,Hors périmètre,,,hors_perimetre
-67,Dotations,Hors périmètre,,,hors_perimetre
-68,Dotations,Hors périmètre,,,hors_perimetre
-69,Impôts sur les bénéfices,Hors périmètre,,,hors_perimetre
+63,Impôts,Hors périmètre,,,hors_perimetre,
+64,Personnel,Hors périmètre,,,hors_perimetre,
+65,Charges financières,Hors périmètre,,,hors_perimetre,
+66,Charges exceptionnelles,Hors périmètre,,,hors_perimetre,
+67,Dotations,Hors périmètre,,,hors_perimetre,
+68,Dotations,Hors périmètre,,,hors_perimetre,
+69,Impôts sur les bénéfices,Hors périmètre,,,hors_perimetre,

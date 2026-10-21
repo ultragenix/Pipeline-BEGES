@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: int_fec_monetaire
+    description: "Mapping FEC par préfixe le plus long, calcul monétaire et exclusions."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: poste
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+
+  - name: int_electricity_physique
+    description: "Émissions scope 2 calculées à partir des relevés électriques."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: tco2e
+        data_tests: [not_null]
+      - name: is_included
+        data_tests: [not_null]
+
+  - name: int_fuel_physique
+    description: "Émissions scope 1 de combustion mobile, avec estimation FAN."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: is_included
+        data_tests: [not_null]
+
+  - name: int_refrigerants_physique
+    description: "Émissions scope 1 de fluides frigorigènes."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: is_included
+        data_tests: [not_null]
+
+  - name: int_flights_physique
+    description: "Émissions scope 3 des vols, distances et bandes tarifaires."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: is_included
+        data_tests: [not_null]
+
+  - name: int_emissions_candidates
+    description: "Union typée de toutes les lignes candidates, incluses ou exclues."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: source_type
+        data_tests: [not_null]
+      - name: source_id
+        data_tests: [not_null]
+      - name: source_file
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: ingestion_id
+        data_tests: [not_null]
+      - name: is_included
+        data_tests: [not_null]

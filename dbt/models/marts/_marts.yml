@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: fct_emissions
+    description: "Faits d'émission inclus dans le bilan, traçables jusqu'à la ligne source."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: scope
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3]
+      - name: poste
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - "Électricité"
+                  - "Combustion mobile"
+                  - "Fuites frigorigènes"
+                  - "Déplacements professionnels"
+                  - "Achats de biens"
+                  - "Achats de services"
+                  - "Fret amont"
+                  - "Immobilisations"
+      - name: activity
+        data_tests: [not_null]
+      - name: method
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["physique", "physique_estimee", "monetaire"]
+      - name: method_family
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["physique", "monetaire"]
+      - name: tco2e
+        data_tests: [not_null]
+      - name: source_file
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: ingestion_id
+        data_tests: [not_null]
+
+  - name: fct_exclusions
+    description: "Lignes écartées du bilan, avec raison et impact non compté quand calculable."
+    columns:
+      - name: emission_id
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: poste
+        data_tests: [not_null]
+      - name: activity
+        data_tests: [not_null]
+      - name: exclusion_reason
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - "doublon_exact"
+                  - "billet_annule"
+                  - "destination_manquante"
+                  - "aeroport_inconnu"
+                  - "non_combustible"
+                  - "produit_inconnu"
+                  - "gwp_inconnu"
+                  - "compte_non_mappe"
+                  - "hors_perimetre"
+                  - "couvert_par_physique"
+                  - "ratio_absent"
+                  - "facteur_absent"
+                  - "quantite_absente"
+      - name: method_family
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["physique", "monetaire", "non_calcule"]
+      - name: source_file
+        data_tests: [not_null]
+      - name: source_row
+        data_tests: [not_null]
+      - name: ingestion_id
+        data_tests: [not_null]
+
+  - name: mart_beges
+    description: "Bilan agrégé par entreprise, scope, poste, activité et méthode."
+    columns:
+      - name: beges_key
+        data_tests: [unique, not_null]
+      - name: company_code
+        data_tests: [not_null]
+      - name: company_name
+        data_tests: [not_null]
+      - name: scope
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3]
+      - name: poste
+        data_tests: [not_null]
+      - name: activity
+        data_tests: [not_null]
+      - name: method
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["physique", "physique_estimee", "monetaire"]
+      - name: tco2e
+        data_tests: [not_null]

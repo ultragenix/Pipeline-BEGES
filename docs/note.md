@@ -119,6 +119,40 @@ l'ingestion complète sous 2 secondes.
 **À retenir :** l'ingestion ne corrige rien : elle charge, trace et isole. Les
 doublons, les écarts FEC et les règles métier seront traités en dbt et en qualité.
 
+### 2026-10-21 — Étape 4 : modèles dbt
+
+**Objectif :** construire le bilan à partir de `raw`, séparer méthode physique et
+méthode monétaire, produire des marts et tester l'anti-double comptage.
+
+**Livrables :**
+- `dbt/` : projet, profil DuckDB, macro haversine, 20 modèles, 181 tests
+- `docs/dbt.md` : documentation des couches, règles et résultats
+- `make dbt-build`, `make dbt-test`, `make dbt-docs`
+- correction de `config/account_mapping.csv` (BOM, 7 lignes incomplètes)
+- `tests/config/test_reference_files.py`
+
+**Résultats :**
+- `dbt build` : 20 modèles, 181 tests, PASS=201, 0 erreur.
+- `fct_emissions` : 6 191 lignes ; `fct_exclusions` : 693 ; `mart_beges` : 48.
+- Bilan : **16 231,298 tCO₂e**, dont **44,7 % en méthode physique**.
+- KAY 4 094,673 ; FAN 7 894,347 ; VAC 4 242,278.
+- Exclusions : 412 `ADBLUE`, 9 `PRODUIT 47`, 3 doublons, 3 annulations,
+  2 GWP inconnus, 12 comptes non mappés, 176 remplacements physiques,
+  75 lignes hors périmètre.
+- `uv run pytest` : 43 tests passés.
+
+**Décision :** le physique remplace le monétaire sur `60611/60622/62511` ; les
+comptes hors périmètre, non mappés, doublons et annulations sont exclus mais
+listés dans `fct_exclusions` ; les choix métier provisoires sont flagués.
+
+**Difficulté :** les feuilles Excel partagent les mêmes numéros de ligne ; la
+feuille est maintenant incluse dans `emission_id`. dbt 1.12 exige `arguments`
+pour `accepted_values`. Le CSV de mapping avait un BOM et 7 lignes à 6 colonnes :
+corrigé et couvert par un test.
+
+**À retenir :** un `dbt build` vert ne signifie pas des données parfaites : 693
+lignes sont écartées et listées, et les questions métier restent ouvertes.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -135,6 +169,10 @@ doublons, les écarts FEC et les règles métier seront traités en dbt et en qu
 | 21/10 | Rechargement par source en transaction | idempotence, pas de chargement partiel |
 | 21/10 | Sites et MWh normalisés à l'ingestion | raw exploitable, valeur brute conservée |
 | 21/10 | Aucun dédoublonnage ni correction à l'ingestion | les constats restent visibles en qualité |
+| 21/10 | Physique remplace le monétaire sur `60611/60622/62511` | éviter le double comptage |
+| 21/10 | Lignes écartées visibles dans `fct_exclusions` | aucune correction silencieuse |
+| 21/10 | Choix métier provisoires flagués | ne pas trancher sans retour métier |
+| 21/10 | Référentiels dbt lus depuis `config/` | la configuration reste la source de vérité |
 
 ## 5. Difficultés
 
@@ -145,6 +183,9 @@ doublons, les écarts FEC et les règles métier seront traités en dbt et en qu
 | Données hétérogènes | profiler avant d'écrire l'ingestion |
 | Deux `test_companies.py` en collision | isoler les modules de test par paquet |
 | `executemany` lent sur DuckDB | insérer par paquets multi-lignes |
+| Lignes Excel répétées entre feuilles | inclure la feuille dans la clé d'émission |
+| `accepted_values` sans `arguments` sous dbt 1.12 | suivre la syntaxe des tests génériques |
+| CSV de mapping avec BOM et lignes incomplètes | valider les référentiels avant dbt |
 
 ## 6. Questions ouvertes
 
@@ -167,9 +208,11 @@ avec une preuve, une question métier et un statut.
 - « Un fichier par entreprise ; à 300, on génère depuis un catalogue. »
 - « Le dictionnaire décrit, le registre d'anomalies questionne. »
 - « Les règles métier manquées sont des règles métier, pas de l'ingénierie data. »
+- « Un build vert ne veut pas dire des données parfaites : 693 lignes écartées et listées. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 3 terminée : les 17 fichiers sont ingérés, journalisés et sans quarantaine.
-Prochaine étape : étape 4, modèles dbt (staging, intermediate, marts).
+Étape 4 terminée : 20 modèles dbt, 181 tests, bilan à 16 231,298 tCO₂e et
+693 lignes écartées listées.
+Prochaine étape : étape 5, contrôles qualité et formalisation des constats.

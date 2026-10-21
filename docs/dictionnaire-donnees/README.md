@@ -13,6 +13,7 @@
 ## Comment lire
 
 - `schemas-communs.md` : conventions et colonnes partagées.
+- `../warehouse.md` : couche physique DuckDB (`raw`), colonnes, journal, quarantaine.
 - `_modele-entreprise.md` : modèle pour ajouter un client.
 - `<CODE>.md` : spécificités de l'entreprise (fichiers, encodages, volumes,
   écarts de schéma, clés, anomalies, questions).

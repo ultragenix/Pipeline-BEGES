@@ -97,6 +97,7 @@ dans DuckDB, avec journal et quarantaine.
 - `raw.fec`, `raw.electricity`, `raw.fuel`, `raw.refrigerants`, `raw.flights`,
   `raw.vehicles`
 - `raw.ingestion_log`, `raw.quarantine`
+- `docs/warehouse.md` : référence de la couche physique `raw`
 
 **Résultats :**
 - `make ingest` : 3 entreprises, 17 fichiers, 8 263 lignes, 0 quarantaine.

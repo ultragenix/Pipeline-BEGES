@@ -249,6 +249,8 @@ le dashboard sur GitHub Pages.
 - `curl http://localhost:8080/` : HTTP 200, 14 248 octets, titre BEGES.
 - `curl /observabilite.html` : HTTP 200, 42 constats.
 - `docker run --rm ... id` : `uid=1000(app)`.
+- Clone propre du commit `8794db2` : `docker compose up -d --build` OK,
+  site HTTP 200, `docker compose down -v` OK.
 - CI et URL Pages : à vérifier après le `push` sur `origin/main`.
 
 **Décision :** image runtime non-root, dépendances figées par `uv.lock`,

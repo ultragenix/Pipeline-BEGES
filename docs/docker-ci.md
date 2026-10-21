@@ -175,5 +175,7 @@ docker run --rm ... id               uid=1000(app)
 docker compose down -v              volumes supprimés
 ```
 
-Le test depuis un clone propre est rejoué après le commit de l'étape.
+Le clone propre du commit `8794db2` a été testé dans
+`/tmp/opencode/beges-clean.jOVeWG` : `docker compose up -d --build` OK,
+site HTTP 200, `docker compose down -v` OK.
 La CI et l'URL Pages seront vérifiées après le `push` sur `origin/main`.

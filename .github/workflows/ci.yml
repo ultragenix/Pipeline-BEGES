@@ -1,0 +1,118 @@
+name: CI BEGES
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  UV_FROZEN: "1"
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  lint-test:
+    name: Lint et tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Installer uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.10.8"
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Installer les dépendances
+        run: uv sync --frozen
+      - name: Lint
+        run: uv run ruff check .
+      - name: Tests
+        run: uv run pytest
+
+  pipeline:
+    name: Pipeline et site
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: lint-test
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Installer uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.10.8"
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Installer les dépendances
+        run: uv sync --frozen
+      - name: Construire le pipeline et le site
+        run: make all
+      - name: Configurer GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Publier l'artefact du site
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  docker:
+    name: Image et compose
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: lint-test
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Construire et démarrer
+        run: docker compose up -d --build
+      - name: Vérifier le site
+        run: |
+          for i in $(seq 1 60); do
+            if curl -fsS http://localhost:8080/ >/dev/null; then
+              echo "Site disponible sur http://localhost:8080/"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Le site n'a pas répondu dans le délai imparti." >&2
+          docker compose logs
+          exit 1
+      - name: Arrêter et nettoyer
+        if: always()
+        run: docker compose down -v
+
+  deploy:
+    name: Déploiement GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: pipeline
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer
+        id: deployment
+        uses: actions/deploy-pages@v4

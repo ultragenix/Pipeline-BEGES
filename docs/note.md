@@ -173,7 +173,7 @@ constats calculés, avec preuve, statut, traitement et impact.
   à confirmer et 4 ouverts.
 - Les 10 familles du cahier des charges sont couvertes.
 - KAY 16, FAN 13, VAC 12, transverse 1.
-- `uv run pytest` : **57 passed**.
+- `uv run pytest` : **58 passed**.
 - `make lint` : OK.
 - 4 nouveaux constats : `KAY-15` CET, `KAY-16` réservoir, `VAC-12` avoirs,
   `GEN-01` classe Affaires.

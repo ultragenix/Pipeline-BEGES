@@ -213,3 +213,54 @@ de la publicité, ou comme un achat de services ?
 | Date | ID | Réponse | Décision | Impact |
 |---|---|---|---|---|
 | | | | | |
+
+## 5. Constats calculés — étape 5
+
+> Recalculés par `analytics.quality_constats` à partir des données brutes.
+> Le détail narratif des sections 1 à 4 reste la question d'origine.
+> Registre central : [`../quality.md`](../quality.md).
+
+| ID | Famille | Sévérité | Certitude | Statut | Traitement | Impact | Titre |
+|---|---|---|---|---|---|---|---|
+| VAC-01 | fraîcheur | bloquant | certain | à confirmer | aucun | 110,12 tCO₂e est. | Décembre manquant sur les 3 sites |
+| VAC-02 | cohérence entre sources | alerte | à confirmer | à confirmer | aucun | 120,42 tCO₂e / 26 245,19 € est. | Écart entre l'électricité et le FEC 6061100 |
+| VAC-03 | conformité format | bloquant | certain | à confirmer | mappé | 65,73 tCO₂e compté | Dérive de schéma carburant S1 / S2 |
+| VAC-04 | unicité | bloquant | certain | à confirmer | exclu | 3,44 tCO₂e / 3 149,98 € non compté | Billets dupliqués |
+| VAC-05 | validité | info | certain | à confirmer | exclu | 4,23 tCO₂e / 2 964,53 € non compté | Billets annulés |
+| VAC-06 | intégrité référentielle | alerte | certain | à confirmer | aucun | n.c. | Cartes carburant sans véhicule |
+| VAC-07 | conformité format | bloquant | à confirmer | à confirmer | aucun | n.c. | FEC supposé HT |
+| VAC-08 | conformité format | alerte | à confirmer | à confirmer | conservé | 10,57 tCO₂e exposé | Aller simple / aller-retour à confirmer |
+| VAC-09 | intégrité référentielle | alerte | à confirmer | à confirmer | conservé | 2 356,44 tCO₂e exposé | Mappings 6011000 et 6022000 à confirmer |
+| VAC-10 | conformité format | info | certain | à confirmer | exclu | 14 000,00 € non compté | CET en classe 6 mais hors périmètre |
+| VAC-11 | intégrité référentielle | alerte | à confirmer | à confirmer | conservé | 54,73 tCO₂e exposé | Publicité et commissions plateformes |
+| VAC-12 | validité | alerte | à confirmer | ouvert | conservé | −14,98 tCO₂e / −16 640,52 € compté | Avoirs sur achats alimentaires |
+
+### Chiffres recomputés
+
+- **VAC-01** : 3 sites × 11 mois, décembre manquant. La moyenne mensuelle de
+  141 175 kWh représente 110,12 tCO₂e estimés.
+- **VAC-02** : l'écart avec le FEC `6061100` est de 26 245,19 €, soit
+  120,42 tCO₂e estimés. L'écart est cohérent avec décembre manquant, sans être
+  prouvé.
+- **VAC-03** : S1 = 182 lignes / 10 625,61 L ; S2 = 185 lignes / 10 576,32 L.
+  Total : 367 lignes, 21 201,93 L et 65,73 tCO₂e comptés.
+- **VAC-04** : 2 billets dupliqués, 3 149,98 € TTC et 3,44 tCO₂e non comptés.
+- **VAC-05** : 3 billets annulés, 2 964,53 € TTC et 4,23 tCO₂e non comptés.
+- **VAC-06** : 5 cartes sans identifiant véhicule.
+- **VAC-09** : 27 lignes, 2 684 154,36 € HT et 2 356,44 tCO₂e exposés.
+- **VAC-11** : 12 lignes, 364 841,57 € HT et 54,73 tCO₂e exposés. À
+  300 kgCO₂e/k€, l'impact serait d'environ 109,5 tCO₂e.
+- **VAC-12** : 3 lignes négatives sur `6011000`, −16 640,52 € HT et
+  −14,98 tCO₂e comptés.
+
+### Nouveau constat issu des contrôles
+
+**VAC-12** — trois avoirs sur achats alimentaires sont conservés dans le calcul
+monétaire. Ils réduisent le scope 3 de 14,98 tCO₂e. La question métier est de
+savoir s'il s'agit de notes de crédit légitimes ou d'une erreur d'export.
+
+### Impacts partagés
+
+`VAC-01` et `VAC-02` partagent le groupe `VAC-ELEC-GAP` : les deux estimations
+décembre manquant et écart FEC décrivent le même problème. Elles ne sont pas
+additives ; la synthèse retient 120,42 tCO₂e.

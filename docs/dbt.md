@@ -3,7 +3,8 @@
 > Modèles dbt construits au-dessus du schéma `raw` de DuckDB.
 > Base : `data/warehouse/beges.duckdb`, schéma `analytics`.
 > Documentation de la couche brute : [`warehouse.md`](warehouse.md).
-> Dernière vérification : 2026-10-21 — `dbt build` PASS=201, 16 231,298 tCO₂e.
+> Dernière vérification : 2026-10-21 — `dbt build` PASS=267, 16 231,298 tCO₂e,
+> 42 constats qualité.
 
 ## 1. Rôle
 
@@ -35,16 +36,28 @@ raw
                          ├── fct_emissions    (lignes incluses)
                          ├── fct_exclusions   (lignes écartées, listées)
                          └── mart_beges       (agrégat)
+
+fct_emissions / fct_exclusions / stg_* / ref_*
+                 │
+                 ▼
+        quality/int_quality_findings
+                 │
+                 ▼
+          quality_constats
+                 │
+                 ▼
+          quality_summary
 ```
 
 | Élément | Nombre |
 |---|---:|
-| Modèles dbt | 20 |
-| Modèles en table | 5 |
-| Modèles en vue | 15 |
+| Modèles dbt | 25 |
+| Modèles en table | 9 |
+| Modèles en vue | 16 |
 | Sources `raw` | 6 |
-| Tests dbt | 181 |
-| Tâches `dbt build` | 201 |
+| Tests dbt | 242 |
+| Tâches `dbt build` | 267 |
+| Constats qualité | 42 |
 
 ## 3. Modèles
 
@@ -54,6 +67,8 @@ raw
 |---|---|---|
 | `ref_emission_factors` | `config/emission_factors.yml` | Facteurs, PRG, bandes de vol, prix, TVA, correction 95 km |
 | `ref_companies` | `config/companies/*.yml` | Codes, noms, villes, secteurs, effectifs |
+| `ref_sites` | `config/companies/*.yml` | Codes sites, noms et points de livraison |
+| `ref_quality_register` | `config/quality/*.yml` | Registre des constats qualité |
 | `ref_account_mapping` | `config/account_mapping.csv` | Préfixes comptables, postes, scopes, ratios, remplacements |
 | `ref_airports` | `config/airports.csv` | Codes IATA et coordonnées |
 | `ref_parameters` | `ref_emission_factors` | Paramètres scalaires : facteurs, prix, TVA, distance |
@@ -102,6 +117,20 @@ Chaque ligne candidate porte :
 
 `fct_exclusions` contient `tco2e_non_compte` : l'impact qui aurait été compté si la
 ligne n'avait pas été écartée. Il n'entre jamais dans le bilan.
+
+### 3.4 Qualité
+
+| Modèle | Grain | Rôle |
+|---|---|---|
+| `int_quality_findings` | Un constat détecté | Contrôles génériques, métriques et preuves |
+| `quality_constats` | Un constat | Registre enrichi, joint au YAML de `config/quality/` |
+| `quality_summary` | Une entreprise | Compteurs et impacts dédupliqués |
+
+La couche qualité dépend des marts et du staging, mais ne les modifie pas. Elle
+ajoute 42 constats, 13 bloquants, 21 alertes et 8 infos. Les impacts partagés
+`KAY-ELEC-GAP` et `VAC-ELEC-GAP` sont dédupliqués dans `quality_summary`.
+
+Documentation détaillée : [`quality.md`](quality.md).
 
 ## 4. Règles de calcul
 
@@ -192,7 +221,7 @@ Autres tests structurants :
 
 ## 6. Résultats vérifiés
 
-`dbt build` : **PASS=201, WARN=0, ERROR=0, SKIP=0**.
+`dbt build` : **PASS=267, WARN=0, ERROR=0, SKIP=0**.
 
 ### 6.1 Volumes
 
@@ -201,6 +230,8 @@ Autres tests structurants :
 | `analytics.fct_emissions` | 6 191 |
 | `analytics.fct_exclusions` | 693 |
 | `analytics.mart_beges` | 48 |
+| `analytics.quality_constats` | 42 |
+| `analytics.quality_summary` | 4 |
 | `int_emissions_candidates` | 6 884 |
 
 ### 6.2 Bilan par entreprise et scope
@@ -232,10 +263,12 @@ Points vérifiés :
 ## 7. Commandes
 
 ```bash
-make ingest        # construit ou rafraîchit raw
-make dbt-build     # construit les modèles et exécute les 181 tests
-make dbt-test      # exécute uniquement les tests
-make dbt-docs      # génère manifest + catalog pour le lineage
+make ingest          # construit ou rafraîchit raw
+make dbt-build       # construit les modèles et exécute les 242 tests
+make dbt-test        # exécute uniquement les tests
+make dbt-docs        # génère manifest + catalog pour le lineage
+make quality         # dbt build + rapport des 42 constats
+make quality-report  # rapport seul, sans reconstruire
 ```
 
 `make dbt-build` vérifie que la base existe ; sinon, il demande `make ingest`.
@@ -259,8 +292,9 @@ uv run dbt docs serve --project-dir dbt --profiles-dir dbt
 - **FEC supposé HT** : non confirmé par le métier.
 - **Mappings comptables** : `601`, `6021`, `6022`, `6231` restent à confirmer.
 - **FAN `AC000042`** : écriture déséquilibrée de 150 €, non corrigée.
-- **Pas de constats formalisés** : `fct_exclusions` est la matière première de
-  l'étape 5 ; les questions métier restent ouvertes.
+- **Constats formalisés** : 42 constats dans `analytics.quality_constats`,
+  documentés dans [`quality.md`](quality.md). Les questions métier restent
+  ouvertes ; les impacts partagés ne sont pas additifs.
 - **Pas de dimension site dans les faits** : `site_code` est présent pour
   l'électricité et les fluides ; le carburant, les vols et le FEC ne sont pas
   rattachés à un site.

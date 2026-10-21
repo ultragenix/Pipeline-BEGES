@@ -147,3 +147,43 @@ totalise 423 947,42 €, soit un écart de 363,91 €.
 | Date | ID | Réponse | Décision | Impact |
 |---|---|---|---|---|
 | | | | | |
+
+## 5. Constats calculés — étape 5
+
+> Recalculés par `analytics.quality_constats` à partir des données brutes.
+> Le détail narratif des sections 1 à 4 reste la question d'origine.
+> Registre central : [`../quality.md`](../quality.md).
+
+| ID | Famille | Sévérité | Certitude | Statut | Traitement | Impact | Titre |
+|---|---|---|---|---|---|---|---|
+| FAN-01 | unités | bloquant | certain | à confirmer | converti | 568,09 tCO₂e compté | Feuille PIE-FRO exprimée en MWh |
+| FAN-02 | complétude | bloquant | certain | à confirmer | estimé | 94,04 tCO₂e compté | Carburant sans volumes en litres |
+| FAN-03 | intégrité référentielle | alerte | certain | à confirmer | aucun | n.c. | Cartes carburant sans référentiel véhicule |
+| FAN-04 | validité | alerte | certain | à confirmer | exclu | n.c. | Intervention frigoriste sans code fluide |
+| FAN-05 | validité | alerte | certain | à confirmer | exclu | n.c. | Code fluide R-? inconnu |
+| FAN-06 | cohérence interne | bloquant | certain | à confirmer | aucun | 0,09 tCO₂e / 150,00 € exposé | Écriture AC000042 déséquilibrée |
+| FAN-07 | intégrité référentielle | alerte | à confirmer | à confirmer | conservé | 4 756,84 tCO₂e exposé | Mappings 6011000 et 6021000 à confirmer |
+| FAN-08 | conformité format | info | certain | à confirmer | exclu | 14 000,00 € non compté | CET en classe 6 mais hors périmètre |
+| FAN-09 | cohérence entre sources | alerte | à confirmer | à confirmer | aucun | 1,67 tCO₂e / 363,91 € est. | Écart entre l'électricité et le FEC 6061100 |
+| FAN-10 | complétude | info | à confirmer | à confirmer | aucun | n.c. | Aucune intervention frigoriste sur SPI-ADM |
+| FAN-11 | conformité format | bloquant | à confirmer | à confirmer | aucun | n.c. | FEC supposé HT |
+| FAN-12 | conformité format | alerte | à confirmer | à confirmer | conservé | 4,48 tCO₂e exposé | Aller simple / aller-retour à confirmer |
+| FAN-13 | intégrité référentielle | info | à confirmer | à confirmer | conservé | 14,18 tCO₂e compté | Hôtels, taxis et repas en méthode monétaire |
+
+### Chiffres recomputés
+
+- **FAN-01** : 12 lignes, 728 316 kWh après conversion, 123 813,72 € HT et
+  568,09 tCO₂e comptés. La conversion MWh → kWh est appliquée et tracée.
+- **FAN-02** : 623 lignes, 31 075,64 L estimés, 43 647,48 € HT et 94,04 tCO₂e.
+- **FAN-03** : 12 cartes et 12 véhicules sans référentiel de parc.
+- **FAN-06** : 3 lignes d'écriture, 150,00 € d'écart et 0,09 tCO₂e exposé.
+- **FAN-07** : 25 lignes, 5 538 974,57 € HT et 4 756,84 tCO₂e exposés.
+- **FAN-09** : le FEC est inférieur de **363,91 €** à l'export électricité ;
+  l'écart absolu représente 1,67 tCO₂e estimé.
+- **FAN-13** : 12 lignes, 47 263,53 € HT et 14,18 tCO₂e comptés.
+
+### Point d'attention
+
+`FAN-07` est le premier impact exposé du registre : 4 756,84 tCO₂e dépendent
+des ratios `6011000 → 900` et `6021000 → 600`. Une erreur de mapping changerait
+fortement le bilan. La question métier reste prioritaire.

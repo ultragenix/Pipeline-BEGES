@@ -211,3 +211,55 @@ Ces points sont détaillés dans le résumé et suivent le même format :
 | Date | ID | Réponse | Décision | Impact |
 |---|---|---|---|---|
 | | | | | |
+
+## 5. Constats calculés — étape 5
+
+> Recalculés par `analytics.quality_constats` à partir des données brutes.
+> Le détail narratif des sections 1 à 4 reste la question d'origine.
+> Registre central : [`../quality.md`](../quality.md).
+
+| ID | Famille | Sévérité | Certitude | Statut | Traitement | Impact | Titre |
+|---|---|---|---|---|---|---|---|
+| KAY-01 | complétude | bloquant | certain | à confirmer | aucun | 185,03 tCO₂e / 40 326,43 € est. | Site LPT-ATL sans relevé électrique |
+| KAY-02 | unicité | bloquant | certain | à confirmer | exclu | 24,75 tCO₂e / 5 394,78 € non compté | Facture électricité de juillet dupliquée |
+| KAY-03 | cohérence interne | alerte | certain | à confirmer | conservé | −9,17 tCO₂e compté | Régularisation négative en mai |
+| KAY-04 | complétude | alerte | certain | à confirmer | conservé | 39,72 tCO₂e compté | Relevé d'avril estimé |
+| KAY-05 | intégrité référentielle | alerte | à confirmer | à confirmer | conservé | 1 642,65 tCO₂e exposé | Libellés B7, GO et Diesel à confirmer |
+| KAY-06 | conformité format | info | certain | à confirmer | exclu | 25,54 tCO₂e / 7 416,00 € non compté | ADBLUE exclu du calcul carburant |
+| KAY-07 | validité | alerte | certain | à confirmer | exclu | 2 358,54 € | Produit 47 inconnu |
+| KAY-08 | cohérence entre sources | alerte | à confirmer | à confirmer | aucun | 4,62 tCO₂e / 2 173,57 € est. | Écart entre le carburant et le FEC 6062200 |
+| KAY-09 | cohérence entre sources | bloquant | à confirmer | à confirmer | aucun | 185,03 tCO₂e / 40 326,43 € est. | Écart entre l'électricité et le FEC 6061100 |
+| KAY-10 | intégrité référentielle | bloquant | certain | à confirmer | exclu | 523 298,66 € exposé | Compte 6288000 non mappé |
+| KAY-11 | validité | alerte | certain | à confirmer | exclu | 1 090,80 € | Destination de vol vide |
+| KAY-12 | conformité format | alerte | à confirmer | à confirmer | conservé | 5,84 tCO₂e exposé | Aller simple / aller-retour à confirmer |
+| KAY-13 | complétude | info | à confirmer | à confirmer | aucun | n.c. | Aucune intervention frigoriste sur LPT-SIE et LPT-ATL |
+| KAY-14 | conformité format | bloquant | à confirmer | à confirmer | aucun | n.c. | FEC supposé HT |
+| KAY-15 | conformité format | info | certain | ouvert | exclu | 14 000,00 € non compté | CET en classe 6 mais hors périmètre |
+| KAY-16 | valeurs aberrantes | alerte | certain | ouvert | aucun | 0,31 tCO₂e exposé | Transaction carburant supérieure à la capacité du réservoir |
+
+### Écarts avec les preuves de l'étape 1
+
+- **KAY-06** : 412 lignes ADBLUE pour **8 240 L et 7 416,00 € TTC**, et non
+  8 240,00 €. L'impact de 25,54 tCO₂e non compté est inchangé.
+- **KAY-07** : 9 lignes pour **1 615,46 L et 2 358,54 € TTC**. Le registre
+  initial confondait litres et euros.
+- **KAY-08** : l'écart recalculé est de **2 173,57 € HT** (FEC 1 173 861,36 €
+  moins carburant HT 1 171 687,79 €), et non 2 248,15 €. L'ordre de grandeur
+  reste 0,19 %.
+- **KAY-11** : le billet sans destination représente **1 090,80 € TTC**.
+- **KAY-05** : 2 721 lignes, 529 886,02 L et 1 642,65 tCO₂e exposés.
+- **KAY-12** : 5 billets AS, 2 796,82 € TTC et 5,84 tCO₂e.
+
+### Nouveaux constats issus des contrôles
+
+- **KAY-15** : la CET `6351100` (14 000,00 €) est en classe 6 mais exclue
+  comme les autres comptes 63. Constat `info`, question métier ouverte.
+- **KAY-16** : le 14/08/2025, le véhicule `FK-107-RE` a une transaction de
+  400 L pour un réservoir de 300 L. L'excédent de 100 L représente 0,31 tCO₂e
+  exposé. Constat `alerte`, à confirmer.
+
+### Impacts partagés
+
+`KAY-01` et `KAY-09` partagent le groupe `KAY-ELEC-GAP` : l'écart de
+40 326,43 € est cohérent avec le site manquant, mais il n'est pas prouvé que
+tout l'écart vienne de là. Les deux impacts ne sont pas additifs.

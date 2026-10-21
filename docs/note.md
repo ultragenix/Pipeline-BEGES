@@ -153,6 +153,44 @@ corrigé et couvert par un test.
 **À retenir :** un `dbt build` vert ne signifie pas des données parfaites : 693
 lignes sont écartées et listées, et les questions métier restent ouvertes.
 
+### 2026-10-21 — Étape 5 : qualité et constats
+
+**Objectif :** transformer les 38 questions du registre et les 693 exclusions en
+constats calculés, avec preuve, statut, traitement et impact.
+
+**Livrables :**
+- `config/quality/{KAY,FAN,VAC,_common}.yml` : 42 constats, un fichier par entreprise.
+- `dbt/models/quality/` : `int_quality_findings`, `quality_constats`, `quality_summary`.
+- 7 tests dbt de cohérence du registre.
+- `src/beges/quality.py` et `make quality`.
+- `docs/quality.md` : taxonomie, architecture, résultats, deux constats racontés.
+- Sections 5 dans `docs/anomalies/KAY.md`, `FAN.md`, `VAC.md`.
+
+**Résultats :**
+- `dbt build` : **PASS=267**, 25 modèles, 242 tests, 0 erreur.
+- 42 constats : **13 bloquants, 21 alertes, 8 infos**.
+- 23 constats certains et 19 avec une certitude à confirmer ; 38 au statut
+  à confirmer et 4 ouverts.
+- Les 10 familles du cahier des charges sont couvertes.
+- KAY 16, FAN 13, VAC 12, transverse 1.
+- `uv run pytest` : **57 passed**.
+- `make lint` : OK.
+- 4 nouveaux constats : `KAY-15` CET, `KAY-16` réservoir, `VAC-12` avoirs,
+  `GEN-01` classe Affaires.
+- Écarts de preuve de l'étape 1 documentés : `KAY-06`, `KAY-07`, `KAY-08`,
+  `KAY-11`, `FAN-09`.
+
+**Décision :** le registre est machine-readable et séparé par entreprise. Le
+YAML porte la question et la taxonomie ; le SQL détecte et calcule ; les tests
+vérifient qu'aucun constat n'est orphelin.
+
+**Difficulté :** les impacts de `KAY-01`/`KAY-09` et `VAC-01`/`VAC-02` décrivent
+le même problème ; ils sont dédupliqués par `impact_group`. Certains chiffres
+narratifs de l'étape 1 ne se reproduisaient pas exactement.
+
+**À retenir :** un build vert ne suffit pas. Chaque exclusion doit pouvoir être
+reliée à une question métier et à un impact, sans correction silencieuse.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -173,6 +211,10 @@ lignes sont écartées et listées, et les questions métier restent ouvertes.
 | 21/10 | Lignes écartées visibles dans `fct_exclusions` | aucune correction silencieuse |
 | 21/10 | Choix métier provisoires flagués | ne pas trancher sans retour métier |
 | 21/10 | Référentiels dbt lus depuis `config/` | la configuration reste la source de vérité |
+| 21/10 | Registre qualité par entreprise dans `config/quality/` | même principe que le dictionnaire et les anomalies |
+| 21/10 | Constat = YAML + contrôle SQL + test de couverture | aucun constat orphelin, ajout sans réécrire les tests |
+| 21/10 | Impacts partagés via `impact_group` | éviter le double comptage KAY et VAC |
+| 21/10 | Certitude, statut et traitement séparés | ne pas confondre fait observé, réponse métier et traitement |
 
 ## 5. Difficultés
 
@@ -186,6 +228,10 @@ lignes sont écartées et listées, et les questions métier restent ouvertes.
 | Lignes Excel répétées entre feuilles | inclure la feuille dans la clé d'émission |
 | `accepted_values` sans `arguments` sous dbt 1.12 | suivre la syntaxe des tests génériques |
 | CSV de mapping avec BOM et lignes incomplètes | valider les référentiels avant dbt |
+| Chiffres narratifs de l'étape 1 non reproductibles | recalculer, documenter l'écart, ne pas réécrire l'historique |
+| `format()` DuckDB utilise `{}` et non `%s` | utiliser `printf` pour les preuves chiffrées |
+| Écriture déséquilibrée comptée trois fois | agréger par écriture avant de sommer l'impact |
+| Impacts KAY-01/KAY-09 et VAC-01/VAC-02 partagés | `impact_group` et déduplication dans la synthèse |
 
 ## 6. Questions ouvertes
 
@@ -198,9 +244,14 @@ lignes sont écartées et listées, et les questions métier restent ouvertes.
 - FAN : fluide `R-?`.
 - KAY : compte `6288000` non mappé.
 - FAN : écriture `AC000042` déséquilibrée.
+- KAY : CET `6351100` hors périmètre ?
+- KAY : transaction de 400 L pour un réservoir de 300 L.
+- VAC : avoirs négatifs sur achats alimentaires.
+- Toutes : facteur d'émission de la classe Affaires.
 
-Ces questions restent ouvertes ; elles seront formalisées à l'étape 5 (qualité),
-avec une preuve, une question métier et un statut.
+Les 38 questions du registre sont désormais formalisées dans 42 constats
+calculés (`docs/quality.md`), avec une preuve, un statut, un traitement et un
+impact. Les réponses métier restent à recevoir.
 
 ## 7. À retenir pour l'entretien
 
@@ -209,10 +260,12 @@ avec une preuve, une question métier et un statut.
 - « Le dictionnaire décrit, le registre d'anomalies questionne. »
 - « Les règles métier manquées sont des règles métier, pas de l'ingénierie data. »
 - « Un build vert ne veut pas dire des données parfaites : 693 lignes écartées et listées. »
+- « Un constat, c'est une preuve, une question métier et un impact. »
+- « Les impacts partagés ne s'additionnent pas : KAY-ELEC-GAP et VAC-ELEC-GAP. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 4 terminée : 20 modèles dbt, 181 tests, bilan à 16 231,298 tCO₂e et
-693 lignes écartées listées.
-Prochaine étape : étape 5, contrôles qualité et formalisation des constats.
+Étape 5 terminée : 42 constats calculés, 13 bloquants, 10 familles couvertes,
+`make quality` opérationnel et deux constats racontés de bout en bout.
+Prochaine étape : étape 6, dashboard bilan et page d'observabilité.

@@ -11,6 +11,11 @@
 | FAN — Fanjan Agro SA | [FAN.md](FAN.md) | disponible |
 | VAC — Hôtels Vacoa Bleu SARL | [VAC.md](VAC.md) | disponible |
 
+> Depuis l'étape 5, les constats sont recalculés dans
+> [`../quality.md`](../quality.md) et dans la table `analytics.quality_constats`.
+> Chaque registre d'entreprise garde la question métier d'origine et ajoute une
+> section 5 avec les preuves recalculées.
+
 ## Comment utiliser
 
 1. Lire le résumé.

@@ -52,6 +52,20 @@ proposée, validée, puis vérifiée.
 
 **À retenir :** un projet réel commence par le cadre et les preuves, pas par le code.
 
+### 2026-10-21 — Fiches KAY et VAC
+
+**Objectif :** compléter le dictionnaire et le registre d'anomalies pour les deux autres
+entreprises.
+
+**Livrables :**
+- `docs/dictionnaire-donnees/KAY.md`, `VAC.md`
+- `docs/anomalies/KAY.md`, `VAC.md`
+
+**Décision :** KAY a 14 anomalies, VAC 11 ; les contrôles positifs sont documentés.
+
+**À retenir :** KAY concentre les problèmes de périmètre et de doublons ; VAC les dérives
+de schéma et les annulations.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -96,4 +110,5 @@ Ces questions seront traitées à l'étape 1, dans le dictionnaire par entrepris
 
 ## 8. Prochaine étape
 
-Étape 1 : dictionnaire et registre d'anomalies par entreprise, en commençant par FAN.
+Étape 1 terminée : dictionnaire et registre d'anomalies pour les 3 entreprises.
+Prochaine étape : configuration d'ingestion.

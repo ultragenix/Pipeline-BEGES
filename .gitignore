@@ -38,3 +38,6 @@ logs/*
 .DS_Store
 .idea/
 .vscode/
+
+# Passation locale (non publiée)
+tmp/

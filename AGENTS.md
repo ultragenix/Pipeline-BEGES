@@ -86,6 +86,15 @@ des changements non annoncés.
 - Ajouter une entreprise ne doit pas obliger à réécrire les tests existants.
 - On doit pouvoir tester une seule entreprise : `make test-company CODE=...`.
 
+## Passation de session
+
+- Après chaque validation, tu mets à jour `tmp/next_sessions.md` avec : objectif,
+  état courant, commits, fichiers, tests, décisions, prochaine étape, questions
+  ouvertes et commandes de reprise.
+- Ce fichier doit suffire à reprendre le travail sans relire tout l'historique.
+- `tmp/` est local et ignoré par git. Il ne contient aucun secret.
+- Tu peux le résumer en quelques lignes dans ta réponse finale.
+
 ## Rigueur
 
 - Aucune fonctionnalité n'est déclarée « terminée » sans vérification.

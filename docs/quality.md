@@ -2,7 +2,7 @@
 
 > Couche qualité construite au-dessus des marts dbt.
 > Base : `data/warehouse/beges.duckdb`, schéma `analytics`.
-> Dernière vérification : 2026-10-21 — `dbt build` **PASS=267**, **42 constats**.
+> Dernière vérification : 2026-10-21 — `dbt build` **PASS=303**, **42 constats**.
 > Données fictives. Ce document n'est pas un audit réglementaire.
 
 ## 1. Rôle
@@ -163,7 +163,7 @@ d'entreprise existant n'est réécrit.
 ## 4. Résultats vérifiés
 
 ```text
-dbt build : PASS=267, 242 tests, 25 modèles, 0 erreur
+dbt build : PASS=303, 275 tests, 28 modèles, 0 erreur
 constats  : 42
 bloquants : 13
 alertes   : 21
@@ -426,6 +426,8 @@ celle du modèle : `fct_exclusions`, `fct_emissions`, `stg_fec` et les référen
 ```bash
 make quality          # dbt build + rapport des 42 constats
 make quality-report   # rapport seul, sans reconstruire
+make dashboard        # site statique avec le registre filtrable
+make status           # synthèse console du pipeline
 make dbt-build        # modèles et tests dbt
 make dbt-test         # tests dbt seuls
 uv run pytest         # tests Python
@@ -460,5 +462,6 @@ order by company_code;
 - `dbt/models/quality/` : détection, registre et synthèse.
 - `dbt/tests/assert_quality_*.sql` : tests de cohérence du registre.
 - `docs/anomalies/KAY.md`, `FAN.md`, `VAC.md` : questions métier d'origine.
+- `docs/dashboard.md` : pages, génération et limites du dashboard.
 - `docs/dbt.md` : couche dbt et lineage.
 - `README.md` section 5 : familles et format d'un constat.

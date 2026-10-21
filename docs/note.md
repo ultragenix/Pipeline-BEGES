@@ -191,6 +191,42 @@ narratifs de l'étape 1 ne se reproduisaient pas exactement.
 **À retenir :** un build vert ne suffit pas. Chaque exclusion doit pouvoir être
 reliée à une question métier et à un impact, sans correction silencieuse.
 
+### 2026-10-21 — Étape 6 : dashboard et observabilité
+
+**Objectif :** rendre le bilan et les 42 constats consultables par un consultant
+RSE, et donner une vue ops sur l'ingestion, la fraîcheur et les tests.
+
+**Livrables :**
+- `dbt/models/ops/` : `ops_ingestion_last_run`, `ops_quarantine_summary`,
+  `ops_freshness`.
+- `src/beges/reporting.py`, `dashboard.py`, `status.py`.
+- `dashboard/templates/` et `dashboard/static/` : site statique.
+- `make dashboard`, `make status`, `make all`.
+- `docs/dashboard.md`.
+- `tests/dashboard/` : agrégations, rendu HTML, statut.
+
+**Résultats :**
+- `dbt build` : **PASS=303**, 28 modèles, 275 tests, 0 erreur.
+- `uv run pytest` : **67 passed**.
+- `make dashboard` : `site/index.html` et `site/observabilite.html`.
+- `make status` : bilan, qualité, ingestion et dbt en une commande.
+- 42 constats, 17 sources, 8 263 lignes, 0 quarantaine.
+- 3 vues ops, 16 lignes de fraîcheur.
+
+**Décision :** site statique Jinja2 + CSS/JS vanilla, sans serveur ni nouvelle
+dépendance. `site/` est généré et ignoré ; l'étape 7 publiera ce dossier sur
+GitHub Pages. `make all` est séquentiel pour respecter DuckDB mono-écrivain.
+
+**Difficulté :** aucun navigateur headless n'est disponible pour une capture ;
+la preuve locale est le HTML généré, `grep` et `make status`. Les valeurs `NaN`
+de `impact_group` s'affichaient comme des groupes ; elles sont converties en
+`None`. `run_results.json` doit être frais : `make dashboard` dépend de
+`dbt-build`.
+
+**À retenir :** le dashboard lit, il n'écrit pas. Les vues ops transforment le
+journal d'ingestion en donnée consultable. Un site statique suffit pour GitHub
+Pages.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -215,6 +251,10 @@ reliée à une question métier et à un impact, sans correction silencieuse.
 | 21/10 | Constat = YAML + contrôle SQL + test de couverture | aucun constat orphelin, ajout sans réécrire les tests |
 | 21/10 | Impacts partagés via `impact_group` | éviter le double comptage KAY et VAC |
 | 21/10 | Certitude, statut et traitement séparés | ne pas confondre fait observé, réponse métier et traitement |
+| 21/10 | Dashboard statique Jinja2 + CSS/JS vanilla | portable, GitHub Pages, pas de serveur |
+| 21/10 | Vues `ops_*` dans dbt | l'observabilité devient une donnée, pas une requête Python ad hoc |
+| 21/10 | `site/` généré et ignoré | aucun fichier généré commité |
+| 21/10 | `make all` séquentiel | DuckDB est mono-écrivain |
 
 ## 5. Difficultés
 
@@ -232,6 +272,9 @@ reliée à une question métier et à un impact, sans correction silencieuse.
 | `format()` DuckDB utilise `{}` et non `%s` | utiliser `printf` pour les preuves chiffrées |
 | Écriture déséquilibrée comptée trois fois | agréger par écriture avant de sommer l'impact |
 | Impacts KAY-01/KAY-09 et VAC-01/VAC-02 partagés | `impact_group` et déduplication dans la synthèse |
+| Pas de navigateur headless pour une capture | preuve HTML + `grep` + `make status`, URL à l'étape 7 |
+| `NaN` d'`impact_group` affiché comme un groupe | convertir `NaN` en `None` avant le rendu |
+| `run_results.json` potentiellement périmé | `make dashboard` dépend de `dbt-build` |
 
 ## 6. Questions ouvertes
 
@@ -262,10 +305,14 @@ impact. Les réponses métier restent à recevoir.
 - « Un build vert ne veut pas dire des données parfaites : 693 lignes écartées et listées. »
 - « Un constat, c'est une preuve, une question métier et un impact. »
 - « Les impacts partagés ne s'additionnent pas : KAY-ELEC-GAP et VAC-ELEC-GAP. »
+- « Le dashboard lit, il n'écrit pas. »
+- « Les vues ops transforment le journal d'ingestion en donnée. »
+- « Un site statique suffit pour GitHub Pages. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 5 terminée : 42 constats calculés, 13 bloquants, 10 familles couvertes,
-`make quality` opérationnel et deux constats racontés de bout en bout.
-Prochaine étape : étape 6, dashboard bilan et page d'observabilité.
+Étape 6 terminée : dashboard statique, page d'observabilité, vues `ops_*`,
+`make status` et `make all`. Le site est généré dans `site/` et prêt pour
+GitHub Pages.
+Prochaine étape : étape 7, Docker, CI et GitHub Pages.

@@ -3,8 +3,8 @@
 > Modèles dbt construits au-dessus du schéma `raw` de DuckDB.
 > Base : `data/warehouse/beges.duckdb`, schéma `analytics`.
 > Documentation de la couche brute : [`warehouse.md`](warehouse.md).
-> Dernière vérification : 2026-10-21 — `dbt build` PASS=267, 16 231,298 tCO₂e,
-> 42 constats qualité.
+> Dernière vérification : 2026-10-21 — `dbt build` PASS=303, 16 231,298 tCO₂e,
+> 42 constats qualité, 3 vues d'observabilité.
 
 ## 1. Rôle
 
@@ -47,16 +47,23 @@ fct_emissions / fct_exclusions / stg_* / ref_*
                  │
                  ▼
           quality_summary
+
+raw.ingestion_log / raw.quarantine / raw.*
+                 │
+                 ▼
+     ops_ingestion_last_run
+     ops_quarantine_summary
+     ops_freshness
 ```
 
 | Élément | Nombre |
 |---|---:|
-| Modèles dbt | 25 |
+| Modèles dbt | 28 |
 | Modèles en table | 9 |
-| Modèles en vue | 16 |
-| Sources `raw` | 6 |
-| Tests dbt | 242 |
-| Tâches `dbt build` | 267 |
+| Modèles en vue | 19 |
+| Sources `raw` | 8 |
+| Tests dbt | 275 |
+| Tâches `dbt build` | 303 |
 | Constats qualité | 42 |
 
 ## 3. Modèles
@@ -131,6 +138,18 @@ ajoute 42 constats, 13 bloquants, 21 alertes et 8 infos. Les impacts partagés
 `KAY-ELEC-GAP` et `VAC-ELEC-GAP` sont dédupliqués dans `quality_summary`.
 
 Documentation détaillée : [`quality.md`](quality.md).
+
+### 3.5 Observabilité
+
+| Modèle | Grain | Rôle |
+|---|---|---|
+| `ops_ingestion_last_run` | Entreprise × source | Dernier chargement, statut, lignes, durée |
+| `ops_quarantine_summary` | Entreprise × source × raison | Lignes isolées, agrégées |
+| `ops_freshness` | Entreprise × type de source | Date min/max, lignes, mois couverts |
+
+Ces vues lisent `raw.ingestion_log`, `raw.quarantine` et les tables brutes. Elles
+alimentent `make status` et la page `observabilite.html` du dashboard.
+Documentation : [`dashboard.md`](dashboard.md).
 
 ## 4. Règles de calcul
 
@@ -221,7 +240,7 @@ Autres tests structurants :
 
 ## 6. Résultats vérifiés
 
-`dbt build` : **PASS=267, WARN=0, ERROR=0, SKIP=0**.
+`dbt build` : **PASS=303, WARN=0, ERROR=0, SKIP=0**.
 
 ### 6.1 Volumes
 
@@ -232,6 +251,9 @@ Autres tests structurants :
 | `analytics.mart_beges` | 48 |
 | `analytics.quality_constats` | 42 |
 | `analytics.quality_summary` | 4 |
+| `analytics.ops_ingestion_last_run` | 17 |
+| `analytics.ops_freshness` | 16 |
+| `analytics.ops_quarantine_summary` | 0 |
 | `int_emissions_candidates` | 6 884 |
 
 ### 6.2 Bilan par entreprise et scope
@@ -258,17 +280,22 @@ Points vérifiés :
 - FAN : 623 transactions carburant estimées, 31 075,64 L, 94,042 tCO₂e ;
 - FAN : deux fluides à GWP inconnu listés ;
 - VAC : trois billets annulés listés, 4,229 tCO₂e non comptés ;
-- vols RUN–CDG : 9 464,3 km à l'aller, 18 928,6 km en aller-retour.
+- vols RUN–CDG : 9 464,3 km à l'aller, 18 928,6 km en aller-retour ;
+- ingestion : 17 sources, 8 263 lignes, 0 quarantaine ;
+- observabilité : 3 vues ops, 17 sources suivies, 16 lignes de fraîcheur.
 
 ## 7. Commandes
 
 ```bash
 make ingest          # construit ou rafraîchit raw
-make dbt-build       # construit les modèles et exécute les 242 tests
+make dbt-build       # construit les modèles et exécute les 275 tests
 make dbt-test        # exécute uniquement les tests
 make dbt-docs        # génère manifest + catalog pour le lineage
 make quality         # dbt build + rapport des 42 constats
 make quality-report  # rapport seul, sans reconstruire
+make dashboard       # génère le site statique dans site/
+make status          # synthèse console du pipeline
+make all             # ingest + dbt build + dashboard + status
 ```
 
 `make dbt-build` vérifie que la base existe ; sinon, il demande `make ingest`.

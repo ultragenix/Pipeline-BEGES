@@ -34,7 +34,10 @@ des changements non annoncés.
 
 - Aucun commit sans validation.
 - Un commit = un pas logique.
+- Après chaque validation explicite (« VALIDÉ », « ok »), tu commits les fichiers validés.
+- Si plusieurs validations sont accumulées, tu fais des commits séparés par artefact logique.
 - Tu montres `git status` et `git diff --stat` avant et après.
+- Tu montres `git log --oneline --stat -1` après chaque commit.
 - Tu ne réécris pas l'historique sans accord.
 - Tu ne commits jamais de secrets, de données réelles ou de fichiers générés.
 

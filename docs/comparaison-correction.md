@@ -1,7 +1,8 @@
 # Rapport final — implémentation vs retour métier
 
 > Données fictives. `docs/CORRECTION.md` joue le rôle d'un **retour métier simulé**.
-> Il reste local et non versionné ; ce rapport, lui, peut être publié.
+> Il est versionné avec ce rapport ; il a été ouvert après l'écriture des
+> contrôles, conformément à la démarche.
 >
 > Référence : commit `775744f`, `dbt build` PASS=303, 42 constats.
 > Dernière vérification : 2026-10-21.
@@ -316,10 +317,10 @@ Les chiffres de ce rapport viennent de :
 - `analytics.quality_summary` : compteurs et impacts par entreprise ;
 - `analytics.fct_exclusions` : lignes écartées et motifs ;
 - `analytics.mart_beges` : bilan par entreprise, scope, poste et méthode ;
-- `docs/CORRECTION.md` : retour métier simulé, non versionné.
+- `docs/CORRECTION.md` : retour métier simulé, versionné.
 
-Le commit de référence est `775744f`. `docs/CORRECTION.md` reste local et ne doit
-pas être commité dans le dépôt public.
+Le commit de référence est `775744f`. `docs/CORRECTION.md` est versionné dans le
+dépôt public : il ne contient que des données fictives, aucun secret.
 
 ## 10. Limites
 

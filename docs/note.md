@@ -284,6 +284,7 @@ métier simulé, sans modifier le registre ni les données.
 **Livrables :**
 - `docs/comparaison-correction.md` : rapport final, matrice de détection,
   correspondance A01–A16, constats hors retour métier, décisions proposées.
+- `docs/CORRECTION.md` versionné comme retour métier fictif.
 - Mise à jour de `docs/note.md` et de `tmp/next_sessions.md`.
 
 **Résultats :**

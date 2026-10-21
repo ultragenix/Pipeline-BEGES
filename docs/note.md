@@ -227,6 +227,44 @@ de `impact_group` s'affichaient comme des groupes ; elles sont converties en
 journal d'ingestion en donnée consultable. Un site statique suffit pour GitHub
 Pages.
 
+### 2026-10-21 — Étape 7 : Docker, CI et GitHub Pages
+
+**Objectif :** rendre le pipeline reproductible depuis un clone propre et publier
+le dashboard sur GitHub Pages.
+
+**Livrables :**
+- `Dockerfile` multi-stage, `docker/entrypoint.sh`, `docker-compose.yml`,
+  `.dockerignore`.
+- `.github/workflows/ci.yml` : lint, tests, pipeline, image, Pages.
+- `tests/deployment/test_deployment.py`.
+- `make docker-build`, `make docker-up`, `make docker-down`, `make docker-reset`.
+- `docs/docker-ci.md`, mise à jour de `README.md`.
+
+**Résultats :**
+- `uv run ruff check .` : OK.
+- `uv run pytest` : **72 passed**.
+- `make all` : **PASS=303**, 28 modèles, 275 tests, 0 erreur.
+- `docker build` : image `pipeline-beges:local`, 966 Mo.
+- `docker compose up -d --build` : pipeline `Exited (0)`, nginx `healthy`.
+- `curl http://localhost:8080/` : HTTP 200, 14 248 octets, titre BEGES.
+- `curl /observabilite.html` : HTTP 200, 42 constats.
+- `docker run --rm ... id` : `uid=1000(app)`.
+- CI et URL Pages : à vérifier après le `push` sur `origin/main`.
+
+**Décision :** image runtime non-root, dépendances figées par `uv.lock`,
+volumes Docker nommés pour DuckDB et le site, CI en quatre jobs, Pages par
+artefact GitHub Actions. Aucun fichier généré n'est commité.
+
+**Difficulté :** Docker crée les volumes nommés en `root:root` ; l'utilisateur
+`app` ne pouvait pas écrire `site/assets`. Un entrypoint prépare les volumes puis
+abandonne les privilèges avec `setpriv`. `HOME` restait `/root` après le
+changement d'utilisateur ; uv échouait sur son cache. `HOME=/home/app` corrige
+le problème. L'image fait 966 Mo à cause de dbt, DuckDB et pandas.
+
+**À retenir :** un volume nommé n'hérite pas toujours des permissions de l'image ;
+il faut les préparer explicitement. Un conteneur « non-root » se vérifie avec
+`id`, pas seulement avec `USER` dans le Dockerfile.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -255,6 +293,10 @@ Pages.
 | 21/10 | Vues `ops_*` dans dbt | l'observabilité devient une donnée, pas une requête Python ad hoc |
 | 21/10 | `site/` généré et ignoré | aucun fichier généré commité |
 | 21/10 | `make all` séquentiel | DuckDB est mono-écrivain |
+| 21/10 | Image Docker multi-stage, runtime non-root | reproductibilité, moindre surface |
+| 21/10 | Entrypoint qui prépare les volumes puis `setpriv` | volumes Docker créés en root |
+| 21/10 | Volumes nommés `beges-data` et `beges-site` | clone propre, pas de permission hôte |
+| 21/10 | CI en quatre jobs, Pages par artefact | tests, image et publication séparés |
 
 ## 5. Difficultés
 
@@ -308,11 +350,14 @@ impact. Les réponses métier restent à recevoir.
 - « Le dashboard lit, il n'écrit pas. »
 - « Les vues ops transforment le journal d'ingestion en donnée. »
 - « Un site statique suffit pour GitHub Pages. »
+- « Un volume Docker nommé n'hérite pas toujours des permissions de l'image. »
+- « Non-root se vérifie avec `id`, pas seulement avec `USER`. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 6 terminée : dashboard statique, page d'observabilité, vues `ops_*`,
-`make status` et `make all`. Le site est généré dans `site/` et prêt pour
-GitHub Pages.
-Prochaine étape : étape 7, Docker, CI et GitHub Pages.
+Étape 7 prête localement : image Docker, compose, workflow CI, tests de
+déploiement et documentation. La CI et l'URL GitHub Pages seront vérifiées
+après le `push` sur `origin/main`.
+Prochaine étape : étape 8, Azure et Terraform (ADLS, ACI, SQL, captures, coût,
+`destroy`).

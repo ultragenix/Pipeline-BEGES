@@ -6,6 +6,30 @@
 > (Responsabilité Sociétale des Entreprises) et **ce que le pipeline doit produire**.
 > Il ne dit pas ce qui ne va pas dans les données : c'est au pipeline de le trouver.
 
+[![CI](https://github.com/ultragenix/Pipeline-BEGES/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ultragenix/Pipeline-BEGES/actions/workflows/ci.yml)
+
+**Démo en ligne :** <https://ultragenix.github.io/Pipeline-BEGES/>
+
+## Démarrage rapide
+
+Prérequis : Docker et Docker Compose.
+
+```bash
+docker compose up --build
+# Site : http://localhost:8080
+```
+
+En local, avec [uv](https://docs.astral.sh/uv/) :
+
+```bash
+uv sync
+make all
+make status
+```
+
+L'image, la CI et la publication sont détaillées dans
+[`docs/docker-ci.md`](docs/docker-ci.md). `make help` liste les commandes.
+
 ---
 
 ## 1. La mission

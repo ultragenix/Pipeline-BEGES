@@ -40,6 +40,7 @@ non documentées doivent être signalées, pas devinées.
 - retour au commit initial après une première tentative trop large ;
 - création de `AGENTS.md` ;
 - décision d'un dictionnaire avec un fichier par entreprise ;
+- ajout d'un registre d'anomalies par entreprise, orienté questions métier ;
 - décision de Terraform pour Azure ;
 - définition des quality gates.
 
@@ -57,6 +58,7 @@ proposée, validée, puis vérifiée.
 |---|---|---|
 | 21/10 | `AGENTS.md` avec validation obligatoire | garder le contrôle, éviter les dérives |
 | 21/10 | Un fichier de dictionnaire par entreprise | lisibilité, passage à l'échelle |
+| 21/10 | Un registre d'anomalies par entreprise | séparer la structure des données des questions métier |
 | 21/10 | Schémas communs séparés | éviter la duplication |
 | 21/10 | Terraform pour Azure | rigueur, plan/apply, reproductibilité |
 | 21/10 | uv + Docker | reproductibilité locale et cloud |
@@ -88,9 +90,10 @@ Ces questions seront traitées à l'étape 1, dans le dictionnaire par entrepris
 
 - « Je réduis le périmètre, pas la rigueur. »
 - « Un fichier par entreprise ; à 300, on génère depuis un catalogue. »
+- « Le dictionnaire décrit, le registre d'anomalies questionne. »
 - « Les règles métier manquées sont des règles métier, pas de l'ingénierie data. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
 
-Étape 1 : dictionnaire par entreprise, avec schémas communs et modèle.
+Étape 1 : dictionnaire et registre d'anomalies par entreprise, en commençant par FAN.

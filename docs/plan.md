@@ -47,7 +47,12 @@ Livrables :
 
 Critère de sortie : le plan et le carnet sont validés, aucune autre écriture.
 
-### Étape 1 — Dictionnaire par entreprise
+### Étape 1 — Dictionnaire et registre d'anomalies par entreprise
+
+Deux artefacts distincts :
+
+- `docs/dictionnaire-donnees/` : structure des données, schémas, clés.
+- `docs/anomalies/` : constats, preuves et questions à poser au métier.
 
 Structure :
 
@@ -59,14 +64,23 @@ docs/dictionnaire-donnees/
 ├── KAY.md
 ├── FAN.md
 └── VAC.md
+
+docs/anomalies/
+├── README.md
+├── _modele-entreprise.md
+├── KAY.md
+├── FAN.md
+└── VAC.md
 ```
 
 - `schemas-communs.md` : FEC, électricité, carburant, fluides, vols.
 - Un fichier par entreprise : uniquement les spécificités.
+- Un registre d'anomalies par entreprise : une preuve + une question métier + un impact.
 - `_modele-entreprise.md` : modèle pour un nouveau client.
 - `README.md` : index, conventions, stratégie à l'échelle.
 
-Critère de sortie : 17/17 fichiers décrits, faits observés séparés des hypothèses.
+Critère de sortie : 17/17 fichiers décrits, faits observés séparés des hypothèses,
+chaque anomalie a une preuve et une question métier.
 
 ### Étape 2 — Configuration d'ingestion
 
@@ -101,10 +115,12 @@ Critère de sortie : `dbt build` vert, anti-double comptage testé.
 Livrables :
 - contrôles génériques ;
 - registre de constats ;
+- mise à jour des registres `docs/anomalies/<CODE>.md` ;
 - questions métier ;
 - impacts tCO₂e quand calculables.
 
-Critère de sortie : constats lisibles par un consultant RSE, aucune correction silencieuse.
+Critère de sortie : constats lisibles par un consultant RSE, chaque anomalie a une preuve,
+une question métier et un statut, aucune correction silencieuse.
 
 ### Étape 6 — Dashboard et observabilité
 
@@ -150,11 +166,11 @@ Critère de sortie : démo répétée deux fois, écarts expliqués.
 | Étape | Gate | Preuve |
 |---|---|---|
 | 0 Cadrage | Plan et règles validés | `AGENTS.md`, `docs/plan.md`, `docs/note.md` |
-| 1 Dictionnaire | 17/17 fichiers, un fichier par entreprise | dossier complet + relecture |
+| 1 Dictionnaire + anomalies | 17/17 fichiers, un fichier par entreprise, registre d'anomalies | dossiers complets + relecture |
 | 2 Configuration | Chaque source décrite | `config/sources.yml` + validation |
 | 3 Ingestion | 17/17, journal, quarantaine | `make ingest`, tests |
 | 4 dbt | Build vert, anti-double comptage | `dbt build`, lineage |
-| 5 Qualité | Constats et questions métier | registre, impacts |
+| 5 Qualité | Constats, questions métier, statuts à jour | registres d'anomalies, impacts |
 | 6 Dashboard | Bilan + observabilité | URL, captures |
 | 7 Docker/CI | Clone propre, CI verte | badge, `docker compose up` |
 | 8 Azure | IaC, identité, coût, destroy | `terraform plan`, captures |
@@ -164,7 +180,8 @@ Critère de sortie : démo répétée deux fois, écarts expliqués.
 
 - 17/17 fichiers ingérés, journal et quarantaine vérifiés.
 - `dbt build` vert, test anti-double comptage, lineage disponible.
-- 15 constats minimum, dont 2 racontés de bout en bout.
+- 15 constats minimum, dont 2 racontés de bout en bout, chacun avec une question métier.
+- Chaque anomalie a une preuve, une question métier et un statut.
 - Dashboard bilan + observabilité accessible en ligne.
 - `docker compose up` fonctionne depuis un clone propre.
 - CI verte, aucun secret, licence et disclaimer.

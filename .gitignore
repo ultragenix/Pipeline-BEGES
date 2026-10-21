@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Données générées
+data/warehouse/*
+!data/warehouse/.gitkeep
+*.duckdb
+*.duckdb.wal
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+
+# Environnement
+.env
+.env.*
+!.env.example
+
+# Azure / Terraform
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.*
+infra/terraform/*.tfplan
+infra/terraform/crash.log
+
+# Logs et OS
+logs/*
+!logs/.gitkeep
+.DS_Store
+.idea/
+.vscode/

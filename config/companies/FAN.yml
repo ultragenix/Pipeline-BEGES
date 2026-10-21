@@ -1,0 +1,82 @@
+code: FAN
+name: Fanjan Agro SA
+city: Saint-Pierre
+sector: Agroalimentaire
+employees: 420
+exercise: 2025
+
+sites:
+  SPI-USI:
+    name: Usine Saint-Pierre
+    pdl: PDL-SPI-USI
+  PIE-FRO:
+    name: Chambres froides Pierrefonds
+    pdl: PDL-PIE-FRO
+  SPI-ADM:
+    name: Bureaux Saint-Pierre
+    pdl: PDL-SPI-ADM
+
+sources:
+  - id: fec
+    type: fec
+    path: FAN/fec/900000002FEC20251231.txt
+    encoding: utf-8
+    delimiter: "\t"
+    decimal: "."
+    date_format: "%Y%m%d"
+    periodicity: annual
+
+  - id: electricity
+    type: electricity_xlsx
+    path: FAN/electricite/releves_electricite_2025.xlsx
+    periodicity: monthly
+    header_row: 4
+    date_format: "%m/%Y"
+    sheets:
+      SPI-USI:
+        site_code: SPI-USI
+        unit: kWh
+      PIE-FRO:
+        site_code: PIE-FRO
+        unit: MWh
+      SPI-ADM:
+        site_code: SPI-ADM
+        unit: kWh
+    column_map:
+      month: Mois
+      consumption_kwh: Consommation
+      unit: Unité
+      amount_ht_eur: Montant HT (€)
+
+  - id: fuel
+    type: fuel
+    path: FAN/carburant/cartes_carburant_2025.csv
+    encoding: utf-8
+    delimiter: ","
+    decimal: "."
+    date_format: "%Y-%m-%d"
+    periodicity: event
+    column_map:
+      transaction_date: date
+      card_id: carte
+      vehicle_id: vehicule
+      product_raw: produit
+      amount_ttc_eur: montant_ttc
+
+  - id: refrigerants
+    type: refrigerants
+    path: FAN/fluides/interventions_frigoristes_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+
+  - id: flights
+    type: flights
+    path: FAN/vols/export_agence_voyages_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event

@@ -1,0 +1,89 @@
+code: VAC
+name: Hôtels Vacoa Bleu SARL
+city: Saint-Gilles-les-Bains
+sector: Hôtellerie
+employees: 280
+exercise: 2025
+
+sites:
+  SGI-HT1:
+    name: Hôtel Vacoa Lagon
+    pdl: PDL-SGI-HT1
+  SGI-HT2:
+    name: Hôtel Vacoa des Hauts
+    pdl: PDL-SGI-HT2
+  SGI-BLA:
+    name: Blanchisserie
+    pdl: PDL-SGI-BLA
+
+sources:
+  - id: fec
+    type: fec
+    path: VAC/fec/900000003FEC20251231.txt
+    encoding: utf-8
+    delimiter: "|"
+    decimal: ","
+    date_format: "%Y%m%d"
+    periodicity: annual
+
+  - id: electricity
+    type: electricity
+    path: VAC/electricite/energy_invoices_2025.csv
+    encoding: utf-8
+    delimiter: ","
+    decimal: "."
+    date_format: "%Y-%m"
+    periodicity: monthly
+    column_map:
+      site_code: site_code
+      month: month
+      consumption_kwh: kwh
+      amount_ht_eur: amount_eur
+
+  - id: fuel_s1
+    type: fuel
+    path: VAC/carburant/carburant_2025_S1.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+    column_map:
+      transaction_date: Date
+      card_id: Carte
+      product_raw: Produit
+      quantity_l: Quantite (L)
+      amount_ttc_eur: Montant (EUR)
+
+  - id: fuel_s2
+    type: fuel
+    path: VAC/carburant/carburant_2025_S2.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+    column_map:
+      transaction_date: Date
+      card_id: Carte
+      product_raw: Produit
+      quantity_l: Volume
+      amount_ttc_eur: Montant (EUR)
+
+  - id: refrigerants
+    type: refrigerants
+    path: VAC/fluides/interventions_frigoristes_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+
+  - id: flights
+    type: flights
+    path: VAC/vols/export_agence_voyages_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event

@@ -1,0 +1,53 @@
+version: 1
+
+# Facteurs indicatifs fournis avec le cahier des charges.
+# Un vrai bilan utilise la Base Empreinte de l'ADEME à jour.
+electricity:
+  ELEC_REUNION:
+    value: 0.780
+    unit: kgCO2e/kWh
+    source: ADEME Base Carbone
+    label: Électricité, mix La Réunion
+
+fuel:
+  GAZOLE:
+    value: 3.10
+    unit: kgCO2e/L
+    source: ADEME Base Empreinte
+    label: Gazole routier (combustion + amont)
+  SP95:
+    value: 2.80
+    unit: kgCO2e/L
+    source: Démonstration
+    label: Essence SP95
+
+refrigerants:
+  # PRG (règlement F-gas)
+  R404A: 3922
+  R410A: 2088
+  R407C: 1774
+  R134a: 1430
+  R449A: 1397
+  R32: 675
+
+flights:
+  distance_correction_km: 95
+  bands:
+    - code: AVION_COURT
+      max_km: 1000
+      value: 0.258
+      unit: kgCO2e/passager.km
+    - code: AVION_MOYEN
+      max_km: 3500
+      value: 0.187
+      unit: kgCO2e/passager.km
+    - code: AVION_LONG
+      max_km: null
+      value: 0.152
+      unit: kgCO2e/passager.km
+
+prices:
+  electricity_ht_eur_per_kwh: 0.17
+  gazole_ttc_eur_per_l: 1.46
+  sp95_ttc_eur_per_l: 1.72
+  vat_rate: 0.085

@@ -87,9 +87,13 @@ chaque anomalie a une preuve et une question métier.
 Livrables :
 - `config/companies/KAY.yml`, `FAN.yml`, `VAC.yml`
 - `config/sources.yml`
-- script de validation de la configuration
+- `config/emission_factors.yml`, `config/account_mapping.csv`, `config/airports.csv`
+- `src/beges/config.py` + `make config-check`
+- tests séparés : `tests/config/test_loader.py`, `test_source_types.py`,
+  `test_companies.py` (paramétré par entreprise)
 
-Critère de sortie : chaque source a format, encodage, délimiteur, colonnes, clé.
+Critère de sortie : chaque source a format, encodage, délimiteur, colonnes, clé ;
+`make config-check` passe ; on peut tester une seule entreprise sans réécrire les tests.
 
 ### Étape 3 — Ingestion
 
@@ -167,7 +171,7 @@ Critère de sortie : démo répétée deux fois, écarts expliqués.
 |---|---|---|
 | 0 Cadrage | Plan et règles validés | `AGENTS.md`, `docs/plan.md`, `docs/note.md` |
 | 1 Dictionnaire + anomalies | 17/17 fichiers, un fichier par entreprise, registre d'anomalies | dossiers complets + relecture |
-| 2 Configuration | Chaque source décrite | `config/sources.yml` + validation |
+| 2 Configuration | Chaque source décrite, tests paramétrés par entreprise | `config/sources.yml` + validation + `make test-company` |
 | 3 Ingestion | 17/17, journal, quarantaine | `make ingest`, tests |
 | 4 dbt | Build vert, anti-double comptage | `dbt build`, lineage |
 | 5 Qualité | Constats, questions métier, statuts à jour | registres d'anomalies, impacts |

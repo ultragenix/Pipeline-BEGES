@@ -66,6 +66,25 @@ entreprises.
 **À retenir :** KAY concentre les problèmes de périmètre et de doublons ; VAC les dérives
 de schéma et les annulations.
 
+### 2026-10-21 — Étape 2 : configuration d'ingestion
+
+**Objectif :** décrire les 17 fichiers dans une configuration validable.
+
+**Livrables :**
+- `config/sources.yml` et `config/companies/{KAY,FAN,VAC}.yml`
+- `config/emission_factors.yml`, `config/account_mapping.csv`, `config/airports.csv`
+- `src/beges/config.py`
+- tests séparés : loader, types de sources, entreprises paramétrées
+
+**Résultats :**
+- `uv run pytest` : 11 tests passés
+- `make config-check` : 3 entreprises, 9 sites, 17 sources, 0 erreur
+- `make test-company CODE=FAN` : 1 test, 2 désélectionnés
+
+**Décision :** tests paramétrés par entreprise ; ajouter un client ne réécrit pas les tests.
+
+**À retenir :** la configuration est la source de vérité pour l'ingestion.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -73,6 +92,7 @@ de schéma et les annulations.
 | 21/10 | `AGENTS.md` avec validation obligatoire | garder le contrôle, éviter les dérives |
 | 21/10 | Un fichier de dictionnaire par entreprise | lisibilité, passage à l'échelle |
 | 21/10 | Un registre d'anomalies par entreprise | séparer la structure des données des questions métier |
+| 21/10 | Tests de configuration paramétrés par entreprise | ajouter un client sans réécrire les tests |
 | 21/10 | Schémas communs séparés | éviter la duplication |
 | 21/10 | Terraform pour Azure | rigueur, plan/apply, reproductibilité |
 | 21/10 | uv + Docker | reproductibilité locale et cloud |

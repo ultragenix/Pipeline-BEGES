@@ -1,0 +1,128 @@
+version: 1
+
+# Définition des types de sources et des champs canoniques.
+# Les fichiers et les overrides sont décrits dans config/companies/<CODE>.yml.
+source_types:
+  fec:
+    format: delimited
+    required_fields:
+      - entry_id
+      - entry_date
+      - account
+      - account_label
+      - supplier_id
+      - supplier_label
+      - piece_ref
+      - piece_date
+      - label
+      - debit
+      - credit
+      - valid_date
+    default_column_map:
+      entry_id: EcritureNum
+      entry_date: EcritureDate
+      account: CompteNum
+      account_label: CompteLib
+      supplier_id: CompAuxNum
+      supplier_label: CompAuxLib
+      piece_ref: PieceRef
+      piece_date: PieceDate
+      label: EcritureLib
+      debit: Debit
+      credit: Credit
+      valid_date: ValidDate
+    key: [entry_id]
+
+  electricity:
+    format: delimited
+    required_fields:
+      - site_code
+      - consumption_kwh
+      - amount_ht_eur
+    optional_fields:
+      - pdl
+      - month
+      - period_start
+      - period_end
+      - reading_type
+    default_column_map: {}
+    key: [site_code, month]
+
+  electricity_xlsx:
+    format: xlsx
+    required_fields:
+      - month
+      - consumption_kwh
+      - amount_ht_eur
+    optional_fields:
+      - site_code
+      - unit
+    default_column_map: {}
+    key: [site_code, month]
+
+  fuel:
+    format: delimited
+    required_fields:
+      - transaction_date
+      - card_id
+      - product_raw
+      - amount_ttc_eur
+    optional_fields:
+      - vehicle_id
+      - quantity_l
+      - station
+    default_column_map: {}
+    key: [transaction_date, card_id, amount_ttc_eur]
+
+  vehicle_registry:
+    format: delimited
+    required_fields:
+      - vehicle_id
+      - vehicle_type
+      - tank_capacity_l
+    default_column_map: {}
+    key: [vehicle_id]
+
+  refrigerants:
+    format: delimited
+    required_fields:
+      - intervention_date
+      - site_code
+      - equipment
+      - fluid_code
+      - nominal_charge_kg
+      - recharge_kg
+    default_column_map:
+      intervention_date: Date intervention
+      site_code: Site
+      equipment: Equipement
+      fluid_code: Fluide
+      nominal_charge_kg: Charge nominale (kg)
+      recharge_kg: Quantité rechargée (kg)
+    key: [intervention_date, site_code, equipment]
+
+  flights:
+    format: delimited
+    required_fields:
+      - ticket_id
+      - emission_date
+      - departure_date
+      - traveler_id
+      - origin_iata
+      - destination_iata
+      - trip_type
+      - cabin_class
+      - status
+      - amount_ttc_eur
+    default_column_map:
+      ticket_id: Numero billet
+      emission_date: Date emission
+      departure_date: Date depart
+      traveler_id: Voyageur
+      origin_iata: Origine
+      destination_iata: Destination
+      trip_type: Type trajet
+      cabin_class: Classe
+      status: Statut
+      amount_ttc_eur: Montant TTC (€)
+    key: [ticket_id]

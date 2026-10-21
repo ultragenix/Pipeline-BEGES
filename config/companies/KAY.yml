@@ -1,0 +1,90 @@
+code: KAY
+name: Kayamb Logistique SAS
+city: Le Port
+sector: Transport et logistique portuaire
+employees: 310
+exercise: 2025
+
+sites:
+  LPT-ENT:
+    name: Entrepôt Le Port
+    pdl: PDL-LPT-ENT
+  LPT-SIE:
+    name: Siège Le Port
+    pdl: PDL-LPT-SIE
+  LPT-ATL:
+    name: Atelier mécanique
+    pdl: PDL-LPT-ATL
+
+sources:
+  - id: fec
+    type: fec
+    path: KAY/fec/900000001FEC20251231.txt
+    encoding: cp1252
+    delimiter: "|"
+    decimal: ","
+    date_format: "%Y%m%d"
+    periodicity: annual
+
+  - id: electricity
+    type: electricity
+    path: KAY/electricite/export_edf_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: monthly
+    column_map:
+      site_code: Site
+      pdl: Point de livraison
+      period_start: Début période
+      period_end: Fin période
+      consumption_kwh: Consommation (kWh)
+      amount_ht_eur: Montant HT (€)
+      reading_type: Type de relevé
+
+  - id: fuel
+    type: fuel
+    path: KAY/carburant/transactions_cartes_2025.csv
+    encoding: cp1252
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+    column_map:
+      transaction_date: Date transaction
+      card_id: N° carte
+      vehicle_id: Immatriculation
+      product_raw: Produit
+      quantity_l: Quantité (L)
+      amount_ttc_eur: Montant TTC (€)
+      station: Station
+
+  - id: vehicles
+    type: vehicle_registry
+    path: KAY/carburant/parc_vehicules.csv
+    encoding: cp1252
+    delimiter: ";"
+    periodicity: reference
+    column_map:
+      vehicle_id: Immatriculation
+      vehicle_type: Type
+      tank_capacity_l: Capacité réservoir (L)
+
+  - id: refrigerants
+    type: refrigerants
+    path: KAY/fluides/interventions_frigoristes_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event
+
+  - id: flights
+    type: flights
+    path: KAY/vols/export_agence_voyages_2025.csv
+    encoding: utf-8
+    delimiter: ";"
+    decimal: ","
+    date_format: "%d/%m/%Y"
+    periodicity: event

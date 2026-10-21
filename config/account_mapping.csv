@@ -1,0 +1,29 @@
+prefixe,libelle,poste,scope,ratio_kgco2e_par_keur,remplace_par,type
+60611,Électricité,Électricité,2,,electricite,charge
+60622,Carburants,Combustion mobile,1,,carburant,charge
+62511,Billets d'avion,Déplacements professionnels,3,,vols,charge
+62512,Hôtels taxis repas,Déplacements professionnels,3,300,,charge
+601,Matières premières,Achats de biens,3,900,,charge
+6021,Emballages,Achats de biens,3,600,,charge
+6022,Boissons,Achats de biens,3,800,,charge
+6063,Fournitures et petit équipement,Achats de biens,3,450,,charge
+6064,Fournitures administratives,Achats de biens,3,400,,charge
+611,Sous-traitance,Achats de services,3,300,,charge
+613,Locations,Achats de services,3,120,,charge
+615,Entretien et maintenance,Achats de services,3,250,,charge
+616,Assurances,Achats de services,3,50,,charge
+6226,Honoraires,Achats de services,3,110,,charge
+6231,Publicité,Achats de services,3,150,,charge
+6241,Transports sur achats,Fret amont,3,500,,charge
+626,Télécommunications,Achats de services,3,150,,charge
+627,Services bancaires,Achats de services,3,40,,charge
+2154,Matériel industriel,Immobilisations,3,600,,immobilisation
+2182,Matériel de transport,Immobilisations,3,500,,immobilisation
+2184,Mobilier,Immobilisations,3,400,,immobilisation
+63,Impôts,Hors périmètre,,,hors_perimetre
+64,Personnel,Hors périmètre,,,hors_perimetre
+65,Charges financières,Hors périmètre,,,hors_perimetre
+66,Charges exceptionnelles,Hors périmètre,,,hors_perimetre
+67,Dotations,Hors périmètre,,,hors_perimetre
+68,Dotations,Hors périmètre,,,hors_perimetre
+69,Impôts sur les bénéfices,Hors périmètre,,,hors_perimetre

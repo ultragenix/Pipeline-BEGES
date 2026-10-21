@@ -276,6 +276,40 @@ l'artefact sans tenter de créer Pages.
 il faut les préparer explicitement. Un conteneur « non-root » se vérifie avec
 `id`, pas seulement avec `USER` dans le Dockerfile.
 
+### 2026-10-21 — Comparaison avec le retour métier
+
+**Objectif :** comparer les 42 constats du pipeline aux 16 anomalies du retour
+métier simulé, sans modifier le registre ni les données.
+
+**Livrables :**
+- `docs/comparaison-correction.md` : rapport final, matrice de détection,
+  correspondance A01–A16, constats hors retour métier, décisions proposées.
+- Mise à jour de `docs/note.md` et de `tmp/next_sessions.md`.
+
+**Résultats :**
+- **16/16 anomalies détectées**, aucun faux négatif.
+- 42 constats : **21** couvrent le retour métier, **21** sont hors périmètre.
+- 4 anomalies éclatées : A04, A06, A12, A16.
+- 13 bloquants, dont 3 liés à l'hypothèse « FEC supposé HT ».
+- 38 constats `à confirmer`, 4 `ouverts`, **0 `repondu`/`integre`/`ecarte`**.
+- Écarts principaux : `KAY-05` sur-interprété, `FAN-02` bloquant au lieu d'info,
+  `VAC-12` alerte/ouvert au lieu d'info/intégré, A12/A15/A06 non chiffrés,
+  A16 à 185,027 tCO₂e contre ≈ 210.
+
+**Décision :** le retour métier est traité comme un **rapport de feedback**, pas
+comme une réponse à recopier. Le rapport distingue détection outillée,
+qualification métier et décision. Il propose des actions, mais ne modifie pas les
+YAML ni le pipeline.
+
+**Difficulté :** le rapprochement anomalie ↔ constat est manuel ; les impacts ne
+sont pas additifs (`compte`, `non_compte`, `estimation`, `exposition`). Les 21
+constats hors retour métier ne sont pas forcément des faux positifs : certains
+sont de vraies questions, d'autres des hypothèses méthodologiques.
+
+**À retenir :** un outil data détecte un symptôme ; il ne décide pas si c'est une
+anomalie. Le pipeline a trouvé les 16 anomalies, mais la boucle métier n'est pas
+fermée.
+
 ## 4. Décisions
 
 | Date | Décision | Pourquoi |
@@ -308,6 +342,8 @@ il faut les préparer explicitement. Un conteneur « non-root » se vérifie ave
 | 21/10 | Entrypoint qui prépare les volumes puis `setpriv` | volumes Docker créés en root |
 | 21/10 | Volumes nommés `beges-data` et `beges-site` | clone propre, pas de permission hôte |
 | 21/10 | CI en quatre jobs, Pages par artefact | tests, image et publication séparés |
+| 21/10 | Retour métier = feedback, pas réponse à recopier | distinguer détection, qualification et décision |
+| 21/10 | Rapport de comparaison sans modifier le registre | les décisions se valident avant d'être appliquées |
 
 ## 5. Difficultés
 
@@ -328,6 +364,10 @@ il faut les préparer explicitement. Un conteneur « non-root » se vérifie ave
 | Pas de navigateur headless pour une capture | preuve HTML + `grep` + `make status`, URL à l'étape 7 |
 | `NaN` d'`impact_group` affiché comme un groupe | convertir `NaN` en `None` avant le rendu |
 | `run_results.json` potentiellement périmé | `make dashboard` dépend de `dbt-build` |
+| 42 constats pour 16 anomalies | distinguer observation, anomalie et hypothèse |
+| Impacts dominés par les expositions de mapping | ne pas additionner `compte`, `non_compte`, `exposition` |
+| 0 constat `repondu`/`integre` après le retour métier | détecter n'est pas intégrer |
+| Rapprochement anomalie ↔ constat manuel | documenter la table de correspondance |
 
 ## 6. Questions ouvertes
 
@@ -364,6 +404,9 @@ impact. Les réponses métier restent à recevoir.
 - « Un volume Docker nommé n'hérite pas toujours des permissions de l'image. »
 - « Non-root se vérifie avec `id`, pas seulement avec `USER`. »
 - « Le `GITHUB_TOKEN` ne crée pas GitHub Pages : l'activation est une action admin. »
+- « Un outil data détecte un symptôme ; le métier décide du sens. »
+- « 42 constats ne valent pas 16 anomalies : il faut qualifier. »
+- « Un retour métier se mesure à ce qui est intégré, pas à ce qui est détecté. »
 - « Terraform, plan avant apply, destroy après la démo. »
 
 ## 8. Prochaine étape
@@ -371,5 +414,8 @@ impact. Les réponses métier restent à recevoir.
 Étape 7 terminée : image Docker, compose, workflow CI, tests de déploiement,
 documentation, CI verte et site publié sur
 <https://ultragenix.github.io/Pipeline-BEGES/>.
-Prochaine étape : étape 8, Azure et Terraform (ADLS, ACI, SQL, captures, coût,
-`destroy`).
+Le rapport `docs/comparaison-correction.md` compare les 42 constats aux 16
+anomalies du retour métier : 16/16 détectées, 21 constats hors périmètre,
+0 décision intégrée. Les actions proposées restent à valider.
+Prochaine étape : décider des actions du rapport, puis étape 8, Azure et
+Terraform (ADLS, ACI, SQL, captures, coût, `destroy`).

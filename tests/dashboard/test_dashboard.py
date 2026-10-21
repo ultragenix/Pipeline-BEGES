@@ -30,7 +30,7 @@ def test_render_site_writes_pages_and_assets(dashboard_data, tmp_path) -> None:
 
     assert "Bilan BEGES 2025" in index
     assert "100,000" in index
-    assert "3 entreprises" in index
+    assert "2 entreprises" in index
     assert "42 constats" not in index
 
     assert "Observabilité — BEGES 2025" in observability

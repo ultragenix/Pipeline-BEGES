@@ -71,7 +71,7 @@ def render_site(
             "index.html",
             "index.html",
             "bilan",
-            {"bilan": bilan, "quality": quality},
+            {"bilan": bilan, "quality": quality, "ingestion": ingestion},
         ),
         (
             "observabilite.html",

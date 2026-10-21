@@ -4,11 +4,11 @@
 {% block content %}
 <section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">Bilan 2025 · 3 entreprises fictives</p>
+    <p class="eyebrow">Bilan 2025 · {{ bilan.companies|length }} entreprises fictives</p>
     <h1>Un bilan carbone lisible,<br>des données traçables.</h1>
     <p class="lead">
-      Trois entreprises, 17 fichiers hétérogènes, un pipeline qui calcule,
-      teste et signale les anomalies sans les corriger en silence.
+      {{ bilan.companies|length }} entreprises, {{ ingestion.nb_sources }} sources hétérogènes,
+      un pipeline qui calcule, teste et signale les anomalies sans les corriger en silence.
     </p>
     <div class="hero-actions">
       <a class="button" href="observabilite.html">Voir les {{ bilan.nb_constats }} constats</a>
@@ -47,7 +47,7 @@
   <div class="section-heading">
     <div>
       <p class="eyebrow">Par entreprise</p>
-      <h2 id="companies-title">Trois profils, trois bilans</h2>
+      <h2 id="companies-title">Un bilan par entreprise</h2>
     </div>
     <p class="muted">La part physique indique la qualité de la donnée disponible.</p>
   </div>
